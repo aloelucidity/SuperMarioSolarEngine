@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://cit45yv71vt35" path="res://ui/sfx/tab_l.wav" id="11_feobp"]
 [ext_resource type="AudioStream" uid="uid://egw1cy6ntywl" path="res://ui/sfx/tab_r.wav" id="12_m6tm2"]
 [ext_resource type="Script" uid="uid://dh60w4m18afby" path="res://ui/screen_manager/options_screen/general/general_tab.gd" id="13_1beyb"]
+[ext_resource type="PackedScene" uid="uid://bktos1134newv" path="res://ui/scroll_container_fade.tscn" id="14_gkktu"]
 [ext_resource type="Theme" uid="uid://blj83dty2taxs" path="res://ui/buttons/scrollbar.tres" id="14_tmmuo"]
 [ext_resource type="PackedScene" uid="uid://cy2ri122ci25q" path="res://ui/screen_manager/options_screen/general/option/option_bool.tscn" id="15_r13h6"]
 [ext_resource type="PackedScene" uid="uid://btujd8w5pj5im" path="res://ui/screen_manager/options_screen/general/option/option_enum.tscn" id="16_1beyb"]
@@ -132,11 +133,16 @@ overwrite_other_in_source = false
 is_2d = false
 metadata/_custom_type_script = "uid://b262pbs7y0djt"
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gkktu"]
+bg_color = Color(1, 1, 1, 1)
+border_width_bottom = 16
+border_color = Color(1, 1, 1, 0)
+border_blend = true
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gbf2f"]
 bg_color = Color(1, 1, 1, 1)
-border_width_top = 10
-border_width_bottom = 10
-border_color = Color(0.8001019, 0.8001019, 0.8001019, 0)
+border_width_bottom = 16
+border_color = Color(1, 1, 1, 0)
 border_blend = true
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n7xk5"]
@@ -334,7 +340,7 @@ tab_focus_mode = 0
 script = ExtResource("10_fqok6")
 tab_left_sfx = SubResource("Resource_er6et")
 tab_right_sfx = SubResource("Resource_3jvq5")
-focus_grabbers = [NodePath("General/VBoxContainer/ScrollContainer/VBoxContainer/OptionBool"), NodePath("Controls/FadeEffect/ScrollContainer/HBoxContainer/Actions/BindSetting"), NodePath("Sound/FadeEffect/ScrollContainer/HBoxContainer/Content/AudioDevice/PresetSelector"), null, NodePath("Data/TopButtons/OpenData")]
+focus_grabbers = [NodePath("General/VBoxContainer/FadeEffect/ScrollContainer/VBoxContainer/OptionBool"), NodePath("Controls/FadeEffect/ScrollContainer/Actions/BindSetting"), NodePath("Sound/FadeEffect/ScrollContainer/HBoxContainer/Content/AudioDevice/PresetSelector"), null, NodePath("Data/TopButtons/OpenData")]
 
 [node name="General" type="MarginContainer" parent="TextureRect/TabControls/Tabs" unique_id=1569784974 node_paths=PackedStringArray("option_desc_label")]
 layout_mode = 2
@@ -348,62 +354,73 @@ metadata/_tab_index = 0
 [node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/TabControls/Tabs/General" unique_id=1992277050]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/TabControls/Tabs/General/VBoxContainer" unique_id=1267424365]
+[node name="FadeEffect" parent="TextureRect/TabControls/Tabs/General/VBoxContainer" unique_id=516137808 instance=ExtResource("14_gkktu")]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gkktu")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/FadeEffect" unique_id=1267424365]
+z_index = 1
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
 theme = ExtResource("14_tmmuo")
 theme_override_constants/scrollbar_h_separation = 32
 follow_focus = true
+vertical_scroll_mode = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/ScrollContainer" unique_id=981880546]
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/FadeEffect/ScrollContainer" unique_id=981880546]
+z_index = -1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="OptionBool" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=627165507 instance=ExtResource("15_r13h6")]
+[node name="OptionBool" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/FadeEffect/ScrollContainer/VBoxContainer" unique_id=627165507 instance=ExtResource("15_r13h6")]
 layout_mode = 2
 setting_name = "V-Sync"
 setting_description = "Synchronises the GPU output with the monitor refresh rate to avoid screen tearing."
 
-[node name="OptionEnum" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=126769023 instance=ExtResource("16_1beyb")]
+[node name="OptionEnum" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/FadeEffect/ScrollContainer/VBoxContainer" unique_id=126769023 instance=ExtResource("16_1beyb")]
 layout_mode = 2
 options = Array[StringName]([&"Unlimited", &"30", &"60", &"120"])
 local_setting = "General - fps_cap"
 setting_name = "FPS Cap"
 setting_description = "Caps the amount of frames rendered per second."
 
-[node name="OptionEnum2" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=544363389 instance=ExtResource("16_1beyb")]
+[node name="OptionEnum2" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/FadeEffect/ScrollContainer/VBoxContainer" unique_id=544363389 instance=ExtResource("16_1beyb")]
 layout_mode = 2
 options = Array[StringName]([&"Low Resolution", &"High Resolution"])
 local_setting = "General - graphics"
 setting_name = "Graphics Mode"
 setting_description = "Changes how the game is rendered to the viewport."
 
-[node name="OptionBool4" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=538292531 instance=ExtResource("15_r13h6")]
+[node name="OptionBool4" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/FadeEffect/ScrollContainer/VBoxContainer" unique_id=538292531 instance=ExtResource("15_r13h6")]
 layout_mode = 2
 local_setting = "General - shaders"
 setting_name = "Optional Shaders"
 setting_description = "Toggles shaders that aren't necessary. Can reduce lag in turn of disabling some visual effects."
 
-[node name="OptionBool2" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=796235868 instance=ExtResource("15_r13h6")]
+[node name="OptionBool2" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/FadeEffect/ScrollContainer/VBoxContainer" unique_id=796235868 instance=ExtResource("15_r13h6")]
 layout_mode = 2
 local_setting = "General - rich_presence"
 setting_name = "Rich Presence"
 setting_description = "Toggles activity for Solar Engine on your Discord profile."
 
-[node name="OptionEnum3" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1084759131 instance=ExtResource("16_1beyb")]
+[node name="OptionEnum3" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/FadeEffect/ScrollContainer/VBoxContainer" unique_id=1084759131 instance=ExtResource("16_1beyb")]
 layout_mode = 2
 options = Array[StringName]([&"x1", &"x2", &"x3", &"Fullscreen"])
 setting_name = "Window Scale"
 setting_description = "Sets the window scale."
 
-[node name="OptionBool3" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=239363018 instance=ExtResource("15_r13h6")]
+[node name="OptionBool3" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/FadeEffect/ScrollContainer/VBoxContainer" unique_id=239363018 instance=ExtResource("15_r13h6")]
 layout_mode = 2
 local_setting = "General - motion_controls"
 setting_name = "Motion Controls"
 setting_description = "Toggles motion controls when using a controller."
 
-[node name="OptionEnum4" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=623610406 instance=ExtResource("16_1beyb")]
+[node name="OptionEnum4" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/FadeEffect/ScrollContainer/VBoxContainer" unique_id=623610406 instance=ExtResource("16_1beyb")]
 layout_mode = 2
 options = Array[StringName]([&"Low", &"Medium", &"High"])
 local_setting = "General - rumble_strength"
@@ -428,11 +445,6 @@ layout_mode = 2
 theme_override_constants/separation = 16
 metadata/_tab_index = 1
 
-[node name="Space" type="Control" parent="TextureRect/TabControls/Tabs/Controls" unique_id=1025374031]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.05
-
 [node name="FadeEffect" type="Panel" parent="TextureRect/TabControls/Tabs/Controls" unique_id=186159877]
 clip_children = 1
 layout_mode = 2
@@ -443,7 +455,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_gbf2f")
 [node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect" unique_id=756781478]
 z_index = 1
 custom_minimum_size = Vector2(1, 1)
-clip_contents = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -452,41 +463,38 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 theme = ExtResource("14_tmmuo")
+theme_override_constants/scrollbar_h_separation = 16
 theme_override_styles/panel = SubResource("StyleBoxEmpty_n7xk5")
 follow_focus = true
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer" unique_id=1694228205]
-z_index = -1
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Actions" type="VBoxContainer" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/HBoxContainer" unique_id=1606419350]
+[node name="Actions" type="VBoxContainer" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer" unique_id=1606419350]
+z_as_relative = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 17
 
-[node name="Space" type="Control" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/HBoxContainer/Actions" unique_id=151977264]
+[node name="Space" type="Control" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/Actions" unique_id=151977264]
 layout_mode = 2
 
-[node name="BindSetting" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/HBoxContainer/Actions" unique_id=1622134022 instance=ExtResource("19_mnx2d")]
+[node name="BindSetting" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/Actions" unique_id=1622134022 instance=ExtResource("19_mnx2d")]
 layout_mode = 2
 
-[node name="BindSetting2" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/HBoxContainer/Actions" unique_id=488343318 instance=ExtResource("19_mnx2d")]
+[node name="BindSetting2" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/Actions" unique_id=488343318 instance=ExtResource("19_mnx2d")]
 layout_mode = 2
 p_action_name = &"left"
 vis_title = &"Move Left"
 vis_icon_flip_h = true
 
-[node name="BindSetting3" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/HBoxContainer/Actions" unique_id=1020708190 instance=ExtResource("19_mnx2d")]
+[node name="BindSetting3" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/Actions" unique_id=1020708190 instance=ExtResource("19_mnx2d")]
 layout_mode = 2
 p_action_name = &"up"
 vis_title = &"Move Up"
 vis_animation = &"swim"
 
-[node name="BindSetting4" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/HBoxContainer/Actions" unique_id=1737841719 instance=ExtResource("19_mnx2d")]
+[node name="BindSetting4" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/Actions" unique_id=1737841719 instance=ExtResource("19_mnx2d")]
 layout_mode = 2
 p_action_name = &"down"
 vis_title = &"Move Down"
@@ -494,42 +502,32 @@ vis_animation = &"swim"
 vis_icon_flip_h = true
 vis_icon_flip_v = true
 
-[node name="BindSetting5" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/HBoxContainer/Actions" unique_id=510197050 instance=ExtResource("19_mnx2d")]
+[node name="BindSetting5" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/Actions" unique_id=510197050 instance=ExtResource("19_mnx2d")]
 layout_mode = 2
 p_action_name = &"jump"
 vis_title = &"Jump"
 vis_animation = &"jump"
 
-[node name="BindSetting6" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/HBoxContainer/Actions" unique_id=544809838 instance=ExtResource("19_mnx2d")]
+[node name="BindSetting6" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/Actions" unique_id=544809838 instance=ExtResource("19_mnx2d")]
 layout_mode = 2
 p_action_name = &"spin"
 vis_title = &"Spin"
 vis_animation = &"spin_attack"
 
-[node name="BindSetting7" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/HBoxContainer/Actions" unique_id=1904126424 instance=ExtResource("19_mnx2d")]
+[node name="BindSetting7" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/Actions" unique_id=1904126424 instance=ExtResource("19_mnx2d")]
 layout_mode = 2
 p_action_name = &"dive"
 vis_title = &"Dive"
 vis_animation = &"dive"
 
-[node name="BindSetting8" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/HBoxContainer/Actions" unique_id=245920746 instance=ExtResource("19_mnx2d")]
+[node name="BindSetting8" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/Actions" unique_id=245920746 instance=ExtResource("19_mnx2d")]
 layout_mode = 2
 p_action_name = &"groundpound"
 vis_title = &"Ground-Pound"
 vis_animation = &"gp"
 
-[node name="Space2" type="Control" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/HBoxContainer/Actions" unique_id=1634328586]
+[node name="Space2" type="Control" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/Actions" unique_id=1634328586]
 layout_mode = 2
-
-[node name="Space" type="Control" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/HBoxContainer" unique_id=1438589855]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.03
-
-[node name="Space2" type="Control" parent="TextureRect/TabControls/Tabs/Controls" unique_id=1207127442]
-custom_minimum_size = Vector2(0, 12)
-layout_mode = 2
-size_flags_stretch_ratio = 0.1
 
 [node name="Sound" type="VBoxContainer" parent="TextureRect/TabControls/Tabs" unique_id=637948171]
 visible = false

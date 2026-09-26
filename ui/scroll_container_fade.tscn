@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bktos1134newv"]
+
+[ext_resource type="Script" uid="uid://d06a2a7pn7jvj" path="res://ui/scroll_container_fade.gd" id="1_qob2p"]
+
+[node name="FadeEffect" type="Panel" unique_id=516137808]
+clip_children = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_qob2p")
