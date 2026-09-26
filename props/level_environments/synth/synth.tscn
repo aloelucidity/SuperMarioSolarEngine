@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dk76vr4rcjn8x" path="res://props/level_environments/synth/star_twinkle.png" id="4_fkliv"]
 [ext_resource type="Texture2D" uid="uid://h55he5ne87oo" path="res://props/level_environments/synth/sunshine_sun.png" id="5_mb8pf"]
 [ext_resource type="Shader" uid="uid://jy8sm10bwqcu" path="res://util/shaders/crt.gdshader" id="7_e2awe"]
-[ext_resource type="PackedScene" uid="uid://bq6hfndw3jm4e" path="res://util/custom_nodes/quality_toggle.tscn" id="7_vugs5"]
+[ext_resource type="PackedScene" uid="uid://bq6hfndw3jm4e" path="res://util/custom_nodes/shader_toggle.tscn" id="7_vugs5"]
 [ext_resource type="Texture2D" uid="uid://b7renjkqb6wf3" path="res://props/level_environments/synth/synth_mountain_no_glow.png" id="8_mdcif"]
 [ext_resource type="Texture2D" uid="uid://1xwri8sgs1ju" path="res://props/level_environments/synth/synth_mountain_glow_map.png" id="9_brsgk"]
 
@@ -124,7 +124,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="QualityToggle" parent="ParallaxBackground/CRT" unique_id=1720074275 instance=ExtResource("7_vugs5")]
+[node name="ShaderToggle" parent="ParallaxBackground/CRT" unique_id=1720074275 instance=ExtResource("7_vugs5")]
 
 [node name="Mountains" type="ParallaxLayer" parent="ParallaxBackground" unique_id=368735325]
 texture_repeat = 2

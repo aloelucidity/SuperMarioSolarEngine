@@ -1,0 +1,859 @@
+[gd_scene format=3 uid="uid://e754wwnftvc1"]
+
+[ext_resource type="Script" uid="uid://d251mwxo8lxbl" path="res://ui/screen_manager/options_screen/general/option/options_screen.gd" id="1_ounp1"]
+[ext_resource type="Script" uid="uid://b262pbs7y0djt" path="res://util/resources/sound_effect.gd" id="2_qexvu"]
+[ext_resource type="AudioStream" uid="uid://bsui5m0n5a7a7" path="res://ui/sfx/submenu_open.wav" id="3_8rhtu"]
+[ext_resource type="AudioStream" uid="uid://cmr5pcu7wv31v" path="res://ui/sfx/submenu_close.wav" id="4_jjvmk"]
+[ext_resource type="FontFile" uid="uid://e821cxxeybxh" path="res://ui/fonts/mario_sunshine.ttf" id="5_q4vbo"]
+[ext_resource type="Shader" uid="uid://byfa3t51pf655" path="res://ui/screen_manager/pause_screen/pause_panel.tres" id="6_unh05"]
+[ext_resource type="Texture2D" uid="uid://knkg28xlj4h8" path="res://ui/screen_manager/pause_screen/textures/spike.png" id="7_dovt5"]
+[ext_resource type="FontFile" uid="uid://b74xlyn5xhoas" path="res://ui/fonts/paper_mario.ttf" id="8_qt0o8"]
+[ext_resource type="Texture2D" uid="uid://cf78bvynxea03" path="res://ui/input_icons/nintendo_switch/switch_button_l.svg" id="9_al10c"]
+[ext_resource type="Script" uid="uid://dvca417ad8kmq" path="res://ui/tab_controller.gd" id="10_fqok6"]
+[ext_resource type="AudioStream" uid="uid://cit45yv71vt35" path="res://ui/sfx/tab_l.wav" id="11_feobp"]
+[ext_resource type="AudioStream" uid="uid://egw1cy6ntywl" path="res://ui/sfx/tab_r.wav" id="12_m6tm2"]
+[ext_resource type="Script" uid="uid://dh60w4m18afby" path="res://ui/screen_manager/options_screen/general/general_tab.gd" id="13_1beyb"]
+[ext_resource type="Theme" uid="uid://blj83dty2taxs" path="res://ui/buttons/scrollbar.tres" id="14_tmmuo"]
+[ext_resource type="PackedScene" uid="uid://cy2ri122ci25q" path="res://ui/screen_manager/options_screen/general/option/option_bool.tscn" id="15_r13h6"]
+[ext_resource type="PackedScene" uid="uid://btujd8w5pj5im" path="res://ui/screen_manager/options_screen/general/option/option_enum.tscn" id="16_1beyb"]
+[ext_resource type="PackedScene" uid="uid://q67oo8p20ee4" path="res://ui/screen_manager/options_screen/controls/bind_setting.tscn" id="19_mnx2d"]
+[ext_resource type="PackedScene" uid="uid://b08q042unmcxf" path="res://ui/buttons/ui_selector.tscn" id="20_25y6d"]
+[ext_resource type="PackedScene" uid="uid://puhluie3m3cp" path="res://ui/screen_manager/options_screen/sound/volume_setting.tscn" id="21_ja0vy"]
+[ext_resource type="Script" uid="uid://bwn84qudsrcg4" path="res://ui/screen_manager/options_screen/data/data_tab.gd" id="22_rk238"]
+[ext_resource type="PackedScene" uid="uid://bb6wf0meej6ox" path="res://ui/buttons/ui_button.tscn" id="23_b4e42"]
+[ext_resource type="Script" uid="uid://chowmypbcyrmx" path="res://ui/screen_manager/options_screen/data/settings_highlighter.gd" id="24_rcxiy"]
+[ext_resource type="Texture2D" uid="uid://356g6gk2u4lq" path="res://ui/input_icons/nintendo_switch/switch_button_r.svg" id="25_ucrok"]
+[ext_resource type="Texture2D" uid="uid://c125fwk30fu0" path="res://ui/input_icons/keyboard_mouse/keyboard_escape.svg" id="26_nri8o"]
+[ext_resource type="Texture2D" uid="uid://y343nq5v4ud5" path="res://ui/input_icons/nintendo_switch/switch_button_b.svg" id="27_wcvnr"]
+[ext_resource type="Texture2D" uid="uid://bqjtwa8tc2b0h" path="res://ui/input_icons/keyboard_mouse/keyboard_enter.svg" id="28_6nqcw"]
+[ext_resource type="Texture2D" uid="uid://dq5pu8koelu4u" path="res://ui/input_icons/nintendo_switch/switch_button_a.svg" id="29_a7w6t"]
+[ext_resource type="Texture2D" uid="uid://40c63r8ke4mj" path="res://ui/input_icons/keyboard_mouse/keyboard_delete.svg" id="30_otxen"]
+[ext_resource type="Texture2D" uid="uid://c0y7k7pos5e3e" path="res://ui/input_icons/nintendo_switch/switch_button_y.svg" id="31_4ugsb"]
+[ext_resource type="Texture2D" uid="uid://duwkwt771mmf3" path="res://ui/input_icons/keyboard_mouse/keyboard_backspace_icon.svg" id="32_e6a3n"]
+[ext_resource type="Texture2D" uid="uid://c8t2udtmy6oac" path="res://ui/input_icons/nintendo_switch/switch_button_x.svg" id="33_dqx84"]
+
+[sub_resource type="Resource" id="Resource_504o4"]
+script = ExtResource("2_qexvu")
+stream = ExtResource("3_8rhtu")
+audio_bus = &"UI"
+volume = 0.0
+pitch = 1.0
+overwrite_other_in_bus = false
+overwrite_other_in_source = false
+is_2d = false
+metadata/_custom_type_script = "uid://b262pbs7y0djt"
+
+[sub_resource type="Resource" id="Resource_r5lpl"]
+script = ExtResource("2_qexvu")
+stream = ExtResource("4_jjvmk")
+audio_bus = &"UI"
+volume = 0.0
+pitch = 1.0
+overwrite_other_in_bus = false
+overwrite_other_in_source = false
+is_2d = false
+metadata/_custom_type_script = "uid://b262pbs7y0djt"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ev48a"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_46i77"]
+font = ExtResource("5_q4vbo")
+font_size = 20
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_avox5"]
+shader = ExtResource("6_unh05")
+shader_parameter/background_scroll = Vector2(0.05, 0.05)
+shader_parameter/modulate_alpha = 1.0
+shader_parameter/spike_scroll_speed = 0.05
+shader_parameter/spike_dimensions = Vector2(0, 0)
+shader_parameter/spike_texture = ExtResource("7_dovt5")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nte8f"]
+load_path = "res://.godot/imported/pattern_solar.png-7851dba46d4d0fd594dcc5410d56f26b.ctex"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q1vx3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y28h8"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aeygf"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+border_width_left = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.175, 0.175, 0.175, 1)
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m3cpd"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1897483, 0.1897483, 0.1897483, 0.6)
+border_width_top = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 1
+
+[sub_resource type="Resource" id="Resource_er6et"]
+script = ExtResource("2_qexvu")
+stream = ExtResource("11_feobp")
+audio_bus = &"UI"
+volume = 0.0
+pitch = 1.0
+overwrite_other_in_bus = false
+overwrite_other_in_source = false
+is_2d = false
+metadata/_custom_type_script = "uid://b262pbs7y0djt"
+
+[sub_resource type="Resource" id="Resource_3jvq5"]
+script = ExtResource("2_qexvu")
+stream = ExtResource("12_m6tm2")
+audio_bus = &"UI"
+volume = 0.0
+pitch = 1.0
+overwrite_other_in_bus = false
+overwrite_other_in_source = false
+is_2d = false
+metadata/_custom_type_script = "uid://b262pbs7y0djt"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gbf2f"]
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 10
+border_width_bottom = 10
+border_color = Color(0.8001019, 0.8001019, 0.8001019, 0)
+border_blend = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n7xk5"]
+content_margin_left = 3.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_xphw0"]
+font = ExtResource("8_qt0o8")
+
+[sub_resource type="GDScript" id="GDScript_vgfim"]
+script/source = "extends UISelector
+
+signal audio_output_list_changed()
+
+var audio_device_list: PackedStringArray
+
+
+func _ready() -> void:
+	super()
+
+	LocalSettings.setting_changed.connect(_setting_updated)
+	item_selected.connect(_on_item_selected)
+
+	audio_output_list_changed.connect(_update_list)
+	audio_device_list = AudioServer.get_output_device_list()
+
+	_update_list()
+
+	var saved_device: String = LocalSettings.load_setting(\"Audio\", \"device\")
+	AudioServer.output_device = saved_device
+
+	for device in audio_device_list:
+		if saved_device == device:
+			selected = get_item_index(audio_device_list.find(device))
+
+
+func _process(_delta: float) -> void:
+	var new_device_list: PackedStringArray = AudioServer.get_output_device_list()
+
+	if new_device_list != audio_device_list:
+		var selected_device: String = get_item_text(selected)
+
+		# If the selected audio device is removed, reset it to \"Default\"
+		if not selected_device in new_device_list:
+			push_warning(\"Selected device removed. Resetting to Default.\")
+			AudioServer.output_device = \"Default\"
+			selected = 0
+
+		audio_device_list = new_device_list
+		audio_output_list_changed.emit()
+
+
+func _unhandled_input(_event: InputEvent) -> void:
+	if has_focus() and Input.is_action_just_pressed(\"setting_reset\"):
+		LocalSettings.change_setting(\"Audio\", \"device\", LocalSettings.defaults.get(\"device\"))
+		avfx()
+
+
+func _update_list():
+	var current_items: Dictionary[String, int] = {}
+	for item_number in range(item_count):
+		current_items[get_item_text(item_number)] = item_number
+
+	for device in audio_device_list:
+		if device not in current_items:
+			add_item(device)
+
+	for item in current_items.keys():
+		if item not in audio_device_list:
+			remove_item(current_items[item])
+
+
+func _on_item_selected(index):
+	var device_name: String = audio_device_list[index]
+
+	AudioServer.output_device = device_name
+
+	LocalSettings.change_setting(\"Audio\", \"device\", device_name)
+
+
+func _setting_updated(key: String, new_value: Variant = null):
+	if key != \"device\": return
+
+	selected = get_item_index(audio_device_list.find(new_value))
+"
+
+[sub_resource type="SyntaxHighlighter" id="SyntaxHighlighter_ft8id"]
+script = ExtResource("24_rcxiy")
+category_color = Color(0.56078434, 1, 0.85882354, 1)
+setting_color = Color(1, 1, 1, 1)
+symbol_color = Color(0.7372549, 0.8784314, 1, 1)
+function_color = Color(0.34117648, 0.69803923, 1, 1)
+number_color = Color(0.25882354, 1, 0.7607843, 1)
+boolean_color = Color(1, 0.4392157, 0.5176471, 1)
+string_color = Color(1, 0.92941177, 0.6313726, 1)
+string_name_color = Color(1, 0.7607843, 0.6509804, 1)
+critical_error_color = Color(0.76862746, 0.34901962, 0.34901962, 1)
+metadata/_custom_type_script = "uid://chowmypbcyrmx"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n7xk5"]
+bg_color = Color(0.0528422, 0.0528421, 0.0528421, 0.8)
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_detail = 1
+anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y28h8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdkor"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n7xk5"]
+font = ExtResource("8_qt0o8")
+
+[node name="OptionsScreen" type="VBoxContainer" unique_id=121927984 node_paths=PackedStringArray("tabs", "clear_controls", "reset_controls")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+script = ExtResource("1_ounp1")
+tabs = NodePath("TextureRect/TabControls/Tabs")
+clear_controls = NodePath("Footer/Content/ClearControls")
+reset_controls = NodePath("Footer/Content/ResetControls")
+open_sfx = SubResource("Resource_504o4")
+close_sfx = SubResource("Resource_r5lpl")
+open_anim = &"options_peek"
+close_anim = &"BACKWARDS"
+
+[node name="Header" type="Panel" parent="." unique_id=601483296]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.14
+theme_override_styles/panel = SubResource("StyleBoxFlat_ev48a")
+
+[node name="Label" type="Label" parent="Header" unique_id=1287776655]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "OPTIONS"
+label_settings = SubResource("LabelSettings_46i77")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1281865989]
+material = SubResource("ShaderMaterial_avox5")
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("CompressedTexture2D_nte8f")
+stretch_mode = 1
+flip_h = true
+
+[node name="TabControls" type="HBoxContainer" parent="TextureRect" unique_id=1636100703]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_right = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Left" type="Button" parent="TextureRect/TabControls" unique_id=1334841320]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.06
+focus_mode = 0
+theme_override_fonts/font = ExtResource("8_qt0o8")
+theme_override_font_sizes/font_size = 0
+icon = ExtResource("9_al10c")
+flat = true
+icon_alignment = 2
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Tabs" type="TabContainer" parent="TextureRect/TabControls" unique_id=512493834 node_paths=PackedStringArray("focus_grabbers")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_unselected_color = Color(0.494118, 0.494118, 0.494118, 1)
+theme_override_fonts/font = ExtResource("8_qt0o8")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/panel = SubResource("StyleBoxEmpty_q1vx3")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_y28h8")
+theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_aeygf")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_m3cpd")
+tab_alignment = 1
+current_tab = 0
+tab_focus_mode = 0
+script = ExtResource("10_fqok6")
+tab_left_sfx = SubResource("Resource_er6et")
+tab_right_sfx = SubResource("Resource_3jvq5")
+focus_grabbers = [NodePath("General/VBoxContainer/ScrollContainer/VBoxContainer/OptionBool"), NodePath("Controls/FadeEffect/ScrollContainer/HBoxContainer/Actions/BindSetting"), NodePath("Sound/FadeEffect/ScrollContainer/HBoxContainer/Content/AudioDevice/PresetSelector"), null, NodePath("Data/TopButtons/OpenData")]
+
+[node name="General" type="MarginContainer" parent="TextureRect/TabControls/Tabs" unique_id=1569784974 node_paths=PackedStringArray("option_desc_label")]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 8
+script = ExtResource("13_1beyb")
+option_desc_label = NodePath("VBoxContainer/OptionDescription")
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/TabControls/Tabs/General" unique_id=1992277050]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/TabControls/Tabs/General/VBoxContainer" unique_id=1267424365]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("14_tmmuo")
+theme_override_constants/scrollbar_h_separation = 32
+follow_focus = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/ScrollContainer" unique_id=981880546]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="OptionBool" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=627165507 instance=ExtResource("15_r13h6")]
+layout_mode = 2
+setting_name = "V-Sync"
+setting_description = "Synchronises the GPU output with the monitor refresh rate to avoid screen tearing."
+
+[node name="OptionEnum" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=126769023 instance=ExtResource("16_1beyb")]
+layout_mode = 2
+options = Array[StringName]([&"Unlimited", &"30", &"60", &"120"])
+local_setting = "General - fps_cap"
+setting_name = "FPS Cap"
+setting_description = "Caps the amount of frames rendered per second."
+
+[node name="OptionEnum2" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=544363389 instance=ExtResource("16_1beyb")]
+layout_mode = 2
+options = Array[StringName]([&"Low Resolution", &"High Resolution"])
+local_setting = "General - graphics"
+setting_name = "Graphics Mode"
+setting_description = "Changes how the game is rendered to the viewport."
+
+[node name="OptionBool4" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=538292531 instance=ExtResource("15_r13h6")]
+layout_mode = 2
+local_setting = "General - shaders"
+setting_name = "Optional Shaders"
+setting_description = "Toggles shaders that aren't necessary. Can reduce lag in turn of disabling some visual effects."
+
+[node name="OptionBool2" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=796235868 instance=ExtResource("15_r13h6")]
+layout_mode = 2
+local_setting = "General - rich_presence"
+setting_name = "Rich Presence"
+setting_description = "Toggles activity for Solar Engine on your Discord profile."
+
+[node name="OptionEnum3" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1084759131 instance=ExtResource("16_1beyb")]
+layout_mode = 2
+options = Array[StringName]([&"x1", &"x2", &"x3", &"Fullscreen"])
+setting_name = "Window Scale"
+setting_description = "Sets the window scale."
+
+[node name="OptionBool3" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=239363018 instance=ExtResource("15_r13h6")]
+layout_mode = 2
+local_setting = "General - motion_controls"
+setting_name = "Motion Controls"
+setting_description = "Toggles motion controls when using a controller."
+
+[node name="OptionEnum4" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=623610406 instance=ExtResource("16_1beyb")]
+layout_mode = 2
+options = Array[StringName]([&"Low", &"Medium", &"High"])
+local_setting = "General - rumble_strength"
+setting_name = "Rumble Strength"
+setting_description = "Sets the intensity of the haptic feedback when using a controller."
+
+[node name="OptionDescription" type="RichTextLabel" parent="TextureRect/TabControls/Tabs/General/VBoxContainer" unique_id=1202898226]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+theme_override_fonts/normal_font = ExtResource("8_qt0o8")
+bbcode_enabled = true
+text = "Option description."
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Controls" type="VBoxContainer" parent="TextureRect/TabControls/Tabs" unique_id=194933923]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 16
+metadata/_tab_index = 1
+
+[node name="Space" type="Control" parent="TextureRect/TabControls/Tabs/Controls" unique_id=1025374031]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="FadeEffect" type="Panel" parent="TextureRect/TabControls/Tabs/Controls" unique_id=186159877]
+clip_children = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_gbf2f")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect" unique_id=756781478]
+z_index = 1
+custom_minimum_size = Vector2(1, 1)
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme = ExtResource("14_tmmuo")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_n7xk5")
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer" unique_id=1694228205]
+z_index = -1
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Actions" type="VBoxContainer" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/HBoxContainer" unique_id=1606419350]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 17
+
+[node name="Space" type="Control" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/HBoxContainer/Actions" unique_id=151977264]
+layout_mode = 2
+
+[node name="BindSetting" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/HBoxContainer/Actions" unique_id=1622134022 instance=ExtResource("19_mnx2d")]
+layout_mode = 2
+
+[node name="BindSetting2" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/HBoxContainer/Actions" unique_id=488343318 instance=ExtResource("19_mnx2d")]
+layout_mode = 2
+p_action_name = &"left"
+vis_title = &"Move Left"
+vis_icon_flip_h = true
+
+[node name="BindSetting3" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/HBoxContainer/Actions" unique_id=1020708190 instance=ExtResource("19_mnx2d")]
+layout_mode = 2
+p_action_name = &"up"
+vis_title = &"Move Up"
+vis_animation = &"swim"
+
+[node name="BindSetting4" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/HBoxContainer/Actions" unique_id=1737841719 instance=ExtResource("19_mnx2d")]
+layout_mode = 2
+p_action_name = &"down"
+vis_title = &"Move Down"
+vis_animation = &"swim"
+vis_icon_flip_h = true
+vis_icon_flip_v = true
+
+[node name="BindSetting5" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/HBoxContainer/Actions" unique_id=510197050 instance=ExtResource("19_mnx2d")]
+layout_mode = 2
+p_action_name = &"jump"
+vis_title = &"Jump"
+vis_animation = &"jump"
+
+[node name="BindSetting6" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/HBoxContainer/Actions" unique_id=544809838 instance=ExtResource("19_mnx2d")]
+layout_mode = 2
+p_action_name = &"spin"
+vis_title = &"Spin"
+vis_animation = &"spin_attack"
+
+[node name="BindSetting7" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/HBoxContainer/Actions" unique_id=1904126424 instance=ExtResource("19_mnx2d")]
+layout_mode = 2
+p_action_name = &"dive"
+vis_title = &"Dive"
+vis_animation = &"dive"
+
+[node name="BindSetting8" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/HBoxContainer/Actions" unique_id=245920746 instance=ExtResource("19_mnx2d")]
+layout_mode = 2
+p_action_name = &"groundpound"
+vis_title = &"Ground-Pound"
+vis_animation = &"gp"
+
+[node name="Space2" type="Control" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/HBoxContainer/Actions" unique_id=1634328586]
+layout_mode = 2
+
+[node name="Space" type="Control" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/HBoxContainer" unique_id=1438589855]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.03
+
+[node name="Space2" type="Control" parent="TextureRect/TabControls/Tabs/Controls" unique_id=1207127442]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+
+[node name="Sound" type="VBoxContainer" parent="TextureRect/TabControls/Tabs" unique_id=637948171]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="FadeEffect" type="Panel" parent="TextureRect/TabControls/Tabs/Sound" unique_id=329143959]
+clip_children = 1
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_gbf2f")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect" unique_id=34607043]
+z_index = 1
+custom_minimum_size = Vector2(1, 1)
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme = ExtResource("14_tmmuo")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_n7xk5")
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect/ScrollContainer" unique_id=1346216082]
+z_index = -1
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Content" type="VBoxContainer" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect/ScrollContainer/HBoxContainer" unique_id=1045391327]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="Space" type="Control" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect/ScrollContainer/HBoxContainer/Content" unique_id=1671024979]
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+
+[node name="AudioDevice" type="VBoxContainer" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect/ScrollContainer/HBoxContainer/Content" unique_id=2039554531]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Header" type="Label" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect/ScrollContainer/HBoxContainer/Content/AudioDevice" unique_id=945691716]
+layout_mode = 2
+text = "Audio Device"
+label_settings = SubResource("LabelSettings_xphw0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space" type="Control" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect/ScrollContainer/HBoxContainer/Content/AudioDevice" unique_id=673131567]
+layout_mode = 2
+
+[node name="PresetSelector" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect/ScrollContainer/HBoxContainer/Content/AudioDevice" unique_id=569071244 instance=ExtResource("20_25y6d")]
+custom_minimum_size = Vector2(0, 27)
+layout_mode = 2
+script = SubResource("GDScript_vgfim")
+
+[node name="Space2" type="Control" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect/ScrollContainer/HBoxContainer/Content/AudioDevice" unique_id=422546832]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="MasterVolume" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect/ScrollContainer/HBoxContainer/Content" unique_id=110025853 instance=ExtResource("21_ja0vy")]
+layout_mode = 2
+
+[node name="MusicVolume" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect/ScrollContainer/HBoxContainer/Content" unique_id=1428378414 instance=ExtResource("21_ja0vy")]
+layout_mode = 2
+header_text = "Music Volume"
+bus_name = &"Music"
+
+[node name="SFXVolume" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect/ScrollContainer/HBoxContainer/Content" unique_id=496744429 instance=ExtResource("21_ja0vy")]
+layout_mode = 2
+header_text = "Sound Effects Volume"
+bus_name = &"SFX"
+
+[node name="VoiceVolume" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect/ScrollContainer/HBoxContainer/Content" unique_id=874990624 instance=ExtResource("21_ja0vy")]
+layout_mode = 2
+header_text = "Voices Volume"
+bus_name = &"Voice"
+
+[node name="Space2" type="Control" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect/ScrollContainer/HBoxContainer/Content" unique_id=150262896]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Space" type="Control" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect/ScrollContainer/HBoxContainer" unique_id=1271556288]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.03
+
+[node name="Space2" type="Control" parent="TextureRect/TabControls/Tabs/Sound" unique_id=315429098]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Accessibility" type="VBoxContainer" parent="TextureRect/TabControls/Tabs" unique_id=1218910130]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="Data" type="VBoxContainer" parent="TextureRect/TabControls/Tabs" unique_id=890606768 node_paths=PackedStringArray("data_peek")]
+visible = false
+layout_mode = 2
+script = ExtResource("22_rk238")
+data_peek = NodePath("DataPeek")
+metadata/_tab_index = 4
+
+[node name="Space" type="Control" parent="TextureRect/TabControls/Tabs/Data" unique_id=1077866864]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="TopButtons" type="HBoxContainer" parent="TextureRect/TabControls/Tabs/Data" unique_id=568604478]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="OpenData" parent="TextureRect/TabControls/Tabs/Data/TopButtons" unique_id=130832260 instance=ExtResource("23_b4e42")]
+layout_mode = 2
+focus_neighbor_right = NodePath("../ResetData")
+text = "OPEN FOLDER"
+
+[node name="ResetData" parent="TextureRect/TabControls/Tabs/Data/TopButtons" unique_id=1495278105 instance=ExtResource("23_b4e42")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../OpenData")
+text = "RESET DATA"
+
+[node name="Space2" type="Control" parent="TextureRect/TabControls/Tabs/Data" unique_id=1548509297]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="DataPeek" type="CodeEdit" parent="TextureRect/TabControls/Tabs/Data" unique_id=1883234509]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_readonly_color = Color(0.875, 0.875, 0.875, 0.5)
+theme_override_fonts/font = ExtResource("8_qt0o8")
+theme_override_font_sizes/font_size = 16
+text = "[Section]
+
+setting_3=1.0
+setting_4=\"string\"
+setting_5=true
+setting_2=PackedStringArray(\"A\", \"B\", \"C\")"
+editable = false
+scroll_smooth = true
+minimap_draw = true
+syntax_highlighter = SubResource("SyntaxHighlighter_ft8id")
+highlight_all_occurrences = true
+highlight_current_line = true
+draw_tabs = true
+draw_spaces = true
+gutters_draw_line_numbers = true
+gutters_zero_pad_line_numbers = true
+gutters_line_numbers_min_digits = 1
+auto_brace_completion_enabled = true
+auto_brace_completion_highlight_matching = true
+
+[node name="Panel" type="Panel" parent="TextureRect/TabControls/Tabs/Data" unique_id=2074009781]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_n7xk5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect/TabControls/Tabs/Data/Panel" unique_id=1013985422]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+theme = ExtResource("14_tmmuo")
+theme_override_colors/default_color = Color(1, 0.69803923, 0.4509804, 1)
+theme_override_colors/selection_color = Color(0.44705883, 0.6784314, 1, 0.49411765)
+theme_override_fonts/normal_font = ExtResource("8_qt0o8")
+theme_override_font_sizes/normal_font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y28h8")
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+context_menu_enabled = true
+selection_enabled = true
+
+[node name="Space3" type="Control" parent="TextureRect/TabControls/Tabs/Data" unique_id=233136370]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Right" type="Button" parent="TextureRect/TabControls" unique_id=2125753789]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.06
+focus_mode = 0
+theme_override_fonts/font = ExtResource("8_qt0o8")
+theme_override_font_sizes/font_size = 0
+icon = ExtResource("25_ucrok")
+flat = true
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Footer" type="Panel" parent="." unique_id=1441851723]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+theme_override_styles/panel = SubResource("StyleBoxFlat_gdkor")
+
+[node name="Content" type="HBoxContainer" parent="Footer" unique_id=101414530]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 6.0
+offset_right = -4.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="ReturnControls" type="HBoxContainer" parent="Footer/Content" unique_id=1127008441]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Footer/Content/ReturnControls" unique_id=1967709411]
+layout_mode = 2
+texture = ExtResource("26_nri8o")
+expand_mode = 3
+
+[node name="Label2" type="Label" parent="Footer/Content/ReturnControls" unique_id=2088808002]
+layout_mode = 2
+text = "/"
+label_settings = SubResource("LabelSettings_n7xk5")
+
+[node name="TextureRect" type="TextureRect" parent="Footer/Content/ReturnControls" unique_id=1399924518]
+layout_mode = 2
+texture = ExtResource("27_wcvnr")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="Footer/Content/ReturnControls" unique_id=1538525972]
+layout_mode = 2
+text = "Return"
+label_settings = SubResource("LabelSettings_n7xk5")
+
+[node name="SelectControls" type="HBoxContainer" parent="Footer/Content" unique_id=441765951]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Footer/Content/SelectControls" unique_id=300174492]
+layout_mode = 2
+texture = ExtResource("28_6nqcw")
+expand_mode = 3
+
+[node name="Label2" type="Label" parent="Footer/Content/SelectControls" unique_id=19596244]
+layout_mode = 2
+text = "/"
+label_settings = SubResource("LabelSettings_n7xk5")
+
+[node name="TextureRect" type="TextureRect" parent="Footer/Content/SelectControls" unique_id=912055922]
+layout_mode = 2
+texture = ExtResource("29_a7w6t")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="Footer/Content/SelectControls" unique_id=1904109721]
+layout_mode = 2
+text = "Select"
+label_settings = SubResource("LabelSettings_n7xk5")
+
+[node name="Control" type="Control" parent="Footer/Content" unique_id=709405143]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ClearControls" type="HBoxContainer" parent="Footer/Content" unique_id=2012440828]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Footer/Content/ClearControls" unique_id=430328928]
+layout_mode = 2
+texture = ExtResource("30_otxen")
+expand_mode = 3
+
+[node name="Label2" type="Label" parent="Footer/Content/ClearControls" unique_id=1917805760]
+layout_mode = 2
+text = "/"
+label_settings = SubResource("LabelSettings_n7xk5")
+
+[node name="TextureRect" type="TextureRect" parent="Footer/Content/ClearControls" unique_id=1766624948]
+layout_mode = 2
+texture = ExtResource("31_4ugsb")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="Footer/Content/ClearControls" unique_id=2003503760]
+layout_mode = 2
+text = "Clear"
+label_settings = SubResource("LabelSettings_n7xk5")
+
+[node name="ResetControls" type="HBoxContainer" parent="Footer/Content" unique_id=773730727]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Footer/Content/ResetControls" unique_id=584980346]
+layout_mode = 2
+texture = ExtResource("32_e6a3n")
+expand_mode = 3
+
+[node name="Label2" type="Label" parent="Footer/Content/ResetControls" unique_id=410626509]
+layout_mode = 2
+text = "/"
+label_settings = SubResource("LabelSettings_n7xk5")
+
+[node name="TextureRect" type="TextureRect" parent="Footer/Content/ResetControls" unique_id=1709214655]
+layout_mode = 2
+texture = ExtResource("33_dqx84")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="Footer/Content/ResetControls" unique_id=143690629]
+layout_mode = 2
+text = "Reset"
+label_settings = SubResource("LabelSettings_n7xk5")
+
+[connection signal="pressed" from="TextureRect/TabControls/Tabs/Data/TopButtons/OpenData" to="TextureRect/TabControls/Tabs/Data" method="_on_open_data_pressed"]
+[connection signal="pressed" from="TextureRect/TabControls/Tabs/Data/TopButtons/ResetData" to="." method="_on_reset_data_pressed"]

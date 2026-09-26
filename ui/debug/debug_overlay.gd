@@ -62,7 +62,7 @@ func _input(event: InputEvent) -> void:
 ## on a [TextureRect] within the appropriate [member display] container.
 ## The [param event_id] is the string used to reference displayed inputs,
 ## this can be anything as long as its unique per input.
-func _display_input(event: InputEvent, display: TextureRect, event_id: String):
+func _display_input(event: InputEvent, display: TextureRect, event_id: String) -> void:
 	if event.is_released() and displayed_inputs.has(event_id):
 		display.remove_child(displayed_inputs[event_id])
 		displayed_inputs.erase(event_id)
@@ -88,7 +88,7 @@ func _display_input(event: InputEvent, display: TextureRect, event_id: String):
 
 ## Clears the input display by deleting all the created [TextureRect]s for every display,
 ## and clearing the [member displayed_inputs] array.
-func _clear_input_display():
+func _clear_input_display() -> void:
 	displayed_inputs.clear()
 
 	for child: TextureRect in input_keyboard_display.get_children():
@@ -220,12 +220,15 @@ func _check_active_debug_hitboxes() -> void:
 
 ## Updates both the left and right diagnostic information labels.
 func _update_labels() -> void:
+	if not is_instance_valid(player):
+		return
+
 	_update_left_label()
 	_update_right_label()
 
 
 ## Updates all the diagnostic modules on the left side of the screen.
-func _update_left_label():
+func _update_left_label() -> void:
 	var modules_l: PackedStringArray
 
 	modules_l.append("[bgcolor=#5a5a5ab0]")
@@ -306,7 +309,7 @@ func _update_left_label():
 
 
 ## Updates all the diagnostic modules on the right side of the screen.
-func _update_right_label():
+func _update_right_label() -> void:
 	var modules_r: PackedStringArray
 
 	modules_r.append("[bgcolor=#5a5a5ab0]")
@@ -386,7 +389,7 @@ func _get_pretty_state_tree() -> String:
 
 ## Recursive operation that appends all active [PlayerState]s to the
 ## [member active_states] array.
-func _fetch_active_superstates(state: PlayerState):
+func _fetch_active_superstates(state: PlayerState) -> void:
 	if state == null:
 		return
 

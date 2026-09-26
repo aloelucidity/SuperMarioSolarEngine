@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cy2ri122ci25q"]
+
+[ext_resource type="PackedScene" uid="uid://c4m60m11urapy" path="res://ui/screen_manager/options_screen/general/option/option_base.tscn" id="1_ctljh"]
+[ext_resource type="Script" uid="uid://ltt4shbvc11y" path="res://ui/screen_manager/options_screen/general/option/option_bool.gd" id="2_rbscs"]
+[ext_resource type="FontFile" uid="uid://b74xlyn5xhoas" path="res://ui/fonts/paper_mario.ttf" id="3_25fjt"]
+[ext_resource type="StyleBox" uid="uid://dtqo54et0jtbt" path="res://ui/screen_manager/options_screen/general/option/option_bg_focused.tres" id="3_fkj01"]
+[ext_resource type="StyleBox" uid="uid://ftovkcokg7qx" path="res://ui/screen_manager/options_screen/general/option/option_state_unfocused.tres" id="4_var1g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1beyb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gkktu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_25fjt"]
+resource_local_to_scene = true
+font = ExtResource("3_25fjt")
+
+[sub_resource type="LabelSettings" id="LabelSettings_fkj01"]
+resource_local_to_scene = true
+font = ExtResource("3_25fjt")
+font_color = Color(0, 0, 0, 1)
+
+[node name="OptionBool" unique_id=627165507 instance=ExtResource("1_ctljh")]
+script = ExtResource("2_rbscs")
+local_setting = "General - v_sync"
+setting_name = "Placeholder Name"
+option_bg_unfocused = SubResource("StyleBoxEmpty_1beyb")
+option_bg_focused = ExtResource("3_fkj01")
+option_state_unfocused = ExtResource("4_var1g")
+option_state_focused = SubResource("StyleBoxEmpty_gkktu")
+
+[node name="Name" parent="MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(691132470) index="1" unique_id=991731614]
+label_settings = SubResource("LabelSettings_25fjt")
+
+[node name="State" parent="MarginContainer/HBoxContainer/StateContainer/HBoxContainer" parent_id_path=PackedInt32Array(539197246) index="1" unique_id=127458903]
+label_settings = SubResource("LabelSettings_fkj01")

@@ -1,19 +1,24 @@
 @tool
 extends Node
 ## Settings stored on the user's system.
+## This autoload needs to be a tool script since some tools scripts want to read
+## from this during editor processing.
 
 signal setting_changed(key, new_value)
 
 const FILE_PATH: String = "user://settings.cfg"
-var config := ConfigFile.new()
+var config: ConfigFile = ConfigFile.new()
 
-# Dictionary of every setting that gets stored to the user's system.
-var settings: Dictionary[String, Variant] = {
+## Dictionary of every setting that gets stored to the user's system.
+## The key is the JSON-style section name,
+## the value is an [Array] of the setting names.
+var settings: Dictionary[String, Array] = {
 	"General":
 		[
 			"scale",
 			"v_sync",
-			"quality",
+			"graphics",
+			"shaders",
 			"rich_presence",
 			"motion_controls",
 			"rumble_strength",
@@ -33,7 +38,6 @@ var settings: Dictionary[String, Variant] = {
 			"debug_toggle",
 			"debug_toggle_hitboxes",
 		],
-	# TODO: replace % 0 with whatever system we decide to to for multiplayer
 	"Bindings":
 		[
 			"right",
@@ -47,15 +51,18 @@ var settings: Dictionary[String, Variant] = {
 		]
 }
 
-# Dictionary of every key and its default value.
+## Dictionary of every key and its default value.
+## The key is the setting name,
+## the value is its default value.
 var defaults: Dictionary[String, Variant] = {
 	# General
 	"scale": 1,
 	"v_sync": true,
-	"quality": GameState.Quality.HIGH,
+	"graphics": GameState.GraphicsMode.HIGH_RES,
+	"shaders": true,
 	"rich_presence": true,
 	"motion_controls": false,
-	"rumble_strength": 2,
+	"rumble_strength": 1,
 	"fps_cap": 2,
 
 	# Audio
@@ -82,7 +89,7 @@ var defaults: Dictionary[String, Variant] = {
 }
 
 
-func _init():
+func _init() -> void:
 	if not FileAccess.file_exists(FILE_PATH):
 		config.save(FILE_PATH)
 
@@ -100,17 +107,17 @@ func load_setting(section: String, key: String) -> Variant:
 
 ## Update a setting [param key] at a category [param section],
 ## with a new [param value] in the config file.
-func change_setting(section: String, key: String, value: Variant):
+func change_setting(section: String, key: String, value: Variant) -> void:
 	_apply_setting(section, key, value)
 	config.save(FILE_PATH)
 
 
 ## Returns whether or not a key exists and has a value.
-func has_setting(section: String, key: String):
+func has_setting(section: String, key: String) -> void:
 	return config.has_section_key(section, key)
 
 
-func get_section(setting: String):
+func get_section(setting: String) -> Variant:
 	for section in settings:
 		for key in settings[section]:
 			if key == setting:
@@ -136,6 +143,7 @@ func reset_settings() -> void:
 	config.save(FILE_PATH)
 
 
-func _apply_setting(section: String, key: String, value: Variant):
+## Applies the setting change to the config and emits the [signal setting_changed] signal.
+func _apply_setting(section: String, key: String, value: Variant) -> void:
 	config.set_value(section, key, value)
 	emit_signal(&"setting_changed", key, value)

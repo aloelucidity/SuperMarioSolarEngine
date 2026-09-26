@@ -2,13 +2,12 @@ extends Node
 
 signal paused
 
-enum Quality {
-		LOW = 0, ## Optimised for performance. Enables viewport stretching and disables most shaders.
-		MEDIUM = 1, ## Balanced performance. Enables viewport stretching but keeps most shaders enabled.
-		HIGH = 2, ## Best visuals experience. Enables canvas item stretching and keeps most shaders enabled.
+enum GraphicsMode {
+		LOW_RES,
+		HIGH_RES,
 	}
 
-var current_quality: Quality
+var current_graphics_mode: GraphicsMode
 
 var debug_toggle: bool = false
 var debug_toggle_hitboxes: bool = false
@@ -27,7 +26,7 @@ var buses: Dictionary[StringName, AudioBus] = {
 }
 
 
-func _ready():
+func _ready() -> void:
 	paused.connect(pause_toggle)
 
 	get_viewport().size_changed.connect(
@@ -49,7 +48,7 @@ func _ready():
 	debug_toggle_hitboxes = LocalSettings.load_setting("Developer", "debug_toggle_hitboxes")
 
 
-func _unhandled_input(event):
+func _unhandled_input(event) -> void:
 	if event.is_action_pressed(&"mute"):
 		LocalSettings.change_setting("Audio", "music_muted",!buses[&"Music"].muted)
 
@@ -74,7 +73,7 @@ func _unhandled_input(event):
 		LocalSettings.change_setting("Developer", "debug_toggle_hitboxes", debug_toggle_hitboxes)
 
 
-func _setting_changed(key: String, value: Variant):
+func _setting_changed(key: String, value: Variant) -> void:
 	match key:
 		# GENERAL
 		"v_sync":
@@ -83,24 +82,21 @@ func _setting_changed(key: String, value: Variant):
 			Engine.max_fps = [0, 30, 60, 120][value] # 0:INF, 1:30, 2:60, 3: 120
 		"scale":
 			WindowSizer.set_win_scale(value)
-		"quality":
+		"graphics":
 			match value:
-				0: # HIGH
-					current_quality = Quality.HIGH
+				0:
+					current_graphics_mode = GraphicsMode.LOW_RES
+					get_tree().root.content_scale_mode = Window.CONTENT_SCALE_MODE_VIEWPORT
+				1:
+					current_graphics_mode = GraphicsMode.HIGH_RES
 					get_tree().root.content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
-				1: # LOW
-					current_quality = Quality.LOW
-					get_tree().root.content_scale_mode = Window.CONTENT_SCALE_MODE_VIEWPORT
-				2: # MEDIUM
-					current_quality = Quality.MEDIUM
-					get_tree().root.content_scale_mode = Window.CONTENT_SCALE_MODE_VIEWPORT
 		# AUDIO
 		"music_muted":
 			buses[&"Music"].update_mute(value)
 
 
 ## Called with the paused signal.
-func pause_toggle():
+func pause_toggle() -> void:
 	get_tree().paused = !is_paused()
 
 

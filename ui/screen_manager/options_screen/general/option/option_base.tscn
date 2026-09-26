@@ -1,0 +1,172 @@
+[gd_scene format=3 uid="uid://c4m60m11urapy"]
+
+[ext_resource type="Texture2D" uid="uid://tbn433hx7em2" path="res://ui/title_screen/play_icon.png" id="1_diry7"]
+[ext_resource type="FontFile" uid="uid://b74xlyn5xhoas" path="res://ui/fonts/paper_mario.ttf" id="2_l0kuu"]
+[ext_resource type="StyleBox" uid="uid://ftovkcokg7qx" path="res://ui/screen_manager/options_screen/general/option/option_state_unfocused.tres" id="3_q473f"]
+[ext_resource type="Texture2D" uid="uid://di072vkx5ckgh" path="res://ui/screen_manager/options_screen/general/option/arrow.svg" id="4_pu7yi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d4qmx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+resource_local_to_scene = true
+font = ExtResource("2_l0kuu")
+
+[sub_resource type="LabelSettings" id="LabelSettings_pu7yi"]
+resource_local_to_scene = true
+font = ExtResource("2_l0kuu")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_q473f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/HBoxContainer/StateContainer/HBoxContainer/MarginContainer/ArrowLeft:offset_transform_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/HBoxContainer/StateContainer/HBoxContainer/MarginContainer2/ArrowRight:offset_transform_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wgmmi"]
+resource_name = "arrows_bounce"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/HBoxContainer/StateContainer/HBoxContainer/MarginContainer/ArrowLeft:offset_transform_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(0.5, 1.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-3, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/HBoxContainer/StateContainer/HBoxContainer/MarginContainer2/ArrowRight:offset_transform_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(0.5, 1.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(3, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nvj37"]
+_data = {
+&"RESET": SubResource("Animation_q473f"),
+&"arrows_bounce": SubResource("Animation_wgmmi")
+}
+
+[node name="OptionBase" type="PanelContainer" unique_id=627165507]
+custom_minimum_size = Vector2(0, 30)
+offset_right = 390.0
+offset_bottom = 30.0
+size_flags_horizontal = 3
+focus_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_d4qmx")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=95714169]
+layout_mode = 2
+focus_behavior_recursive = 1
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=691132470]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=474922157]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("1_diry7")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="MarginContainer/HBoxContainer" unique_id=991731614]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Placeholder Name"
+label_settings = SubResource("LabelSettings_g4v7s")
+
+[node name="Space" type="Control" parent="MarginContainer/HBoxContainer" unique_id=1447078820]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+
+[node name="StateContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=413136172]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_q473f")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/StateContainer" unique_id=539197246]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/StateContainer/HBoxContainer" unique_id=1944507282]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="ArrowLeft" type="TextureRect" parent="MarginContainer/HBoxContainer/StateContainer/HBoxContainer/MarginContainer" unique_id=1271917794]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_transform_enabled = true
+texture = ExtResource("4_pu7yi")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="State" type="Label" parent="MarginContainer/HBoxContainer/StateContainer/HBoxContainer" unique_id=127458903]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "NILL"
+label_settings = SubResource("LabelSettings_pu7yi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HBoxContainer/StateContainer/HBoxContainer" unique_id=571126840]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="ArrowRight" type="TextureRect" parent="MarginContainer/HBoxContainer/StateContainer/HBoxContainer/MarginContainer2" unique_id=2103187867]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_transform_enabled = true
+texture = ExtResource("4_pu7yi")
+expand_mode = 3
+stretch_mode = 5
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1328294436]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_nvj37")
