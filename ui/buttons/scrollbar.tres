@@ -32,6 +32,7 @@ corner_radius_bottom_left = 5
 anti_aliasing = false
 
 [resource]
+ScrollContainer/constants/scrollbar_h_separation = 32
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_odk1x")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_yiaf0")
 VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_ev8s2")

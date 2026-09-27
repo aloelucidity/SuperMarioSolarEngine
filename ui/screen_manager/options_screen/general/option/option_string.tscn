@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cmh21l38ts8rk"]
+
+[ext_resource type="PackedScene" uid="uid://c4m60m11urapy" path="res://ui/screen_manager/options_screen/general/option/option_base.tscn" id="1_hilps"]
+[ext_resource type="Script" uid="uid://b1u84ff4gpvxy" path="res://ui/screen_manager/options_screen/general/option/option_string.gd" id="2_o66oq"]
+[ext_resource type="StyleBox" uid="uid://dtqo54et0jtbt" path="res://ui/screen_manager/options_screen/general/option/option_bg_focused.tres" id="3_ilyth"]
+[ext_resource type="StyleBox" uid="uid://ftovkcokg7qx" path="res://ui/screen_manager/options_screen/general/option/option_state_unfocused.tres" id="4_oxmc0"]
+[ext_resource type="FontFile" uid="uid://b74xlyn5xhoas" path="res://ui/fonts/paper_mario.ttf" id="5_26euq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8rhtu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jjvmk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hilps"]
+resource_local_to_scene = true
+font = ExtResource("5_26euq")
+
+[sub_resource type="LabelSettings" id="LabelSettings_cewq0"]
+resource_local_to_scene = true
+font = ExtResource("5_26euq")
+
+[node name="OptionString" unique_id=627165507 instance=ExtResource("1_hilps")]
+theme_override_styles/panel = ExtResource("3_ilyth")
+script = ExtResource("2_o66oq")
+highlighted = true
+local_setting = "Audio - device"
+setting_name = "Placeholder Name"
+option_bg_unfocused = SubResource("StyleBoxEmpty_8rhtu")
+option_bg_focused = ExtResource("3_ilyth")
+option_state_unfocused = ExtResource("4_oxmc0")
+option_state_focused = SubResource("StyleBoxEmpty_jjvmk")
+
+[node name="Name" parent="MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(691132470) index="1" unique_id=991731614]
+label_settings = SubResource("LabelSettings_hilps")
+
+[node name="StateContainer" parent="MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(691132470) index="3" unique_id=413136172]
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jjvmk")
+
+[node name="ArrowLeft" parent="MarginContainer/HBoxContainer/StateContainer/HBoxContainer/MarginContainer" parent_id_path=PackedInt32Array(1944507282) index="0" unique_id=1271917794]
+modulate = Color(1, 1, 1, 1)
+
+[node name="State" parent="MarginContainer/HBoxContainer/StateContainer/HBoxContainer" parent_id_path=PackedInt32Array(539197246) index="1" unique_id=127458903]
+label_settings = SubResource("LabelSettings_cewq0")
+
+[node name="ArrowRight" parent="MarginContainer/HBoxContainer/StateContainer/HBoxContainer/MarginContainer2" parent_id_path=PackedInt32Array(571126840) index="0" unique_id=2103187867]
+modulate = Color(1, 1, 1, 1)

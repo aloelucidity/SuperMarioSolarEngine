@@ -12,19 +12,19 @@ extends Screen
 
 
 func _ready() -> void:
-	get_viewport().gui_focus_changed.connect(_gui_focus_changed)
+	#get_viewport().gui_focus_changed.connect(_gui_focus_changed)
 	clear_controls.hide()
 	reset_controls.hide()
 
 
-func _gui_focus_changed(node: Control) -> void:
-	clear_controls.visible = node is UIBindButton
-	reset_controls.visible = (
-		node is OptionBase or
-		node is HSlider or
-		node is UIBindButton or
-		node is UISelector
-	)
+#func _gui_focus_changed(node: Control) -> void:
+	#clear_controls.visible = node is UIBindButton
+	#reset_controls.visible = (
+		#node is OptionBase or
+		#node is HSlider or
+		#node is UIBindButton or
+		#node is UISelector
+	#)
 
 
 func on_load() -> void:

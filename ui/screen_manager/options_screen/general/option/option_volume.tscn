@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dqcjkqghd8oef"]
+
+[ext_resource type="PackedScene" uid="uid://den0hw3oxmq6h" path="res://ui/screen_manager/options_screen/general/option/option_slider.tscn" id="1_7ou4j"]
+[ext_resource type="FontFile" uid="uid://b74xlyn5xhoas" path="res://ui/fonts/paper_mario.ttf" id="2_4t0qh"]
+[ext_resource type="Script" uid="uid://d3ajma03flub3" path="res://ui/screen_manager/options_screen/general/option/option_volume.gd" id="2_phc27"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4t0qh"]
+resource_local_to_scene = true
+font = ExtResource("2_4t0qh")
+
+[sub_resource type="LabelSettings" id="LabelSettings_phc27"]
+resource_local_to_scene = true
+font = ExtResource("2_4t0qh")
+
+[node name="OptionVolume" unique_id=627165507 instance=ExtResource("1_7ou4j")]
+script = ExtResource("2_phc27")
+setting_name = "Volume Slider"
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="Name" parent="MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(691132470) index="1" unique_id=991731614]
+text = "Volume Slider"
+label_settings = SubResource("LabelSettings_4t0qh")
+
+[node name="Slider" parent="MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(691132470) index="3" unique_id=760584573]
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="Percentage" parent="MarginContainer/HBoxContainer" parent_id_path=PackedInt32Array(691132470) index="4" unique_id=995810920]
+label_settings = SubResource("LabelSettings_phc27")

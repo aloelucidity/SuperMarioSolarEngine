@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://den0hw3oxmq6h"]
+
+[ext_resource type="Texture2D" uid="uid://tbn433hx7em2" path="res://ui/title_screen/play_icon.png" id="1_24iqa"]
+[ext_resource type="Script" uid="uid://b5bymomyo13t2" path="res://ui/screen_manager/options_screen/general/option/option_slider.gd" id="1_nk2m4"]
+[ext_resource type="StyleBox" uid="uid://dtqo54et0jtbt" path="res://ui/screen_manager/options_screen/general/option/option_bg_focused.tres" id="2_8033p"]
+[ext_resource type="FontFile" uid="uid://b74xlyn5xhoas" path="res://ui/fonts/paper_mario.ttf" id="2_nk2m4"]
+[ext_resource type="Script" uid="uid://b262pbs7y0djt" path="res://util/resources/sound_effect.gd" id="3_4ei1l"]
+[ext_resource type="AudioStream" uid="uid://dsokoktxblw41" path="res://ui/sfx/cursor.wav" id="4_cyoyk"]
+[ext_resource type="Texture2D" uid="uid://c01sqccuoqmyl" path="res://ui/screen_manager/options_screen/general/option/box.svg" id="5_ojnec"]
+[ext_resource type="Texture2D" uid="uid://bor0kyo7wfgm1" path="res://ui/screen_manager/options_screen/general/option/tick.svg" id="6_xwvag"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7v3qh"]
+
+[sub_resource type="Resource" id="Resource_ojnec"]
+script = ExtResource("3_4ei1l")
+stream = ExtResource("4_cyoyk")
+audio_bus = &"UI"
+volume = 0.0
+pitch = 1.0
+overwrite_other_in_bus = false
+overwrite_other_in_source = false
+is_2d = false
+metadata/_custom_type_script = "uid://b262pbs7y0djt"
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+resource_local_to_scene = true
+font = ExtResource("2_nk2m4")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nk2m4"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8033p"]
+bg_color = Color(0.94509804, 0.8509804, 0.21568628, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_ojnec"]
+resource_local_to_scene = true
+font = ExtResource("2_nk2m4")
+
+[node name="OptionSlider" type="PanelContainer" unique_id=627165507]
+custom_minimum_size = Vector2(0, 30)
+offset_right = 390.0
+offset_bottom = 30.0
+size_flags_horizontal = 3
+focus_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_7v3qh")
+script = ExtResource("1_nk2m4")
+setting_name = "Slider Name"
+setting_description = "Setting description."
+option_bg_unfocused = SubResource("StyleBoxEmpty_7v3qh")
+option_bg_focused = ExtResource("2_8033p")
+value_change_sfx = SubResource("Resource_ojnec")
+value = 50.0
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=95714169]
+layout_mode = 2
+focus_behavior_recursive = 1
+mouse_behavior_recursive = 1
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=691132470]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=474922157]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("1_24iqa")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="MarginContainer/HBoxContainer" unique_id=991731614]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Slider Name"
+label_settings = SubResource("LabelSettings_g4v7s")
+
+[node name="Space" type="Control" parent="MarginContainer/HBoxContainer" unique_id=1447078820]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+
+[node name="Slider" type="HSlider" parent="MarginContainer/HBoxContainer" unique_id=760584573]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_icons/grabber_disabled = ExtResource("5_ojnec")
+theme_override_icons/tick = ExtResource("6_xwvag")
+theme_override_styles/slider = SubResource("StyleBoxFlat_nk2m4")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_8033p")
+value = 50.0
+editable = false
+scrollable = false
+tick_count = 10
+ticks_on_borders = true
+ticks_position = 3
+
+[node name="Percentage" type="Label" parent="MarginContainer/HBoxContainer" unique_id=995810920]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(41, 0)
+layout_mode = 2
+text = "50%"
+label_settings = SubResource("LabelSettings_ojnec")
+horizontal_alignment = 2
+clip_text = true

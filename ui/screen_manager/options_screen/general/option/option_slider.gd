@@ -1,6 +1,5 @@
 @tool
-@abstract
-class_name OptionBase
+class_name OptionSlider
 extends Control
 
 const select_stream: AudioStreamWAV = preload("res://ui/sfx/select.wav")
@@ -39,25 +38,52 @@ const select_stream: AudioStreamWAV = preload("res://ui/sfx/select.wav")
 @export var option_bg_unfocused: StyleBox
 @export var option_bg_focused: StyleBox
 
-@export var option_state_unfocused: StyleBox
-@export var option_state_focused: StyleBox
+@export_group("Sound")
+
+@export var value_change_sfx: SoundEffect
+
+@export_category("Range")
+@export var min_value: float = 0.0:
+	set(val):
+		min_value = val
+
+		if is_instance_valid(slider):
+			slider.min_value = val
+
+@export var max_value: float = 100.0:
+	set(val):
+		max_value = val
+
+		if is_instance_valid(slider):
+			slider.max_value = val
+
+@export var step: float = 1.0:
+	set(val):
+		step = val
+
+		if is_instance_valid(slider):
+			slider.step = val
+
+@export var value: float = 0.0:
+	set(val):
+		value = clamp(val, min_value, max_value)
 
 var section: String
 var key: String
 
-var value: Variant
-
-@onready var animation_player: AnimationPlayer = %AnimationPlayer
-@onready var state_container: PanelContainer = %StateContainer
 @onready var icon: TextureRect = %Icon
 @onready var name_label: Label = %Name
-@onready var state_label: Label = %State
-@onready var arrow_left: TextureRect = %ArrowLeft
-@onready var arrow_right: TextureRect = %ArrowRight
+@onready var slider: HSlider = %Slider
+@onready var percentage: Label = %Percentage
 
 
 func _ready() -> void:
 	name_label.text = setting_name
+
+	slider.min_value = min_value
+	slider.max_value = max_value
+	slider.step = step
+	slider.value = value
 
 	if Engine.is_editor_hint():
 		return
@@ -67,7 +93,6 @@ func _ready() -> void:
 	focus_entered.connect(set.bindv([&"highlighted", true]))
 	focus_exited.connect(set.bindv([&"highlighted", false]))
 
-	# Initialise button
 	var saved_val: Variant = LocalSettings.load_setting(section, key)
 	_update_value(key, saved_val)
 
@@ -76,9 +101,9 @@ func _input(_event: InputEvent) -> void:
 	if not highlighted:
 		return
 
-	if Input.is_action_just_pressed(&"ui_left"):
+	if Input.is_action_pressed(&"ui_left"):
 		_on_change_left()
-	elif Input.is_action_just_pressed(&"ui_right"):
+	elif Input.is_action_pressed(&"ui_right"):
 		_on_change_right()
 
 
@@ -111,7 +136,7 @@ func _update_value(changed_key: String, new_value: Variant = null) -> void:
 
 	value = new_value
 
-	_update_visual_state()
+	_on_value_changed()
 
 
 ## Toggles between highlighted and non-highlighted visuals based on [param on].
@@ -123,31 +148,33 @@ func _toggle_highlight(on: bool) -> void:
 		sfx.audio_bus = "UI"
 		sfx.play(self)
 
-		animation_player.play(&"arrows_bounce")
 		add_theme_stylebox_override(&"panel", option_bg_focused)
-		state_container.add_theme_stylebox_override(&"panel", option_state_focused)
-		state_label.label_settings.font_color = Color.WHITE
-		arrow_left.modulate = Color.WHITE
-		arrow_right.modulate = Color.WHITE
 	else:
-		animation_player.stop()
 		add_theme_stylebox_override(&"panel", option_bg_unfocused)
-		state_container.add_theme_stylebox_override(&"panel", option_state_unfocused)
-		state_label.label_settings.font_color = Color.BLACK
-		arrow_left.modulate = Color.TRANSPARENT
-		arrow_right.modulate = Color.TRANSPARENT
 
 
-## Defines how [member value] changes when the option is scrolled to the left.
-@abstract
-func _on_change_left() -> void
+func _on_change_left() -> void:
+	var new_value = clamp(value - step, min_value, max_value)
+
+	if new_value == value:
+		return
+
+	LocalSettings.change_setting(section, key, new_value)
 
 
-## Defines how [member value] changes when the option is scrolled to the right.
-@abstract
-func _on_change_right() -> void
+func _on_change_right() -> void:
+	var new_value = clamp(value + step, min_value, max_value)
+
+	if new_value == value:
+		return
+
+	LocalSettings.change_setting(section, key, new_value)
 
 
-## Defines how the option's text is displayed.
-@abstract
-func _update_visual_state() -> void
+func _on_value_changed() -> void:
+	if is_instance_valid(slider) and is_instance_valid(percentage):
+		slider.value = value
+		percentage.text = "%d%%" % remap(value, min_value, max_value, 0.0, 100.0)
+
+	if is_instance_valid(value_change_sfx):
+		value_change_sfx.play(self)

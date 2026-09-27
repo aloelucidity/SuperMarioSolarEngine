@@ -12,14 +12,15 @@
 [ext_resource type="Script" uid="uid://dvca417ad8kmq" path="res://ui/tab_controller.gd" id="10_fqok6"]
 [ext_resource type="AudioStream" uid="uid://cit45yv71vt35" path="res://ui/sfx/tab_l.wav" id="11_feobp"]
 [ext_resource type="AudioStream" uid="uid://egw1cy6ntywl" path="res://ui/sfx/tab_r.wav" id="12_m6tm2"]
-[ext_resource type="Script" uid="uid://dh60w4m18afby" path="res://ui/screen_manager/options_screen/general/general_tab.gd" id="13_1beyb"]
+[ext_resource type="Script" uid="uid://dh60w4m18afby" path="res://ui/screen_manager/options_screen/options_tab.gd" id="13_1beyb"]
 [ext_resource type="PackedScene" uid="uid://bktos1134newv" path="res://ui/scroll_container_fade.tscn" id="14_gkktu"]
 [ext_resource type="Theme" uid="uid://blj83dty2taxs" path="res://ui/buttons/scrollbar.tres" id="14_tmmuo"]
 [ext_resource type="PackedScene" uid="uid://cy2ri122ci25q" path="res://ui/screen_manager/options_screen/general/option/option_bool.tscn" id="15_r13h6"]
 [ext_resource type="PackedScene" uid="uid://btujd8w5pj5im" path="res://ui/screen_manager/options_screen/general/option/option_enum.tscn" id="16_1beyb"]
 [ext_resource type="PackedScene" uid="uid://q67oo8p20ee4" path="res://ui/screen_manager/options_screen/controls/bind_setting.tscn" id="19_mnx2d"]
-[ext_resource type="PackedScene" uid="uid://b08q042unmcxf" path="res://ui/buttons/ui_selector.tscn" id="20_25y6d"]
-[ext_resource type="PackedScene" uid="uid://puhluie3m3cp" path="res://ui/screen_manager/options_screen/sound/volume_setting.tscn" id="21_ja0vy"]
+[ext_resource type="PackedScene" uid="uid://cmh21l38ts8rk" path="res://ui/screen_manager/options_screen/general/option/option_string.tscn" id="19_qexvu"]
+[ext_resource type="Script" uid="uid://c0d52xhq64ikh" path="res://ui/screen_manager/options_screen/sound/audio_device_selector.gd" id="20_ounp1"]
+[ext_resource type="PackedScene" uid="uid://dqcjkqghd8oef" path="res://ui/screen_manager/options_screen/general/option/option_volume.tscn" id="21_ounp1"]
 [ext_resource type="Script" uid="uid://bwn84qudsrcg4" path="res://ui/screen_manager/options_screen/data/data_tab.gd" id="22_rk238"]
 [ext_resource type="PackedScene" uid="uid://bb6wf0meej6ox" path="res://ui/buttons/ui_button.tscn" id="23_b4e42"]
 [ext_resource type="Script" uid="uid://chowmypbcyrmx" path="res://ui/screen_manager/options_screen/data/settings_highlighter.gd" id="24_rcxiy"]
@@ -133,7 +134,7 @@ overwrite_other_in_source = false
 is_2d = false
 metadata/_custom_type_script = "uid://b262pbs7y0djt"
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gkktu"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qexvu"]
 bg_color = Color(1, 1, 1, 1)
 border_width_bottom = 16
 border_color = Color(1, 1, 1, 0)
@@ -148,85 +149,13 @@ border_blend = true
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n7xk5"]
 content_margin_left = 3.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_xphw0"]
-font = ExtResource("8_qt0o8")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8rhtu"]
+bg_color = Color(1, 1, 1, 1)
+border_width_bottom = 16
+border_color = Color(1, 1, 1, 0)
+border_blend = true
 
-[sub_resource type="GDScript" id="GDScript_vgfim"]
-script/source = "extends UISelector
-
-signal audio_output_list_changed()
-
-var audio_device_list: PackedStringArray
-
-
-func _ready() -> void:
-	super()
-
-	LocalSettings.setting_changed.connect(_setting_updated)
-	item_selected.connect(_on_item_selected)
-
-	audio_output_list_changed.connect(_update_list)
-	audio_device_list = AudioServer.get_output_device_list()
-
-	_update_list()
-
-	var saved_device: String = LocalSettings.load_setting(\"Audio\", \"device\")
-	AudioServer.output_device = saved_device
-
-	for device in audio_device_list:
-		if saved_device == device:
-			selected = get_item_index(audio_device_list.find(device))
-
-
-func _process(_delta: float) -> void:
-	var new_device_list: PackedStringArray = AudioServer.get_output_device_list()
-
-	if new_device_list != audio_device_list:
-		var selected_device: String = get_item_text(selected)
-
-		# If the selected audio device is removed, reset it to \"Default\"
-		if not selected_device in new_device_list:
-			push_warning(\"Selected device removed. Resetting to Default.\")
-			AudioServer.output_device = \"Default\"
-			selected = 0
-
-		audio_device_list = new_device_list
-		audio_output_list_changed.emit()
-
-
-func _unhandled_input(_event: InputEvent) -> void:
-	if has_focus() and Input.is_action_just_pressed(\"setting_reset\"):
-		LocalSettings.change_setting(\"Audio\", \"device\", LocalSettings.defaults.get(\"device\"))
-		avfx()
-
-
-func _update_list():
-	var current_items: Dictionary[String, int] = {}
-	for item_number in range(item_count):
-		current_items[get_item_text(item_number)] = item_number
-
-	for device in audio_device_list:
-		if device not in current_items:
-			add_item(device)
-
-	for item in current_items.keys():
-		if item not in audio_device_list:
-			remove_item(current_items[item])
-
-
-func _on_item_selected(index):
-	var device_name: String = audio_device_list[index]
-
-	AudioServer.output_device = device_name
-
-	LocalSettings.change_setting(\"Audio\", \"device\", device_name)
-
-
-func _setting_updated(key: String, new_value: Variant = null):
-	if key != \"device\": return
-
-	selected = get_item_index(audio_device_list.find(new_value))
-"
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8rhtu"]
 
 [sub_resource type="SyntaxHighlighter" id="SyntaxHighlighter_ft8id"]
 script = ExtResource("24_rcxiy")
@@ -335,14 +264,15 @@ theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_y28h8")
 theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_aeygf")
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_m3cpd")
 tab_alignment = 1
-current_tab = 0
+current_tab = 2
 tab_focus_mode = 0
 script = ExtResource("10_fqok6")
 tab_left_sfx = SubResource("Resource_er6et")
 tab_right_sfx = SubResource("Resource_3jvq5")
-focus_grabbers = [NodePath("General/VBoxContainer/FadeEffect/ScrollContainer/VBoxContainer/OptionBool"), NodePath("Controls/FadeEffect/ScrollContainer/Actions/BindSetting"), NodePath("Sound/FadeEffect/ScrollContainer/HBoxContainer/Content/AudioDevice/PresetSelector"), null, NodePath("Data/TopButtons/OpenData")]
+focus_grabbers = [NodePath("General/VBoxContainer/FadeEffect/ScrollContainer/VBoxContainer/OptionBool"), NodePath("Controls/FadeEffect/ScrollContainer/Actions/BindSetting"), NodePath("Sound/VBoxContainer/FadeEffect/ScrollContainer/Content/OptionString"), null, NodePath("Data/TopButtons/OpenData")]
 
 [node name="General" type="MarginContainer" parent="TextureRect/TabControls/Tabs" unique_id=1569784974 node_paths=PackedStringArray("option_desc_label")]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_top = 20
@@ -356,7 +286,7 @@ layout_mode = 2
 
 [node name="FadeEffect" parent="TextureRect/TabControls/Tabs/General/VBoxContainer" unique_id=516137808 instance=ExtResource("14_gkktu")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_gkktu")
+theme_override_styles/panel = SubResource("StyleBoxFlat_qexvu")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/FadeEffect" unique_id=1267424365]
 z_index = 1
@@ -410,7 +340,7 @@ setting_description = "Toggles activity for Solar Engine on your Discord profile
 
 [node name="OptionEnum3" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/FadeEffect/ScrollContainer/VBoxContainer" unique_id=1084759131 instance=ExtResource("16_1beyb")]
 layout_mode = 2
-options = Array[StringName]([&"x1", &"x2", &"x3", &"Fullscreen"])
+options = Array[StringName]([&"1x", &"2x", &"3x", &"Fullscreen"])
 setting_name = "Window Scale"
 setting_description = "Sets the window scale."
 
@@ -529,25 +459,27 @@ vis_animation = &"gp"
 [node name="Space2" type="Control" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/Actions" unique_id=1634328586]
 layout_mode = 2
 
-[node name="Sound" type="VBoxContainer" parent="TextureRect/TabControls/Tabs" unique_id=637948171]
-visible = false
+[node name="Sound" type="MarginContainer" parent="TextureRect/TabControls/Tabs" unique_id=384211348 node_paths=PackedStringArray("option_desc_label")]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("13_1beyb")
+option_desc_label = NodePath("VBoxContainer/OptionDescription")
 metadata/_tab_index = 2
 
-[node name="FadeEffect" type="Panel" parent="TextureRect/TabControls/Tabs/Sound" unique_id=329143959]
-clip_children = 1
-clip_contents = true
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/TabControls/Tabs/Sound" unique_id=1508234235]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_gbf2f")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect" unique_id=34607043]
+[node name="FadeEffect" parent="TextureRect/TabControls/Tabs/Sound/VBoxContainer" unique_id=1578171104 instance=ExtResource("14_gkktu")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8rhtu")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/TabControls/Tabs/Sound/VBoxContainer/FadeEffect" unique_id=34607043]
 z_index = 1
 custom_minimum_size = Vector2(1, 1)
 clip_contents = false
-layout_mode = 1
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -557,80 +489,57 @@ theme = ExtResource("14_tmmuo")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_n7xk5")
 follow_focus = true
 horizontal_scroll_mode = 0
-vertical_scroll_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect/ScrollContainer" unique_id=1346216082]
+[node name="Content" type="VBoxContainer" parent="TextureRect/TabControls/Tabs/Sound/VBoxContainer/FadeEffect/ScrollContainer" unique_id=1045391327]
 z_index = -1
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="Content" type="VBoxContainer" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect/ScrollContainer/HBoxContainer" unique_id=1045391327]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 24
-
-[node name="Space" type="Control" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect/ScrollContainer/HBoxContainer/Content" unique_id=1671024979]
-layout_mode = 2
-size_flags_stretch_ratio = 0.1
-
-[node name="AudioDevice" type="VBoxContainer" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect/ScrollContainer/HBoxContainer/Content" unique_id=2039554531]
-layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Header" type="Label" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect/ScrollContainer/HBoxContainer/Content/AudioDevice" unique_id=945691716]
+[node name="OptionString" parent="TextureRect/TabControls/Tabs/Sound/VBoxContainer/FadeEffect/ScrollContainer/Content" unique_id=928528205 instance=ExtResource("19_qexvu")]
 layout_mode = 2
-text = "Audio Device"
-label_settings = SubResource("LabelSettings_xphw0")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8rhtu")
+script = ExtResource("20_ounp1")
+highlighted = false
+setting_name = "Audio Device"
+setting_description = "The audio device from which sound plays.
+[color=#f1d937]Default[/color] is your system default."
+
+[node name="OptionVolume" parent="TextureRect/TabControls/Tabs/Sound/VBoxContainer/FadeEffect/ScrollContainer/Content" unique_id=2129821287 instance=ExtResource("21_ounp1")]
+layout_mode = 2
+local_setting = "Audio - master_volume"
+setting_name = "Master Volume"
+setting_description = "Slider that controls all sound volume."
+
+[node name="OptionVolume2" parent="TextureRect/TabControls/Tabs/Sound/VBoxContainer/FadeEffect/ScrollContainer/Content" unique_id=1420146773 instance=ExtResource("21_ounp1")]
+layout_mode = 2
+local_setting = "Audio - bgm_volume"
+setting_name = "Music Volume"
+setting_description = "Slider that controls the volume of background music."
+
+[node name="OptionVolume3" parent="TextureRect/TabControls/Tabs/Sound/VBoxContainer/FadeEffect/ScrollContainer/Content" unique_id=1523568838 instance=ExtResource("21_ounp1")]
+layout_mode = 2
+local_setting = "Audio - sfx_volume"
+setting_name = "Effects Volume"
+setting_description = "Slider that controls the volume of general sound effects."
+
+[node name="OptionVolume4" parent="TextureRect/TabControls/Tabs/Sound/VBoxContainer/FadeEffect/ScrollContainer/Content" unique_id=1098579134 instance=ExtResource("21_ounp1")]
+layout_mode = 2
+local_setting = "Audio - voice_volume"
+setting_name = "Voices Volume"
+setting_description = "Slider that controls the volume of voices from NPCs or the player."
+
+[node name="OptionDescription" type="RichTextLabel" parent="TextureRect/TabControls/Tabs/Sound/VBoxContainer" unique_id=2061144485]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+theme_override_fonts/normal_font = ExtResource("8_qt0o8")
+bbcode_enabled = true
+text = "Option description."
+fit_content = true
+scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Space" type="Control" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect/ScrollContainer/HBoxContainer/Content/AudioDevice" unique_id=673131567]
-layout_mode = 2
-
-[node name="PresetSelector" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect/ScrollContainer/HBoxContainer/Content/AudioDevice" unique_id=569071244 instance=ExtResource("20_25y6d")]
-custom_minimum_size = Vector2(0, 27)
-layout_mode = 2
-script = SubResource("GDScript_vgfim")
-
-[node name="Space2" type="Control" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect/ScrollContainer/HBoxContainer/Content/AudioDevice" unique_id=422546832]
-custom_minimum_size = Vector2(0, 5)
-layout_mode = 2
-
-[node name="MasterVolume" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect/ScrollContainer/HBoxContainer/Content" unique_id=110025853 instance=ExtResource("21_ja0vy")]
-layout_mode = 2
-
-[node name="MusicVolume" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect/ScrollContainer/HBoxContainer/Content" unique_id=1428378414 instance=ExtResource("21_ja0vy")]
-layout_mode = 2
-header_text = "Music Volume"
-bus_name = &"Music"
-
-[node name="SFXVolume" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect/ScrollContainer/HBoxContainer/Content" unique_id=496744429 instance=ExtResource("21_ja0vy")]
-layout_mode = 2
-header_text = "Sound Effects Volume"
-bus_name = &"SFX"
-
-[node name="VoiceVolume" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect/ScrollContainer/HBoxContainer/Content" unique_id=874990624 instance=ExtResource("21_ja0vy")]
-layout_mode = 2
-header_text = "Voices Volume"
-bus_name = &"Voice"
-
-[node name="Space2" type="Control" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect/ScrollContainer/HBoxContainer/Content" unique_id=150262896]
-custom_minimum_size = Vector2(0, 3)
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.1
-
-[node name="Space" type="Control" parent="TextureRect/TabControls/Tabs/Sound/FadeEffect/ScrollContainer/HBoxContainer" unique_id=1271556288]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.03
-
-[node name="Space2" type="Control" parent="TextureRect/TabControls/Tabs/Sound" unique_id=315429098]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.1
 
 [node name="Accessibility" type="VBoxContainer" parent="TextureRect/TabControls/Tabs" unique_id=1218910130]
 visible = false
