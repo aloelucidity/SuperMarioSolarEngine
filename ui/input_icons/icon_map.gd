@@ -1,9 +1,10 @@
+@tool
 class_name IconMap
 extends Node
 ## Utility class for finding the associated icon with an InputEvent.
 
 ## The dictionary that defines which actions correspond to which icons.
-static var icon_map: Resource = preload("uid://cqn6pfhri63v7")
+static var icon_dictionary: Resource = preload("uid://cqn6pfhri63v7")
 ## Dictionary that defines the events in [member icon_map] as strings.
 ## (These strings are hashed, which is why the key is typed as an integer.)
 static var event_map: Dictionary[int, InputEvent] = {}
@@ -11,7 +12,7 @@ static var event_map: Dictionary[int, InputEvent] = {}
 
 static func _static_init() -> void:
 	if event_map.is_empty():
-		for event: InputEvent in icon_map.dictionary:
+		for event: InputEvent in icon_dictionary.dictionary:
 			if event != null:
 				event_map.set(get_filtered_name(event).hash(), event)
 
@@ -44,9 +45,9 @@ static func get_associated_event(filtered_name: String) -> InputEvent:
 
 
 ## Returns the associated icon graphic for an [InputEvent].
-static func find(event: InputEvent) -> CompressedTexture2D:
+static func find(event: InputEvent) -> Texture2D:
 	var key: String = get_filtered_name(event)
-	return icon_map.dictionary.get(event_map.get(key.hash()), null)
+	return icon_dictionary.dictionary.get(event_map.get(key.hash()), null)
 
 
 static func _joypad_button_name(button: int) -> String:

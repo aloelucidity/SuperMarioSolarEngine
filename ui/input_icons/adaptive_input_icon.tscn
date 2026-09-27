@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://041vxmcv1wxt"]
+
+[ext_resource type="Texture2D" uid="uid://ywblm54ggdd5" path="res://ui/input_icons/keyboard_mouse/keyboard_a.svg" id="1_q3tdt"]
+[ext_resource type="Script" uid="uid://bctf3i0okqs61" path="res://ui/input_icons/adaptive_input_icon.gd" id="1_s4jb0"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_q3tdt"]
+device = -1
+keycode = 65
+unicode = 97
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_btntu"]
+button_index = 1
+
+[node name="AdaptiveInputIcon" type="TextureRect" unique_id=1538614013]
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.06
+texture = ExtResource("1_q3tdt")
+script = ExtResource("1_s4jb0")
+keyboard_input = SubResource("InputEventKey_q3tdt")
+controller_input = SubResource("InputEventJoypadButton_btntu")

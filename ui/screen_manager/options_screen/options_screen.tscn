@@ -7,8 +7,8 @@
 [ext_resource type="FontFile" uid="uid://e821cxxeybxh" path="res://ui/fonts/mario_sunshine.ttf" id="5_q4vbo"]
 [ext_resource type="Shader" uid="uid://byfa3t51pf655" path="res://ui/screen_manager/pause_screen/pause_panel.tres" id="6_unh05"]
 [ext_resource type="Texture2D" uid="uid://knkg28xlj4h8" path="res://ui/screen_manager/pause_screen/textures/spike.png" id="7_dovt5"]
+[ext_resource type="PackedScene" uid="uid://041vxmcv1wxt" path="res://ui/input_icons/adaptive_input_icon.tscn" id="8_2ce7p"]
 [ext_resource type="FontFile" uid="uid://b74xlyn5xhoas" path="res://ui/fonts/paper_mario.ttf" id="8_qt0o8"]
-[ext_resource type="Texture2D" uid="uid://cf78bvynxea03" path="res://ui/input_icons/nintendo_switch/switch_button_l.svg" id="9_al10c"]
 [ext_resource type="Script" uid="uid://dvca417ad8kmq" path="res://ui/tab_controller.gd" id="10_fqok6"]
 [ext_resource type="AudioStream" uid="uid://cit45yv71vt35" path="res://ui/sfx/tab_l.wav" id="11_feobp"]
 [ext_resource type="AudioStream" uid="uid://egw1cy6ntywl" path="res://ui/sfx/tab_r.wav" id="12_m6tm2"]
@@ -24,14 +24,9 @@
 [ext_resource type="Script" uid="uid://bwn84qudsrcg4" path="res://ui/screen_manager/options_screen/data/data_tab.gd" id="22_rk238"]
 [ext_resource type="PackedScene" uid="uid://bb6wf0meej6ox" path="res://ui/buttons/ui_button.tscn" id="23_b4e42"]
 [ext_resource type="Script" uid="uid://chowmypbcyrmx" path="res://ui/screen_manager/options_screen/data/settings_highlighter.gd" id="24_rcxiy"]
-[ext_resource type="Texture2D" uid="uid://356g6gk2u4lq" path="res://ui/input_icons/nintendo_switch/switch_button_r.svg" id="25_ucrok"]
-[ext_resource type="Texture2D" uid="uid://c125fwk30fu0" path="res://ui/input_icons/keyboard_mouse/keyboard_escape.svg" id="26_nri8o"]
 [ext_resource type="Texture2D" uid="uid://y343nq5v4ud5" path="res://ui/input_icons/nintendo_switch/switch_button_b.svg" id="27_wcvnr"]
-[ext_resource type="Texture2D" uid="uid://bqjtwa8tc2b0h" path="res://ui/input_icons/keyboard_mouse/keyboard_enter.svg" id="28_6nqcw"]
 [ext_resource type="Texture2D" uid="uid://dq5pu8koelu4u" path="res://ui/input_icons/nintendo_switch/switch_button_a.svg" id="29_a7w6t"]
-[ext_resource type="Texture2D" uid="uid://40c63r8ke4mj" path="res://ui/input_icons/keyboard_mouse/keyboard_delete.svg" id="30_otxen"]
 [ext_resource type="Texture2D" uid="uid://c0y7k7pos5e3e" path="res://ui/input_icons/nintendo_switch/switch_button_y.svg" id="31_4ugsb"]
-[ext_resource type="Texture2D" uid="uid://duwkwt771mmf3" path="res://ui/input_icons/keyboard_mouse/keyboard_backspace_icon.svg" id="32_e6a3n"]
 [ext_resource type="Texture2D" uid="uid://c8t2udtmy6oac" path="res://ui/input_icons/nintendo_switch/switch_button_x.svg" id="33_dqx84"]
 
 [sub_resource type="Resource" id="Resource_504o4"]
@@ -134,7 +129,7 @@ overwrite_other_in_source = false
 is_2d = false
 metadata/_custom_type_script = "uid://b262pbs7y0djt"
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qexvu"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ce7p"]
 bg_color = Color(1, 1, 1, 1)
 border_width_bottom = 16
 border_color = Color(1, 1, 1, 0)
@@ -149,7 +144,7 @@ border_blend = true
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n7xk5"]
 content_margin_left = 3.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8rhtu"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5c1c2"]
 bg_color = Color(1, 1, 1, 1)
 border_width_bottom = 16
 border_color = Color(1, 1, 1, 0)
@@ -239,18 +234,10 @@ grow_vertical = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="Left" type="Button" parent="TextureRect/TabControls" unique_id=1334841320]
+[node name="AdaptiveInputIcon" parent="TextureRect/TabControls" unique_id=1538614013 instance=ExtResource("8_2ce7p")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.06
-focus_mode = 0
-theme_override_fonts/font = ExtResource("8_qt0o8")
-theme_override_font_sizes/font_size = 0
-icon = ExtResource("9_al10c")
-flat = true
-icon_alignment = 2
-vertical_icon_alignment = 0
-expand_icon = true
+expand_mode = 1
+stretch_mode = 4
 
 [node name="Tabs" type="TabContainer" parent="TextureRect/TabControls" unique_id=512493834 node_paths=PackedStringArray("focus_grabbers")]
 layout_mode = 2
@@ -264,7 +251,7 @@ theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_y28h8")
 theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_aeygf")
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_m3cpd")
 tab_alignment = 1
-current_tab = 2
+current_tab = 1
 tab_focus_mode = 0
 script = ExtResource("10_fqok6")
 tab_left_sfx = SubResource("Resource_er6et")
@@ -286,7 +273,7 @@ layout_mode = 2
 
 [node name="FadeEffect" parent="TextureRect/TabControls/Tabs/General/VBoxContainer" unique_id=516137808 instance=ExtResource("14_gkktu")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_qexvu")
+theme_override_styles/panel = SubResource("StyleBoxFlat_2ce7p")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/FadeEffect" unique_id=1267424365]
 z_index = 1
@@ -370,7 +357,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Controls" type="VBoxContainer" parent="TextureRect/TabControls/Tabs" unique_id=194933923]
-visible = false
 layout_mode = 2
 theme_override_constants/separation = 16
 metadata/_tab_index = 1
@@ -460,6 +446,7 @@ vis_animation = &"gp"
 layout_mode = 2
 
 [node name="Sound" type="MarginContainer" parent="TextureRect/TabControls/Tabs" unique_id=384211348 node_paths=PackedStringArray("option_desc_label")]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_top = 20
@@ -473,7 +460,7 @@ layout_mode = 2
 
 [node name="FadeEffect" parent="TextureRect/TabControls/Tabs/Sound/VBoxContainer" unique_id=1578171104 instance=ExtResource("14_gkktu")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_8rhtu")
+theme_override_styles/panel = SubResource("StyleBoxFlat_5c1c2")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/TabControls/Tabs/Sound/VBoxContainer/FadeEffect" unique_id=34607043]
 z_index = 1
@@ -635,17 +622,10 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="Right" type="Button" parent="TextureRect/TabControls" unique_id=2125753789]
+[node name="AdaptiveInputIcon2" parent="TextureRect/TabControls" unique_id=87978640 instance=ExtResource("8_2ce7p")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.06
-focus_mode = 0
-theme_override_fonts/font = ExtResource("8_qt0o8")
-theme_override_font_sizes/font_size = 0
-icon = ExtResource("25_ucrok")
-flat = true
-vertical_icon_alignment = 0
-expand_icon = true
+expand_mode = 1
+stretch_mode = 4
 
 [node name="Footer" type="Panel" parent="." unique_id=1441851723]
 layout_mode = 2
@@ -671,7 +651,6 @@ layout_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="Footer/Content/ReturnControls" unique_id=1967709411]
 layout_mode = 2
-texture = ExtResource("26_nri8o")
 expand_mode = 3
 
 [node name="Label2" type="Label" parent="Footer/Content/ReturnControls" unique_id=2088808002]
@@ -694,7 +673,6 @@ layout_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="Footer/Content/SelectControls" unique_id=300174492]
 layout_mode = 2
-texture = ExtResource("28_6nqcw")
 expand_mode = 3
 
 [node name="Label2" type="Label" parent="Footer/Content/SelectControls" unique_id=19596244]
@@ -721,7 +699,6 @@ layout_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="Footer/Content/ClearControls" unique_id=430328928]
 layout_mode = 2
-texture = ExtResource("30_otxen")
 expand_mode = 3
 
 [node name="Label2" type="Label" parent="Footer/Content/ClearControls" unique_id=1917805760]
@@ -744,7 +721,6 @@ layout_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="Footer/Content/ResetControls" unique_id=584980346]
 layout_mode = 2
-texture = ExtResource("32_e6a3n")
 expand_mode = 3
 
 [node name="Label2" type="Label" parent="Footer/Content/ResetControls" unique_id=410626509]
