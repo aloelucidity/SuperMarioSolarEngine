@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cs54f27krn10m"
-path="res://.godot/imported/temp_sheet.png-841e4753334da1ff1fc9451846cdc855.ctex"
+uid="uid://cajyqgwclgqrf"
+path="res://.godot/imported/crouch.png-944dbc6e4411cebec826b8a10fe54bc4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/player/mario/anime/temp_127/temp_sheet.png"
-dest_files=["res://.godot/imported/temp_sheet.png-841e4753334da1ff1fc9451846cdc855.ctex"]
+source_file="res://entities/player/mario/anime/rfx/crouch.png"
+dest_files=["res://.godot/imported/crouch.png-944dbc6e4411cebec826b8a10fe54bc4.ctex"]
 
 [params]
 
