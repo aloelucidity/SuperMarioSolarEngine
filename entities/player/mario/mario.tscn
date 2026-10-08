@@ -445,7 +445,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Resource" id="Resource_676rb"]
+[sub_resource type="Resource" id="Resource_mk8bu"]
 resource_local_to_scene = true
 script = ExtResource("23_bbld7")
 doll_path = NodePath("Doll")
@@ -455,18 +455,12 @@ frame_offsets = Dictionary[int, Vector2i]({
 0: Vector2i(0, 0)
 })
 frame_fludd = Dictionary[int, String]({
-0: "default",
-1: "default"
+0: "default"
 })
 frame_fludd_offsets = Dictionary[int, Vector2i]({
-0: Vector2i(0, 0),
-1: Vector2i(0, 0),
-3: Vector2i(0, 1),
-4: Vector2i(0, 2),
-5: Vector2i(0, 2),
-6: Vector2i(0, 1)
+0: Vector2i(0, 0)
 })
-animation = "idle"
+animation = "walljump"
 frame = 0
 preview = false
 frame_offset = Vector2i(0, 0)
@@ -936,6 +930,35 @@ script = ExtResource("49_apkmk")
 [sub_resource type="Resource" id="Resource_efjxb"]
 script = ExtResource("49_apkmk")
 metadata/_custom_type_script = "uid://dvlt5sb8enmu8"
+
+[sub_resource type="Resource" id="Resource_676rb"]
+resource_local_to_scene = true
+script = ExtResource("23_bbld7")
+doll_path = NodePath("Doll")
+fludd_f_path = NodePath("FluddInfront")
+fludd_b_path = NodePath("FluddBehind")
+frame_offsets = Dictionary[int, Vector2i]({
+0: Vector2i(0, 0)
+})
+frame_fludd = Dictionary[int, String]({
+0: "default",
+1: "default"
+})
+frame_fludd_offsets = Dictionary[int, Vector2i]({
+0: Vector2i(0, 0),
+1: Vector2i(0, 0),
+3: Vector2i(0, 1),
+4: Vector2i(0, 2),
+5: Vector2i(0, 2),
+6: Vector2i(0, 1)
+})
+animation = "idle"
+frame = 0
+preview = false
+frame_offset = Vector2i(0, 0)
+fludd_animation = "default"
+fludd_offset = Vector2i(0, 0)
+metadata/_custom_type_script = "uid://cb4g1yl24gj7m"
 
 [sub_resource type="Resource" id="Resource_xh3w7"]
 resource_local_to_scene = true
@@ -1823,19 +1846,19 @@ doll_path = NodePath("Doll")
 fludd_f_path = NodePath("FluddInfront")
 fludd_b_path = NodePath("FluddBehind")
 frame_offsets = Dictionary[int, Vector2i]({
-0: Vector2i(0, 6),
-1: Vector2i(0, 6),
-2: Vector2i(0, 6),
-3: Vector2i(0, 6),
-4: Vector2i(0, 6),
-5: Vector2i(0, 6),
-6: Vector2i(0, 6),
-7: Vector2i(0, 6),
-8: Vector2i(0, 6),
-9: Vector2i(0, 6),
-10: Vector2i(0, 6),
-11: Vector2i(0, 6),
-12: Vector2i(0, 6)
+0: Vector2i(0, 0),
+1: Vector2i(0, 0),
+2: Vector2i(0, 0),
+3: Vector2i(0, 0),
+4: Vector2i(0, 0),
+5: Vector2i(0, 0),
+6: Vector2i(0, 0),
+7: Vector2i(0, 0),
+8: Vector2i(0, 0),
+9: Vector2i(0, 0),
+10: Vector2i(0, 0),
+11: Vector2i(0, 0),
+12: Vector2i(0, 0)
 })
 frame_fludd = Dictionary[int, String]({
 0: "default",
@@ -1849,7 +1872,7 @@ frame_fludd = Dictionary[int, String]({
 10: "rot_z315"
 })
 frame_fludd_offsets = Dictionary[int, Vector2i]({
-0: Vector2i(5, 17),
+0: Vector2i(7, 0),
 1: Vector2i(0, -1),
 2: Vector2i(7, 0),
 3: Vector2i(13, 15),
@@ -1866,9 +1889,9 @@ frame_fludd_offsets = Dictionary[int, Vector2i]({
 animation = "triple_jump"
 frame = 0
 preview = false
-frame_offset = Vector2i(0, 6)
+frame_offset = Vector2i(0, 0)
 fludd_animation = "default"
-fludd_offset = Vector2i(5, 17)
+fludd_offset = Vector2i(7, 0)
 metadata/_custom_type_script = "uid://cb4g1yl24gj7m"
 
 [sub_resource type="Resource" id="Resource_tjg72"]
@@ -2739,29 +2762,6 @@ particle_scene = ExtResource("121_qidyp")
 particle_offset = Vector2(8, -7)
 loop_delay = 2
 
-[sub_resource type="Resource" id="Resource_mk8bu"]
-resource_local_to_scene = true
-script = ExtResource("23_bbld7")
-doll_path = NodePath("Doll")
-fludd_f_path = NodePath("FluddInfront")
-fludd_b_path = NodePath("FluddBehind")
-frame_offsets = Dictionary[int, Vector2i]({
-0: Vector2i(0, 0)
-})
-frame_fludd = Dictionary[int, String]({
-0: "default"
-})
-frame_fludd_offsets = Dictionary[int, Vector2i]({
-0: Vector2i(0, 1)
-})
-animation = "walljump"
-frame = 0
-preview = false
-frame_offset = Vector2i(0, 0)
-fludd_animation = "default"
-fludd_offset = Vector2i(0, 1)
-metadata/_custom_type_script = "uid://cb4g1yl24gj7m"
-
 [sub_resource type="Resource" id="Resource_1ewy3"]
 script = ExtResource("26_ta4lc")
 stream = ExtResource("71_ohc7q")
@@ -3048,6 +3048,29 @@ frame_fludd_offsets = Dictionary[int, Vector2i]({
 0: Vector2i(0, 0)
 })
 animation = "double_fall"
+frame = 0
+preview = false
+frame_offset = Vector2i(0, 0)
+fludd_animation = "default"
+fludd_offset = Vector2i(0, 0)
+metadata/_custom_type_script = "uid://cb4g1yl24gj7m"
+
+[sub_resource type="Resource" id="Resource_x7s5c"]
+resource_local_to_scene = true
+script = ExtResource("23_bbld7")
+doll_path = NodePath("Doll")
+fludd_f_path = NodePath("FluddInfront")
+fludd_b_path = NodePath("FluddBehind")
+frame_offsets = Dictionary[int, Vector2i]({
+0: Vector2i(0, 0)
+})
+frame_fludd = Dictionary[int, String]({
+0: "default"
+})
+frame_fludd_offsets = Dictionary[int, Vector2i]({
+0: Vector2i(0, 0)
+})
+animation = "wall_fall"
 frame = 0
 preview = false
 frame_offset = Vector2i(0, 0)
@@ -4249,19 +4272,19 @@ offset_bottom = -33.0
 visible = false
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_e1ut2")
+animation = &"rot_z045"
 
 [node name="Doll" type="AnimatedSprite2D" parent="." unique_id=1876045562]
 position = Vector2(0, -24)
 sprite_frames = ExtResource("4_xenv0")
-animation = &"skid"
-frame = 1
-frame_progress = 1.0
-metadata/last_previewed = SubResource("Resource_676rb")
+animation = &"jump_fall"
+metadata/last_previewed = SubResource("Resource_mk8bu")
 
 [node name="FluddInfront" type="AnimatedSprite2D" parent="." unique_id=1928286412]
 visible = false
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_1i10v")
+animation = &"rot_z045"
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=76578262]
 position = Vector2(0, -15)
@@ -4698,6 +4721,10 @@ sfx_layers = Array[ExtResource("49_apkmk")]([SubResource("Resource_5kqsg")])
 [node name="DoubleFall" type="Node" parent="StateManager/Dry/Airborne/FallStates" unique_id=173280740]
 script = ExtResource("113_j3k6p")
 animation_data = SubResource("Resource_saqqr")
+
+[node name="WallFall" type="Node" parent="StateManager/Dry/Airborne/FallStates" unique_id=1705409742]
+script = ExtResource("113_j3k6p")
+animation_data = SubResource("Resource_x7s5c")
 
 [node name="GroundPoundStates" type="Node" parent="StateManager/Dry/Airborne" unique_id=1537413182]
 script = ExtResource("73_acu3g")

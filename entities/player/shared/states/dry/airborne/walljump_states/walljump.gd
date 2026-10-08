@@ -65,4 +65,7 @@ func _trans_rules():
 	if movement.finished_freefall_timer():
 		return &"Freefall"
 
+	if actor.velocity.y > 0:
+		return &"WallFall"
+
 	return &""
