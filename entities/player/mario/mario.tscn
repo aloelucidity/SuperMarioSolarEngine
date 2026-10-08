@@ -4277,7 +4277,7 @@ animation = &"rot_z045"
 [node name="Doll" type="AnimatedSprite2D" parent="." unique_id=1876045562]
 position = Vector2(0, -24)
 sprite_frames = ExtResource("4_xenv0")
-animation = &"spinjump"
+animation = &"super_rollout"
 metadata/last_previewed = SubResource("Resource_mk8bu")
 
 [node name="FluddInfront" type="AnimatedSprite2D" parent="." unique_id=1928286412]

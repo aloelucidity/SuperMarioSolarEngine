@@ -31,7 +31,7 @@ func _trans_rules():
 	):
 		return &"Dive"
 
-	if actor.is_on_floor():
+	if actor.is_on_floor() and actor.velocity.y > 0:
 		return &"Idle"
 
 	if movement.can_spin() and input.buffered_input(&"spin"):
