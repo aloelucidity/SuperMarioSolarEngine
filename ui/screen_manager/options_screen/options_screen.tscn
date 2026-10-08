@@ -418,6 +418,14 @@ vis_animation = &"swim"
 vis_icon_flip_h = true
 vis_icon_flip_v = true
 
+[node name="BindSetting9" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/Actions" unique_id=1097206262 instance=ExtResource("19_mnx2d")]
+layout_mode = 2
+p_action_name = &"crouch"
+vis_title = &"Crouch"
+vis_animation = &"swim"
+vis_icon_flip_h = true
+vis_icon_flip_v = true
+
 [node name="BindSetting5" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/Actions" unique_id=510197050 instance=ExtResource("19_mnx2d")]
 layout_mode = 2
 p_action_name = &"jump"
