@@ -25,10 +25,11 @@
 [ext_resource type="Script" uid="uid://bwn84qudsrcg4" path="res://ui/screen_manager/options_screen/data/data_tab.gd" id="22_rk238"]
 [ext_resource type="PackedScene" uid="uid://bb6wf0meej6ox" path="res://ui/buttons/ui_button.tscn" id="23_b4e42"]
 [ext_resource type="Script" uid="uid://chowmypbcyrmx" path="res://ui/screen_manager/options_screen/data/settings_highlighter.gd" id="24_rcxiy"]
-[ext_resource type="Texture2D" uid="uid://y343nq5v4ud5" path="res://ui/input_icons/nintendo_switch/switch_button_b.svg" id="27_wcvnr"]
-[ext_resource type="Texture2D" uid="uid://dq5pu8koelu4u" path="res://ui/input_icons/nintendo_switch/switch_button_a.svg" id="29_a7w6t"]
-[ext_resource type="Texture2D" uid="uid://c0y7k7pos5e3e" path="res://ui/input_icons/nintendo_switch/switch_button_y.svg" id="31_4ugsb"]
-[ext_resource type="Texture2D" uid="uid://c8t2udtmy6oac" path="res://ui/input_icons/nintendo_switch/switch_button_x.svg" id="33_dqx84"]
+[ext_resource type="Texture2D" uid="uid://dmjexl1buo3jf" path="res://ui/input_icons/keyboard_mouse/keyboard_e.svg" id="26_5c1c2"]
+[ext_resource type="Texture2D" uid="uid://bqjtwa8tc2b0h" path="res://ui/input_icons/keyboard_mouse/keyboard_enter.svg" id="27_r13h6"]
+[ext_resource type="Texture2D" uid="uid://c125fwk30fu0" path="res://ui/input_icons/keyboard_mouse/keyboard_escape.svg" id="28_1beyb"]
+[ext_resource type="Texture2D" uid="uid://40c63r8ke4mj" path="res://ui/input_icons/keyboard_mouse/keyboard_delete.svg" id="29_gkktu"]
+[ext_resource type="Texture2D" uid="uid://duwkwt771mmf3" path="res://ui/input_icons/keyboard_mouse/keyboard_backspace_icon.svg" id="29_r13h6"]
 
 [sub_resource type="Resource" id="Resource_504o4"]
 script = ExtResource("2_qexvu")
@@ -69,6 +70,14 @@ shader_parameter/spike_texture = ExtResource("7_dovt5")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nte8f"]
 load_path = "res://.godot/imported/pattern_solar.png-7851dba46d4d0fd594dcc5410d56f26b.ctex"
+
+[sub_resource type="InputEventKey" id="InputEventKey_gkktu"]
+device = -1
+keycode = 65
+unicode = 97
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_5c1c2"]
+button_index = 9
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q1vx3"]
 
@@ -130,13 +139,13 @@ overwrite_other_in_source = false
 is_2d = false
 metadata/_custom_type_script = "uid://b262pbs7y0djt"
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5c1c2"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r13h6"]
 bg_color = Color(1, 1, 1, 1)
 border_width_bottom = 16
 border_color = Color(1, 1, 1, 0)
 border_blend = true
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r13h6"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1beyb"]
 bg_color = Color(1, 1, 1, 1)
 border_width_bottom = 16
 border_color = Color(1, 1, 1, 0)
@@ -174,13 +183,35 @@ anti_aliasing = false
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y28h8"]
 
+[sub_resource type="InputEventKey" id="InputEventKey_qexvu"]
+device = -1
+keycode = 69
+unicode = 101
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_8rhtu"]
+button_index = 10
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdkor"]
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_n7xk5"]
 font = ExtResource("8_qt0o8")
 
-[node name="OptionsScreen" type="VBoxContainer" unique_id=121927984 node_paths=PackedStringArray("tabs", "clear_controls", "reset_controls")]
+[sub_resource type="InputEventKey" id="InputEventKey_1beyb"]
+device = -1
+keycode = 4194308
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_gkktu"]
+button_index = 3
+
+[sub_resource type="InputEventKey" id="InputEventKey_ounp1"]
+device = -1
+keycode = 4194312
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_qexvu"]
+button_index = 2
+
+[node name="OptionsScreen" type="VBoxContainer" unique_id=121927984 node_paths=PackedStringArray("tabs", "reset_controls", "clear_controls")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -189,8 +220,8 @@ grow_vertical = 2
 theme_override_constants/separation = 0
 script = ExtResource("1_ounp1")
 tabs = NodePath("TextureRect/TabControls/Tabs")
-clear_controls = NodePath("Footer/Content/ClearControls")
 reset_controls = NodePath("Footer/Content/ResetControls")
+clear_controls = NodePath("Footer/Content/ClearControls")
 open_sfx = SubResource("Resource_504o4")
 close_sfx = SubResource("Resource_r5lpl")
 open_anim = &"options_peek"
@@ -238,6 +269,8 @@ size_flags_stretch_ratio = 0.1
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 4
+keyboard_input = SubResource("InputEventKey_gkktu")
+controller_input = SubResource("InputEventJoypadButton_5c1c2")
 
 [node name="Tabs" type="TabContainer" parent="TextureRect/TabControls" unique_id=512493834 node_paths=PackedStringArray("focus_grabbers")]
 layout_mode = 2
@@ -251,7 +284,7 @@ theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_y28h8")
 theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_aeygf")
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_m3cpd")
 tab_alignment = 1
-current_tab = 1
+current_tab = 0
 tab_focus_mode = 0
 script = ExtResource("10_fqok6")
 tab_left_sfx = SubResource("Resource_er6et")
@@ -259,7 +292,6 @@ tab_right_sfx = SubResource("Resource_3jvq5")
 focus_grabbers = [NodePath("General/VBoxContainer/FadeEffect/ScrollContainer/VBoxContainer/OptionBool"), NodePath("Controls/VBoxContainer/InputTabSelector"), NodePath("Sound/VBoxContainer/Content/OptionString"), null, NodePath("Data/TopButtons/OpenData")]
 
 [node name="General" type="MarginContainer" parent="TextureRect/TabControls/Tabs" unique_id=1569784974 node_paths=PackedStringArray("option_desc_label")]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_top = 20
@@ -273,7 +305,7 @@ layout_mode = 2
 
 [node name="FadeEffect" parent="TextureRect/TabControls/Tabs/General/VBoxContainer" unique_id=516137808 instance=ExtResource("14_gkktu")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_5c1c2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_r13h6")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/FadeEffect" unique_id=1267424365]
 z_index = 1
@@ -357,6 +389,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Controls" type="MarginContainer" parent="TextureRect/TabControls/Tabs" unique_id=1368590496 node_paths=PackedStringArray("option_desc_label")]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_top = 20
@@ -375,7 +408,7 @@ setting_name = "Input Mode"
 
 [node name="FadeEffect" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer" unique_id=404155910 instance=ExtResource("14_gkktu")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_r13h6")
+theme_override_styles/panel = SubResource("StyleBoxFlat_1beyb")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect" unique_id=1836151622]
 z_index = 1
@@ -687,8 +720,11 @@ size_flags_stretch_ratio = 0.1
 
 [node name="AdaptiveInputIcon2" parent="TextureRect/TabControls" unique_id=87978640 instance=ExtResource("8_2ce7p")]
 layout_mode = 2
+texture = ExtResource("26_5c1c2")
 expand_mode = 1
 stretch_mode = 4
+keyboard_input = SubResource("InputEventKey_qexvu")
+controller_input = SubResource("InputEventJoypadButton_8rhtu")
 
 [node name="Footer" type="Panel" parent="." unique_id=1441851723]
 layout_mode = 2
@@ -709,25 +745,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 16
 
-[node name="ReturnControls" type="HBoxContainer" parent="Footer/Content" unique_id=1127008441]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="Footer/Content/ReturnControls" unique_id=1399924518]
-layout_mode = 2
-texture = ExtResource("27_wcvnr")
-expand_mode = 3
-
-[node name="Label" type="Label" parent="Footer/Content/ReturnControls" unique_id=1538525972]
-layout_mode = 2
-text = "Return"
-label_settings = SubResource("LabelSettings_n7xk5")
-
 [node name="SelectControls" type="HBoxContainer" parent="Footer/Content" unique_id=441765951]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Footer/Content/SelectControls" unique_id=912055922]
+[node name="AdaptiveInputIcon" parent="Footer/Content/SelectControls" unique_id=1594061442 instance=ExtResource("8_2ce7p")]
 layout_mode = 2
-texture = ExtResource("29_a7w6t")
+texture = ExtResource("27_r13h6")
 expand_mode = 3
 
 [node name="Label" type="Label" parent="Footer/Content/SelectControls" unique_id=1904109721]
@@ -735,34 +758,51 @@ layout_mode = 2
 text = "Select"
 label_settings = SubResource("LabelSettings_n7xk5")
 
+[node name="ReturnControls" type="HBoxContainer" parent="Footer/Content" unique_id=1127008441]
+layout_mode = 2
+
+[node name="AdaptiveInputIcon" parent="Footer/Content/ReturnControls" unique_id=872026373 instance=ExtResource("8_2ce7p")]
+layout_mode = 2
+texture = ExtResource("28_1beyb")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="Footer/Content/ReturnControls" unique_id=1538525972]
+layout_mode = 2
+text = "Return"
+label_settings = SubResource("LabelSettings_n7xk5")
+
 [node name="Control" type="Control" parent="Footer/Content" unique_id=709405143]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ClearControls" type="HBoxContainer" parent="Footer/Content" unique_id=2012440828]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="Footer/Content/ClearControls" unique_id=1766624948]
-layout_mode = 2
-texture = ExtResource("31_4ugsb")
-expand_mode = 3
-
-[node name="Label" type="Label" parent="Footer/Content/ClearControls" unique_id=2003503760]
-layout_mode = 2
-text = "Clear"
-label_settings = SubResource("LabelSettings_n7xk5")
-
 [node name="ResetControls" type="HBoxContainer" parent="Footer/Content" unique_id=773730727]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Footer/Content/ResetControls" unique_id=1709214655]
+[node name="AdaptiveInputIcon" parent="Footer/Content/ResetControls" unique_id=676762960 instance=ExtResource("8_2ce7p")]
 layout_mode = 2
-texture = ExtResource("33_dqx84")
+texture = ExtResource("29_r13h6")
 expand_mode = 3
+keyboard_input = SubResource("InputEventKey_1beyb")
+controller_input = SubResource("InputEventJoypadButton_gkktu")
 
 [node name="Label" type="Label" parent="Footer/Content/ResetControls" unique_id=143690629]
 layout_mode = 2
 text = "Reset"
+label_settings = SubResource("LabelSettings_n7xk5")
+
+[node name="ClearControls" type="HBoxContainer" parent="Footer/Content" unique_id=2012440828]
+layout_mode = 2
+
+[node name="AdaptiveInputIcon" parent="Footer/Content/ClearControls" unique_id=223367643 instance=ExtResource("8_2ce7p")]
+layout_mode = 2
+texture = ExtResource("29_gkktu")
+expand_mode = 3
+keyboard_input = SubResource("InputEventKey_ounp1")
+controller_input = SubResource("InputEventJoypadButton_qexvu")
+
+[node name="Label" type="Label" parent="Footer/Content/ClearControls" unique_id=2003503760]
+layout_mode = 2
+text = "Clear"
 label_settings = SubResource("LabelSettings_n7xk5")
 
 [connection signal="tab_changed" from="TextureRect/TabControls/Tabs" to="TextureRect/TabControls/Tabs" method="_on_tab_changed"]
