@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://csfiw5bvn21ve" path="res://props/terrain/graph/ground_edge.png" id="5_cu5uw"]
 [ext_resource type="Texture2D" uid="uid://coyme4cebdclp" path="res://props/terrain/graph/ground_fill.png" id="6_mqqpi"]
 [ext_resource type="PackedScene" uid="uid://dgqp3sqvmcvpu" path="res://entities/player/mario/mario.tscn" id="7_bo77d"]
-[ext_resource type="Script" uid="uid://bbmclpwuq08cb" path="res://addons/terrain_2d/terrain_2d.gd" id="7_wnvir"]
 [ext_resource type="FontFile" uid="uid://b74xlyn5xhoas" path="res://ui/fonts/paper_mario.ttf" id="8_hivsu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7uvfi"]
@@ -67,12 +66,6 @@ limit_top = 0
 limit_right = 2353
 limit_bottom = 360
 editor_draw_limits = true
-
-[node name="Terrain2D" type="Node2D" parent="." unique_id=496787659]
-position = Vector2(458.2964, 175.82072)
-script = ExtResource("7_wnvir")
-points = PackedVector2Array()
-metadata/_custom_type_script = "uid://bbmclpwuq08cb"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1649765042]
 
