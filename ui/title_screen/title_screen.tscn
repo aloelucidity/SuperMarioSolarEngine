@@ -9,7 +9,6 @@
 [ext_resource type="Script" uid="uid://dg4a6r83hm158" path="res://util/commit_label.gd" id="9_1djn3"]
 [ext_resource type="FontFile" uid="uid://b74xlyn5xhoas" path="res://ui/fonts/paper_mario.ttf" id="9_gwpbi"]
 [ext_resource type="Texture2D" uid="uid://tbn433hx7em2" path="res://ui/title_screen/play_icon.png" id="10_108is"]
-[ext_resource type="Texture2D" uid="uid://dga26k832tjwx" path="res://ui/title_screen/edit_icon.png" id="11_k4tpe"]
 
 [sub_resource type="Animation" id="Animation_685si"]
 length = 0.001
@@ -196,20 +195,10 @@ size_flags_stretch_ratio = 0.3
 
 [node name="Play" parent="Contents/Choices" unique_id=1097239016 instance=ExtResource("7_rdlol")]
 layout_mode = 2
+size_flags_stretch_ratio = 0.3
 theme_override_font_sizes/font_size = 28
 text = "PLAY"
 icon = ExtResource("10_108is")
-
-[node name="SpaceMiddle" type="Control" parent="Contents/Choices" unique_id=1459160608]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.1
-
-[node name="Edit" parent="Contents/Choices" unique_id=60847240 instance=ExtResource("7_rdlol")]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "EDIT"
-icon = ExtResource("11_k4tpe")
 
 [node name="SpaceRight" type="Control" parent="Contents/Choices" unique_id=1835675600]
 layout_mode = 2
@@ -232,4 +221,3 @@ script = ExtResource("9_1djn3")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="Contents/Choices/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Contents/Choices/Edit" to="." method="_on_edit_pressed"]
