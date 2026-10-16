@@ -139,13 +139,13 @@ overwrite_other_in_source = false
 is_2d = false
 metadata/_custom_type_script = "uid://b262pbs7y0djt"
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r13h6"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gkktu"]
 bg_color = Color(1, 1, 1, 1)
 border_width_bottom = 16
 border_color = Color(1, 1, 1, 0)
 border_blend = true
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1beyb"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ounp1"]
 bg_color = Color(1, 1, 1, 1)
 border_width_bottom = 16
 border_color = Color(1, 1, 1, 0)
@@ -194,8 +194,21 @@ button_index = 10
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdkor"]
 bg_color = Color(0, 0, 0, 1)
 
+[sub_resource type="InputEventKey" id="InputEventKey_2ce7p"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_r13h6"]
+button_index = 1
+
 [sub_resource type="LabelSettings" id="LabelSettings_n7xk5"]
 font = ExtResource("8_qt0o8")
+
+[sub_resource type="InputEventKey" id="InputEventKey_8rhtu"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_jjvmk"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_1beyb"]
 device = -1
@@ -305,7 +318,7 @@ layout_mode = 2
 
 [node name="FadeEffect" parent="TextureRect/TabControls/Tabs/General/VBoxContainer" unique_id=516137808 instance=ExtResource("14_gkktu")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_r13h6")
+theme_override_styles/panel = SubResource("StyleBoxFlat_gkktu")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/FadeEffect" unique_id=1267424365]
 z_index = 1
@@ -408,7 +421,7 @@ setting_name = "Input Mode"
 
 [node name="FadeEffect" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer" unique_id=404155910 instance=ExtResource("14_gkktu")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_1beyb")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ounp1")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect" unique_id=1836151622]
 z_index = 1
@@ -752,6 +765,8 @@ layout_mode = 2
 layout_mode = 2
 texture = ExtResource("27_r13h6")
 expand_mode = 3
+keyboard_input = SubResource("InputEventKey_2ce7p")
+controller_input = SubResource("InputEventJoypadButton_r13h6")
 
 [node name="Label" type="Label" parent="Footer/Content/SelectControls" unique_id=1904109721]
 layout_mode = 2
@@ -765,6 +780,8 @@ layout_mode = 2
 layout_mode = 2
 texture = ExtResource("28_1beyb")
 expand_mode = 3
+keyboard_input = SubResource("InputEventKey_8rhtu")
+controller_input = SubResource("InputEventJoypadButton_jjvmk")
 
 [node name="Label" type="Label" parent="Footer/Content/ReturnControls" unique_id=1538525972]
 layout_mode = 2

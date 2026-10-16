@@ -85,6 +85,8 @@ func _input(_event: InputEvent) -> void:
 		_on_change_left()
 	elif Input.is_action_just_pressed(&"ui_right"):
 		_on_change_right()
+	elif Input.is_action_just_pressed(&"setting_reset"):
+		_reset()
 
 
 func _validate_property(property: Dictionary) -> void:
@@ -117,6 +119,10 @@ func _update_value(changed_key: String, new_value: Variant = null) -> void:
 	value = new_value
 
 	_update_visual_state()
+
+
+func _reset() -> void:
+	change_setting(LocalSettings.defaults.get(key))
 
 
 ## Toggles between highlighted and non-highlighted visuals based on [param on].
