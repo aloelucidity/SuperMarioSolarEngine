@@ -113,7 +113,7 @@
 [ext_resource type="AudioStream" uid="uid://1fibybjdw7pc" path="res://entities/player/shared/sfx/motion_nsmbw/groundpound.wav" id="116_078t4"]
 [ext_resource type="Script" uid="uid://c6xirxw78xyxn" path="res://entities/player/shared/states/dry/airborne/lazy_jump.gd" id="116_wolak"]
 [ext_resource type="PackedScene" uid="uid://bxbf6omm5cnb8" path="res://props/particles/afterimage_particle.tscn" id="119_hx7ue"]
-[ext_resource type="PackedScene" uid="uid://qhus8wvhnkc6" path="res://util/custom_nodes/afterimage_module.tscn" id="120_f3xbj"]
+[ext_resource type="PackedScene" uid="uid://qhus8wvhnkc6" path="res://util/custom_nodes/afterimage_module/afterimage_module.tscn" id="120_f3xbj"]
 [ext_resource type="AudioStream" uid="uid://23at2s4l6qjv" path="res://entities/player/mario/voice_sunshine/watch_it.wav" id="120_qvxml"]
 [ext_resource type="PackedScene" uid="uid://bnl4gwa5x2dwh" path="res://props/particles/dust.tscn" id="121_qidyp"]
 [ext_resource type="AudioStream" uid="uid://lktt3ecwf5nm" path="res://entities/player/mario/voice_sunshine/oh_surprised.wav" id="121_se657"]

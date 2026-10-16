@@ -6,8 +6,7 @@ extends KeyScene
 @export var focus_grabber: UIButton
 
 @export_category(&"Scenes")
-@export_file("*.tscn") var mission_selece_scene: String
-@export_file("*.tscn") var editor_scene: String
+@export_file("*.tscn") var play_scene: String
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
@@ -18,17 +17,9 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 func _on_play_pressed() -> void:
 	TransitionManager.transition_scene(
-		mission_selece_scene,
+		play_scene,
 		SceneTransition.Type.CIRCLE,
 		SceneTransition.Type.CIRCLE,
-	)
-
-
-func _on_edit_pressed() -> void:
-	TransitionManager.transition_scene(
-		editor_scene,
-		SceneTransition.Type.CIRCLE,
-		SceneTransition.Type.CIRCLE
 	)
 
 

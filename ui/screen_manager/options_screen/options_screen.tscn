@@ -225,6 +225,7 @@ keycode = 4194312
 button_index = 2
 
 [node name="OptionsScreen" type="VBoxContainer" unique_id=121927984 node_paths=PackedStringArray("tabs", "reset_controls", "clear_controls")]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2

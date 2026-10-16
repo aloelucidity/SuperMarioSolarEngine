@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2d23lf2h8era"
-path="res://.godot/imported/grass.png-d0fb5da0f80e5d39a0694fbcc519397b.ctex"
+uid="uid://cchxa2ip0wppm"
+path="res://.godot/imported/damped_oscillator.svg-8681b7e20bff6f30f9bdce25dcb35e14.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://props/terrain/grass/grass.png"
-dest_files=["res://.godot/imported/grass.png-d0fb5da0f80e5d39a0694fbcc519397b.ctex"]
+source_file="res://util/custom_nodes/damped_oscillator/damped_oscillator.svg"
+dest_files=["res://.godot/imported/damped_oscillator.svg-8681b7e20bff6f30f9bdce25dcb35e14.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
