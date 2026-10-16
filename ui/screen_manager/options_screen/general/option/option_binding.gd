@@ -266,7 +266,7 @@ func _update_value(changed_key: String, new_value: Variant = null) -> void:
 	for child: TextureRect in input_container.get_children():
 		child.queue_free()
 
-	# Duplicate to avoid editing the received dictionary.
+	# Duplicate to avoid editing the received array.
 	var new_values: PackedStringArray = new_value.duplicate()
 
 	for input_name: String in new_values:
