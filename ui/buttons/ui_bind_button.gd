@@ -22,7 +22,6 @@ extends UIButton
 var bound_inputs: PackedStringArray
 
 var awaiting_input: bool = false
-var timeout_timer: SceneTreeTimer
 
 ## The inputs of the action filtered by the type of input.
 ## (I.e. [InputEventKey], [InputEventJoypadButton], ...)
@@ -123,6 +122,7 @@ func _add_input(event: InputEvent, event_name: String) -> void:
 
 func _commit_bindings():
 	var event_to_string: PackedStringArray
+
 	for filtered_event in filtered_events:
 		event_to_string.append(IconMap.get_filtered_name(filtered_event))
 

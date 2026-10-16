@@ -38,7 +38,7 @@ var settings: Dictionary[String, Array] = {
 			"debug_toggle",
 			"debug_toggle_hitboxes",
 		],
-	"Bindings":
+	"Bindings (Keyboard)":
 		[
 			"right",
 			"left",
@@ -48,7 +48,18 @@ var settings: Dictionary[String, Array] = {
 			"spin",
 			"dive",
 			"groundpound",
-		]
+		],
+	"Bindings (Controller)":
+		[
+			"right",
+			"left",
+			"up",
+			"down",
+			"jump",
+			"spin",
+			"dive",
+			"groundpound",
+		],
 }
 
 ## Dictionary of every key and its default value.

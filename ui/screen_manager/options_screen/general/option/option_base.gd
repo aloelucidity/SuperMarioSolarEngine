@@ -3,7 +3,7 @@
 class_name OptionBase
 extends Control
 
-const select_stream: AudioStreamWAV = preload("res://ui/sfx/select.wav")
+const SELECT_STREAM: AudioStreamWAV = preload("uid://cd61c3e87kith")
 
 @export var highlighted: bool:
 	set(val):
@@ -15,6 +15,9 @@ const select_stream: AudioStreamWAV = preload("res://ui/sfx/select.wav")
 @export var local_setting: String:
 	set(val):
 		local_setting = val
+
+		if val.is_empty():
+			return
 
 		section = val.get_slice(" - ", 0)
 		key = val.get_slice(" - ", 1)
@@ -62,12 +65,14 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 
-	LocalSettings.connect(&"setting_changed", _update_value)
-
 	focus_entered.connect(set.bindv([&"highlighted", true]))
 	focus_exited.connect(set.bindv([&"highlighted", false]))
 
-	# Initialise button
+	if local_setting.is_empty():
+		return
+
+	LocalSettings.connect(&"setting_changed", _update_value)
+
 	var saved_val: Variant = LocalSettings.load_setting(section, key)
 	_update_value(key, saved_val)
 
@@ -118,24 +123,32 @@ func _update_value(changed_key: String, new_value: Variant = null) -> void:
 func _toggle_highlight(on: bool) -> void:
 	if on:
 		var sfx: SoundEffect = SoundEffect.new()
-		sfx.stream = select_stream
+		sfx.stream = SELECT_STREAM
 		sfx.is_2d = false
 		sfx.audio_bus = "UI"
 		sfx.play(self)
 
-		animation_player.play(&"arrows_bounce")
+		if animation_player:
+			animation_player.play(&"arrows_bounce")
+
 		add_theme_stylebox_override(&"panel", option_bg_focused)
 		state_container.add_theme_stylebox_override(&"panel", option_state_focused)
 		state_label.label_settings.font_color = Color.WHITE
-		arrow_left.modulate = Color.WHITE
-		arrow_right.modulate = Color.WHITE
+
+		if arrow_left and arrow_right:
+			arrow_left.modulate = Color.WHITE
+			arrow_right.modulate = Color.WHITE
 	else:
-		animation_player.stop()
+		if animation_player:
+			animation_player.stop()
+
 		add_theme_stylebox_override(&"panel", option_bg_unfocused)
 		state_container.add_theme_stylebox_override(&"panel", option_state_unfocused)
 		state_label.label_settings.font_color = Color.BLACK
-		arrow_left.modulate = Color.TRANSPARENT
-		arrow_right.modulate = Color.TRANSPARENT
+
+		if arrow_left and arrow_right:
+			arrow_left.modulate = Color.TRANSPARENT
+			arrow_right.modulate = Color.TRANSPARENT
 
 
 ## Defines how [member value] changes when the option is scrolled to the left.

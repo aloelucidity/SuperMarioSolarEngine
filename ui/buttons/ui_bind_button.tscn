@@ -17,6 +17,7 @@ audio_bus = &"UI"
 volume = 0.0
 pitch = 1.0
 overwrite_other_in_bus = false
+overwrite_other_in_source = false
 is_2d = false
 metadata/_custom_type_script = "uid://b262pbs7y0djt"
 
@@ -27,6 +28,7 @@ audio_bus = &"UI"
 volume = 0.0
 pitch = 1.0
 overwrite_other_in_bus = false
+overwrite_other_in_source = false
 is_2d = false
 metadata/_custom_type_script = "uid://b262pbs7y0djt"
 
@@ -37,6 +39,7 @@ audio_bus = &"UI"
 volume = 0.0
 pitch = 1.0
 overwrite_other_in_bus = false
+overwrite_other_in_source = false
 is_2d = false
 metadata/_custom_type_script = "uid://b262pbs7y0djt"
 

@@ -21,15 +21,17 @@ func _input(_event: InputEvent) -> void:
 
 
 func grab_focus_for_tab(tab_idx: int) -> void:
-	var control := focus_grabbers[tab_idx]
-	if not is_instance_valid(control): return
+	var control: Control = focus_grabbers[tab_idx]
 
-	# Wait a frame so the tab can switch and enable before we try to grab focus.
+	if not is_instance_valid(control):
+		return
+
+	# Wait a frame so the tab can switch and enable
+	# before we try to grab focus.
 	await get_tree().process_frame
 
-	if control.focus_mode == FocusMode.FOCUS_NONE:
-		for child in control.get_children():
-			if child.focus_mode == FocusMode.FOCUS_ALL:
-				child.grab_focus()
-	else:
-		control.grab_focus()
+	control.grab_focus()
+
+
+func _on_tab_changed(tab: int) -> void:
+	grab_focus_for_tab(tab)

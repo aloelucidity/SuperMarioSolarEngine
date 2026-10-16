@@ -2,7 +2,7 @@
 class_name OptionSlider
 extends Control
 
-const select_stream: AudioStreamWAV = preload("res://ui/sfx/select.wav")
+const SELECT_STREAM: AudioStreamWAV = preload("uid://cd61c3e87kith")
 
 @export var highlighted: bool:
 	set(val):
@@ -143,7 +143,7 @@ func _update_value(changed_key: String, new_value: Variant = null) -> void:
 func _toggle_highlight(on: bool) -> void:
 	if on:
 		var sfx: SoundEffect = SoundEffect.new()
-		sfx.stream = select_stream
+		sfx.stream = SELECT_STREAM
 		sfx.is_2d = false
 		sfx.audio_bus = "UI"
 		sfx.play(self)
