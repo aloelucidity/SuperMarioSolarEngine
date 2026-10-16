@@ -88,9 +88,7 @@ func _ready() -> void:
 	# Make sure the key is named the same as the action in the InputMap.
 	InputMap.action_erase_events(key)
 
-	# Removed for now to reduce complexity
-	# until a situation is found where this is needed.
-	#LocalSettings.connect(&"setting_changed", _update_value)
+	LocalSettings.connect(&"setting_changed", _update_value)
 
 	var saved_val: Variant = LocalSettings.load_setting(section, key)
 
@@ -164,7 +162,7 @@ func change_setting(new_value) -> void:
 	if local_setting.is_empty():
 		return
 
-	LocalSettings.change_setting(section, key, new_value)
+	LocalSettings.change_setting(section, key, new_value, true)
 
 
 ## Toggles between highlighted and non-highlighted visuals based on [param on].
@@ -253,3 +251,29 @@ func _reset() -> void:
 			_add_input_icon(input_object)
 
 	change_setting(default_inputs)
+
+
+## Updates the internal value of the setting, and then
+## calls the abstracted [method _update_state] method which updates the settings
+## visual state depending on how its defined by the derived class.
+func _update_value(changed_key: String, new_value: Variant = null) -> void:
+	if changed_key != key:
+		return
+
+	bound_inputs.clear()
+	shown_inputs.clear()
+
+	for child: TextureRect in input_container.get_children():
+		child.queue_free()
+
+	# Duplicate to avoid editing the received dictionary.
+	var new_values: PackedStringArray = new_value.duplicate()
+
+	for input_name: String in new_values:
+		var input_object: InputEvent = IconMap.get_associated_event(input_name)
+
+		if _is_valid_event(input_object):
+			_add_input(input_object)
+			_add_input_icon(input_object)
+
+	change_setting(bound_inputs)

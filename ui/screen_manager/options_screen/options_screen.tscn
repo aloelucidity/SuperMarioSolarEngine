@@ -139,13 +139,13 @@ overwrite_other_in_source = false
 is_2d = false
 metadata/_custom_type_script = "uid://b262pbs7y0djt"
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gkktu"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r13h6"]
 bg_color = Color(1, 1, 1, 1)
 border_width_bottom = 16
 border_color = Color(1, 1, 1, 0)
 border_blend = true
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ounp1"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1beyb"]
 bg_color = Color(1, 1, 1, 1)
 border_width_bottom = 16
 border_color = Color(1, 1, 1, 0)
@@ -318,7 +318,7 @@ layout_mode = 2
 
 [node name="FadeEffect" parent="TextureRect/TabControls/Tabs/General/VBoxContainer" unique_id=516137808 instance=ExtResource("14_gkktu")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_gkktu")
+theme_override_styles/panel = SubResource("StyleBoxFlat_r13h6")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/FadeEffect" unique_id=1267424365]
 z_index = 1
@@ -421,7 +421,7 @@ setting_name = "Input Mode"
 
 [node name="FadeEffect" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer" unique_id=404155910 instance=ExtResource("14_gkktu")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ounp1")
+theme_override_styles/panel = SubResource("StyleBoxFlat_1beyb")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect" unique_id=1836151622]
 z_index = 1

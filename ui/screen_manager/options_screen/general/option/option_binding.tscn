@@ -7,6 +7,7 @@
 [ext_resource type="StyleBox" uid="uid://ftovkcokg7qx" path="res://ui/screen_manager/options_screen/general/option/option_state_unfocused.tres" id="3_1801o"]
 [ext_resource type="Script" uid="uid://b262pbs7y0djt" path="res://util/resources/sound_effect.gd" id="4_5vxpd"]
 [ext_resource type="AudioStream" uid="uid://c4ui7ftfypsg0" path="res://ui/sfx/decide_small.wav" id="5_wxgal"]
+[ext_resource type="Texture2D" uid="uid://c1e4pm6w0q3he" path="res://ui/screen_manager/options_screen/general/option/input_icon_pal.png" id="8_wxgal"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d4qmx"]
 
@@ -29,6 +30,47 @@ metadata/_custom_type_script = "uid://b262pbs7y0djt"
 resource_local_to_scene = true
 font = ExtResource("2_2dgp7")
 
+[sub_resource type="Shader" id="Shader_asgcd"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform sampler2D palette_image : filter_nearest;
+uniform int palette_index = 0;
+uniform float maximum_similarity = 0.01;
+
+varying vec4 modulate;
+
+void vertex() {
+	modulate = COLOR;
+}
+
+void fragment() {
+	vec4 src = texture(TEXTURE, UV);
+	vec4 result = src * modulate;
+
+	ivec2 palsize = textureSize(palette_image, 0);
+	for (int i = 0; i < palsize.x; i++) {
+		vec4 base = texelFetch(palette_image, ivec2(i, 0), 0);
+		if (base.a < 0.5)
+			continue;
+
+		if (distance(base.rgb, src.rgb) < maximum_similarity) {
+			vec4 replacement = texelFetch(palette_image, ivec2(i, palette_index), 0);
+			result = vec4(replacement.rgb, src.a) * modulate;
+			break;
+		}
+	}
+
+	COLOR = result;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tiwbd"]
+resource_local_to_scene = true
+shader = SubResource("Shader_asgcd")
+shader_parameter/palette_image = ExtResource("8_wxgal")
+shader_parameter/palette_index = 2
+shader_parameter/maximum_similarity = 0.01
+
 [sub_resource type="LabelSettings" id="LabelSettings_5vxpd"]
 resource_local_to_scene = true
 font = ExtResource("2_2dgp7")
@@ -42,7 +84,6 @@ focus_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_d4qmx")
 script = ExtResource("1_2dgp7")
 local_setting = "Bindings - right"
-max_bindings = null
 setting_name = "Placeholder Name"
 option_bg_unfocused = SubResource("StyleBoxEmpty_mkvsu")
 option_bg_focused = ExtResource("2_1801o")
@@ -89,6 +130,7 @@ theme_override_styles/panel = ExtResource("3_1801o")
 
 [node name="InputContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/StateContainer" unique_id=542236607]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_tiwbd")
 layout_mode = 2
 alignment = 1
 
