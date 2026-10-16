@@ -21,7 +21,7 @@
 [ext_resource type="Shader" uid="uid://byfa3t51pf655" path="res://ui/screen_manager/pause_screen/pause_panel.tres" id="22_4tc6v"]
 [ext_resource type="Texture2D" uid="uid://knkg28xlj4h8" path="res://ui/screen_manager/pause_screen/textures/spike.png" id="23_3jqvb"]
 [ext_resource type="Texture2D" uid="uid://qslbjwvvnw28" path="res://ui/pattern_solar.png" id="24_3rbo7"]
-[ext_resource type="PackedScene" uid="uid://bb6wf0meej6ox" path="res://ui/buttons/ui_button.tscn" id="25_dlkvg"]
+[ext_resource type="PackedScene" uid="uid://bb6wf0meej6ox" path="res://ui/widgets/ui_button/ui_button.tscn" id="25_dlkvg"]
 [ext_resource type="Texture2D" uid="uid://dej5d4fiilqup" path="res://ui/screen_manager/pause_screen/textures/resume.png" id="26_ky4o2"]
 [ext_resource type="AudioStream" uid="uid://b3ltff8ees3d4" path="res://ui/sfx/decide.wav" id="27_fmjlm"]
 [ext_resource type="Texture2D" uid="uid://b0l7xch1esfvg" path="res://ui/screen_manager/pause_screen/textures/retry.png" id="28_if46j"]
@@ -915,6 +915,7 @@ size_flags_stretch_ratio = 0.2
 [node name="OptionsScreen" parent="ScreenManager" unique_id=121927984 instance=ExtResource("39_limpb")]
 visible = false
 layout_mode = 1
+anchors_preset = 15
 offset_top = -360.0
 offset_bottom = -360.0
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://e754wwnftvc1"]
 
-[ext_resource type="Script" uid="uid://d251mwxo8lxbl" path="res://ui/screen_manager/options_screen/general/option/options_screen.gd" id="1_ounp1"]
+[ext_resource type="Script" uid="uid://d251mwxo8lxbl" path="res://ui/screen_manager/options_screen/options_screen.gd" id="1_ounp1"]
 [ext_resource type="Script" uid="uid://b262pbs7y0djt" path="res://util/resources/sound_effect.gd" id="2_qexvu"]
 [ext_resource type="AudioStream" uid="uid://bsui5m0n5a7a7" path="res://ui/sfx/submenu_open.wav" id="3_8rhtu"]
 [ext_resource type="AudioStream" uid="uid://cmr5pcu7wv31v" path="res://ui/sfx/submenu_close.wav" id="4_jjvmk"]
@@ -14,16 +14,16 @@
 [ext_resource type="AudioStream" uid="uid://egw1cy6ntywl" path="res://ui/sfx/tab_r.wav" id="12_m6tm2"]
 [ext_resource type="Script" uid="uid://dh60w4m18afby" path="res://ui/screen_manager/options_screen/options_tab.gd" id="13_1beyb"]
 [ext_resource type="PackedScene" uid="uid://bktos1134newv" path="res://ui/scroll_container_fade.tscn" id="14_gkktu"]
-[ext_resource type="Theme" uid="uid://blj83dty2taxs" path="res://ui/buttons/scrollbar.tres" id="14_tmmuo"]
-[ext_resource type="PackedScene" uid="uid://cy2ri122ci25q" path="res://ui/screen_manager/options_screen/general/option/option_bool.tscn" id="15_r13h6"]
-[ext_resource type="PackedScene" uid="uid://btujd8w5pj5im" path="res://ui/screen_manager/options_screen/general/option/option_enum.tscn" id="16_1beyb"]
-[ext_resource type="PackedScene" uid="uid://bgkv14d53vpr7" path="res://ui/screen_manager/options_screen/general/option/option_tab.tscn" id="18_5c1c2"]
-[ext_resource type="PackedScene" uid="uid://b1q8hlri6a6lq" path="res://ui/screen_manager/options_screen/general/option/option_binding.tscn" id="19_5c1c2"]
-[ext_resource type="PackedScene" uid="uid://cmh21l38ts8rk" path="res://ui/screen_manager/options_screen/general/option/option_string.tscn" id="19_qexvu"]
-[ext_resource type="Script" uid="uid://c0d52xhq64ikh" path="res://ui/screen_manager/options_screen/sound/audio_device_selector.gd" id="20_ounp1"]
-[ext_resource type="PackedScene" uid="uid://dqcjkqghd8oef" path="res://ui/screen_manager/options_screen/general/option/option_volume.tscn" id="21_ounp1"]
+[ext_resource type="Theme" uid="uid://blj83dty2taxs" path="res://ui/widgets/scrollbar.tres" id="14_tmmuo"]
+[ext_resource type="PackedScene" uid="uid://cy2ri122ci25q" path="res://ui/widgets/options/bool/option_bool.tscn" id="15_r13h6"]
+[ext_resource type="PackedScene" uid="uid://btujd8w5pj5im" path="res://ui/widgets/options/enum/option_enum.tscn" id="16_1beyb"]
+[ext_resource type="PackedScene" uid="uid://bgkv14d53vpr7" path="res://ui/widgets/options/tab/option_tab.tscn" id="18_5c1c2"]
+[ext_resource type="PackedScene" uid="uid://b1q8hlri6a6lq" path="res://ui/widgets/options/binding/option_binding.tscn" id="19_5c1c2"]
+[ext_resource type="PackedScene" uid="uid://cmh21l38ts8rk" path="res://ui/widgets/options/string/option_string.tscn" id="19_qexvu"]
+[ext_resource type="Script" uid="uid://c0d52xhq64ikh" path="res://ui/widgets/options/audio_device/option_audio_device.gd" id="20_ounp1"]
+[ext_resource type="PackedScene" uid="uid://dqcjkqghd8oef" path="res://ui/widgets/options/volume/option_volume.tscn" id="21_ounp1"]
 [ext_resource type="Script" uid="uid://bwn84qudsrcg4" path="res://ui/screen_manager/options_screen/data/data_tab.gd" id="22_rk238"]
-[ext_resource type="PackedScene" uid="uid://bb6wf0meej6ox" path="res://ui/buttons/ui_button.tscn" id="23_b4e42"]
+[ext_resource type="PackedScene" uid="uid://bb6wf0meej6ox" path="res://ui/widgets/ui_button/ui_button.tscn" id="23_b4e42"]
 [ext_resource type="Script" uid="uid://chowmypbcyrmx" path="res://ui/screen_manager/options_screen/data/settings_highlighter.gd" id="24_rcxiy"]
 [ext_resource type="Texture2D" uid="uid://dmjexl1buo3jf" path="res://ui/input_icons/keyboard_mouse/keyboard_e.svg" id="26_5c1c2"]
 [ext_resource type="Texture2D" uid="uid://bqjtwa8tc2b0h" path="res://ui/input_icons/keyboard_mouse/keyboard_enter.svg" id="27_r13h6"]
@@ -225,7 +225,6 @@ keycode = 4194312
 button_index = 2
 
 [node name="OptionsScreen" type="VBoxContainer" unique_id=121927984 node_paths=PackedStringArray("tabs", "reset_controls", "clear_controls")]
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
