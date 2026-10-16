@@ -113,11 +113,9 @@ func _input(event: InputEvent) -> void:
 			_clear()
 		if Input.is_action_just_pressed(&"setting_reset"):
 			_reset()
-
 	elif awaiting_input and _is_valid_event(event) and bound_inputs.size() < max_bindings:
 		_on_input_received(event)
 		get_viewport().set_input_as_handled()
-
 
 
 func _validate_property(property: Dictionary) -> void:
