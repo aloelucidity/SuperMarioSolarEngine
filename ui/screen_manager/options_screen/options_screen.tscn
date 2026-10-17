@@ -302,7 +302,7 @@ tab_focus_mode = 0
 script = ExtResource("10_fqok6")
 tab_left_sfx = SubResource("Resource_er6et")
 tab_right_sfx = SubResource("Resource_3jvq5")
-focus_grabbers = [NodePath("General/VBoxContainer/FadeEffect/ScrollContainer/VBoxContainer/OptionBool"), NodePath("Controls/VBoxContainer/InputTabSelector"), NodePath("Sound/VBoxContainer/Content/OptionString"), null, NodePath("Data/TopButtons/OpenData")]
+focus_grabbers = [NodePath("General/VBoxContainer/FadeEffect/ScrollContainer/VBoxContainer/OptionBool"), NodePath("Controls/VBoxContainer/InputTabSelector"), NodePath("Sound/VBoxContainer/Content/OptionString"), NodePath("Accessibility/TempFocusGrabber"), NodePath("Data/TopButtons/OpenData")]
 
 [node name="General" type="MarginContainer" parent="TextureRect/TabControls/Tabs" unique_id=1569784974 node_paths=PackedStringArray("option_desc_label")]
 layout_mode = 2
@@ -641,6 +641,10 @@ vertical_alignment = 1
 visible = false
 layout_mode = 2
 metadata/_tab_index = 3
+
+[node name="TempFocusGrabber" type="Control" parent="TextureRect/TabControls/Tabs/Accessibility" unique_id=670563250]
+layout_mode = 2
+focus_mode = 2
 
 [node name="Data" type="VBoxContainer" parent="TextureRect/TabControls/Tabs" unique_id=890606768 node_paths=PackedStringArray("data_peek")]
 visible = false
