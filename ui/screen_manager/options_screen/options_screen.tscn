@@ -297,7 +297,7 @@ theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_y28h8")
 theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_aeygf")
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_m3cpd")
 tab_alignment = 1
-current_tab = 0
+current_tab = 1
 tab_focus_mode = 0
 script = ExtResource("10_fqok6")
 tab_left_sfx = SubResource("Resource_er6et")
@@ -305,6 +305,7 @@ tab_right_sfx = SubResource("Resource_3jvq5")
 focus_grabbers = [NodePath("General/VBoxContainer/FadeEffect/ScrollContainer/VBoxContainer/OptionBool"), NodePath("Controls/VBoxContainer/InputTabSelector"), NodePath("Sound/VBoxContainer/Content/OptionString"), NodePath("Accessibility/TempFocusGrabber"), NodePath("Data/TopButtons/OpenData")]
 
 [node name="General" type="MarginContainer" parent="TextureRect/TabControls/Tabs" unique_id=1569784974 node_paths=PackedStringArray("option_desc_label")]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_top = 20
@@ -402,7 +403,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Controls" type="MarginContainer" parent="TextureRect/TabControls/Tabs" unique_id=1368590496 node_paths=PackedStringArray("option_desc_label")]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_top = 20

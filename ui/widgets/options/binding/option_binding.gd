@@ -6,6 +6,8 @@ extends Control
 const SELECT_STREAM: AudioStreamWAV = preload("uid://cd61c3e87kith")
 const INPUT_ICON_SHADER: ShaderMaterial = preload("uid://6ou0lc3a1jm1")
 
+static var cleared_map: bool = false
+
 @export var highlighted: bool:
 	set(val):
 		highlighted = val
@@ -86,7 +88,9 @@ func _ready() -> void:
 	# Delete all events attached to the InputMap by default so
 	# we have our own control.
 	# Make sure the key is named the same as the action in the InputMap.
-	InputMap.action_erase_events(key)
+	if not cleared_map:
+		InputMap.action_erase_events(key)
+		cleared_map = true
 
 	LocalSettings.connect(&"setting_changed", _update_value)
 
