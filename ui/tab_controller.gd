@@ -10,6 +10,11 @@ extends TabContainer
 
 
 func _input(_event: InputEvent) -> void:
+	var focused_control: Control = get_viewport().gui_get_focus_owner()
+	# This logic shouldn't run if none of the tabs are actually focused.
+	# Otherwise, the game will let you switch tabs at any time.
+	if not is_instance_valid(focused_control) or not is_ancestor_of(focused_control):
+		return
 	if Input.is_action_just_pressed(&"tab_left") and not current_tab == 0:
 		current_tab -= 1
 		tab_left_sfx.play(self)
