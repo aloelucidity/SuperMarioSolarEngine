@@ -18,13 +18,6 @@ static func random_coord(offset: float) -> Vector2:
 	return Vector2(randf_range(-offset, offset), randf_range(-offset, offset))
 
 
-## Maps a value between [param value_min] and [param value_max] to a
-## proportional value between [param new_min] and [param new_max].
-static func map(value: float, value_min: float, value_max: float, new_min: float, new_max: float) -> float:
-	var clamped_value = clamp(value, value_min, value_max)
-	return (clamped_value - value_min) * (new_max - new_min) / (value_max - value_min) + new_min
-
-
 #region LERPS
 ## Acts like a lerp but skips to the end value if [code]end - start < diff[/code].
 static func lerp_fr(start: float, end: float, incr: float, diff: float):

@@ -47,7 +47,7 @@ func _on_collect():
 			last_red_sound.play(parent)
 		else:
 			var sfx: SoundEffect = respective_sounds[type]
-			var pitch: float = Math.map(remaining_reds, 2, total_reds, 1.5, 1.0)
+			var pitch: float = remap(remaining_reds, 2, total_reds, 1.5, 1.0)
 			sfx.pitch = pitch
 			sfx.position = global_position
 			sfx.play(parent)
