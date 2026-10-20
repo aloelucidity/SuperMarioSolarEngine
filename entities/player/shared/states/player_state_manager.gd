@@ -5,7 +5,7 @@ extends StateManager
 
 @export var input: InputManager
 @export var fludd: FluddManager
-@export var movement: PMovement
+@export var movement: PlayerMovement
 
 
 func _custom_passdowns() -> Dictionary[StringName, Variant]:

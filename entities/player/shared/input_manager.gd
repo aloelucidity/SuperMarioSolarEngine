@@ -1,6 +1,7 @@
 class_name InputManager
 extends Node
 ## Abstract management of player input.
+##
 ## Should be placed high up in the scene tree so that inputs are processed before they are checked.
 
 ## Amount of frames a buffered input lasts.
@@ -91,7 +92,7 @@ func _register_buffer(id: StringName) -> void:
 
 ## Update the _last_x variable.
 func _update_last_x() -> void:
-	var x = sign(InputManager.get_x())
+	var x = get_x_dir()
 	if x != 0:
 		_last_x = x
 

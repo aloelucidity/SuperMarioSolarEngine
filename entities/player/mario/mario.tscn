@@ -4445,6 +4445,10 @@ script = ExtResource("42_7ru02")
 extra_boost_speed = 30.0
 hitbox_type = "Dive"
 animation_data = SubResource("Resource_q75g6")
+on_enter_pfx = null
+particles = null
+on_enter_sfx = null
+sfx_layers = null
 
 [node name="SwimFlutter" type="Node" parent="StateManager/Submerged" unique_id=587771832]
 script = ExtResource("46_ukpqj")
@@ -4456,6 +4460,10 @@ script = ExtResource("43_vu16w")
 extra_boost_speed = 120.0
 hitbox_type = "Dive"
 animation_data = SubResource("Resource_ata35")
+on_enter_pfx = null
+particles = null
+on_enter_sfx = null
+sfx_layers = null
 
 [node name="Dry" type="Node" parent="StateManager" unique_id=1124314852]
 script = ExtResource("40_q8vpo")

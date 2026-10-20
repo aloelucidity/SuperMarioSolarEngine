@@ -10,7 +10,7 @@ extends CharacterBody2D
 @export var fludd_b: AnimatedSprite2D
 
 @export var state_manager: StateManager
-@export var movement: PMovement
+@export var movement: PlayerMovement
 @export var input: InputManager
 
 @export var push_rays: Node2D

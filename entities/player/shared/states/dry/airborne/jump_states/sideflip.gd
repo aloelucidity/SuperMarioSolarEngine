@@ -14,7 +14,7 @@ var start_freefall_timer: bool = false
 func _on_enter(_param):
 	start_freefall_timer = false
 
-	movement.update_direction(sign(movement.get_input_x()))
+	movement.update_direction(InputManager.get_x_dir())
 	movement.consec_jumps = 1
 
 	actor.velocity.y = -jump_power

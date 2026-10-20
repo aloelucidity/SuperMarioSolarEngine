@@ -32,7 +32,7 @@ func _on_exit():
 	finished_init = false
 
 	if actor.is_on_floor():
-		movement.update_direction(sign(movement.get_input_x()))
+		movement.update_direction(InputManager.get_x_dir())
 
 
 func _trans_rules():

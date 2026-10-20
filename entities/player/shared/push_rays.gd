@@ -2,7 +2,7 @@ class_name PushRays
 extends Node2D
 ## Rays to check for pushable solid bodies.
 
-@export var movement: PMovement
+@export var movement: PlayerMovement
 
 @export var body_catcher_r: Area2D
 

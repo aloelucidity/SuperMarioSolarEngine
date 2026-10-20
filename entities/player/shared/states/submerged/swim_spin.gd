@@ -2,7 +2,7 @@ class_name SwimSpin
 extends PlayerState
 ## Spinning underwater.
 
-## Gets added on top of [member PMovement.swim_speed].
+## Gets added on top of [member PlayerMovement.swim_speed].
 @export var extra_boost_speed: float
 
 
