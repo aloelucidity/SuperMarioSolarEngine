@@ -47,6 +47,7 @@ var settings: Dictionary[String, Array] = {
 			"jump",
 			"spin",
 			"dive",
+			"crouch",
 			"groundpound",
 		],
 	"Bindings (Controller)":
@@ -58,6 +59,7 @@ var settings: Dictionary[String, Array] = {
 			"jump",
 			"spin",
 			"dive",
+			"crouch",
 			"groundpound",
 		],
 }
@@ -96,6 +98,7 @@ var defaults: Dictionary[String, Variant] = {
 	"jump": Util.get_default_events("jump", true),
 	"spin": Util.get_default_events("spin", true),
 	"dive": Util.get_default_events("dive", true),
+	"crouch": Util.get_default_events("crouch", true),
 	"groundpound": Util.get_default_events("groundpound", true),
 }
 

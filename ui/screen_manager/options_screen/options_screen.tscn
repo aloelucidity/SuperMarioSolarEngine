@@ -445,56 +445,63 @@ size_flags_vertical = 3
 [node name="Keyboard" type="VBoxContainer" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories" unique_id=1422799792]
 layout_mode = 2
 
-[node name="OptionBase" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Keyboard" unique_id=1722361648 instance=ExtResource("19_5c1c2")]
+[node name="Right" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Keyboard" unique_id=1722361648 instance=ExtResource("19_5c1c2")]
 layout_mode = 2
 local_setting = "Bindings (Keyboard) - right"
 parsable_events = Array[InputEvent]([SubResource("InputEventKey_5vxpd"), SubResource("InputEventMouseButton_tdfh5")])
 max_bindings = 6
 setting_name = "Move Right"
 
-[node name="OptionBase2" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Keyboard" unique_id=108254077 instance=ExtResource("19_5c1c2")]
+[node name="Left" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Keyboard" unique_id=108254077 instance=ExtResource("19_5c1c2")]
 layout_mode = 2
 local_setting = "Bindings (Keyboard) - left"
 parsable_events = Array[InputEvent]([SubResource("InputEventKey_5vxpd"), SubResource("InputEventMouseButton_tdfh5")])
 max_bindings = 6
 setting_name = "Move Left"
 
-[node name="OptionBase3" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Keyboard" unique_id=1157499772 instance=ExtResource("19_5c1c2")]
+[node name="Up" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Keyboard" unique_id=1157499772 instance=ExtResource("19_5c1c2")]
 layout_mode = 2
 local_setting = "Bindings (Keyboard) - up"
 parsable_events = Array[InputEvent]([SubResource("InputEventKey_5vxpd"), SubResource("InputEventMouseButton_tdfh5")])
 max_bindings = 6
 setting_name = "Move Up"
 
-[node name="OptionBase4" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Keyboard" unique_id=381738073 instance=ExtResource("19_5c1c2")]
+[node name="Down" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Keyboard" unique_id=381738073 instance=ExtResource("19_5c1c2")]
 layout_mode = 2
 local_setting = "Bindings (Keyboard) - down"
 parsable_events = Array[InputEvent]([SubResource("InputEventKey_5vxpd"), SubResource("InputEventMouseButton_tdfh5")])
 max_bindings = 6
 setting_name = "Move Down"
 
-[node name="OptionBase5" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Keyboard" unique_id=2029980932 instance=ExtResource("19_5c1c2")]
+[node name="Jump" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Keyboard" unique_id=2029980932 instance=ExtResource("19_5c1c2")]
 layout_mode = 2
 local_setting = "Bindings (Keyboard) - jump"
 parsable_events = Array[InputEvent]([SubResource("InputEventKey_5vxpd"), SubResource("InputEventMouseButton_tdfh5")])
 max_bindings = 6
 setting_name = "Jump"
 
-[node name="OptionBase6" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Keyboard" unique_id=1858589695 instance=ExtResource("19_5c1c2")]
+[node name="Spin" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Keyboard" unique_id=1858589695 instance=ExtResource("19_5c1c2")]
 layout_mode = 2
 local_setting = "Bindings (Keyboard) - spin"
 parsable_events = Array[InputEvent]([SubResource("InputEventKey_5vxpd"), SubResource("InputEventMouseButton_tdfh5")])
 max_bindings = 6
 setting_name = "Spin"
 
-[node name="OptionBase7" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Keyboard" unique_id=680366992 instance=ExtResource("19_5c1c2")]
+[node name="Dive" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Keyboard" unique_id=680366992 instance=ExtResource("19_5c1c2")]
 layout_mode = 2
 local_setting = "Bindings (Keyboard) - dive"
 parsable_events = Array[InputEvent]([SubResource("InputEventKey_5vxpd"), SubResource("InputEventMouseButton_tdfh5")])
 max_bindings = 6
 setting_name = "Dive"
 
-[node name="OptionBase8" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Keyboard" unique_id=2053847664 instance=ExtResource("19_5c1c2")]
+[node name="Crouch" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Keyboard" unique_id=801608028 instance=ExtResource("19_5c1c2")]
+layout_mode = 2
+local_setting = "Bindings (Keyboard) - crouch"
+parsable_events = Array[InputEvent]([SubResource("InputEventKey_5vxpd"), SubResource("InputEventMouseButton_tdfh5")])
+max_bindings = 6
+setting_name = "Crouch"
+
+[node name="Groundpound" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Keyboard" unique_id=2053847664 instance=ExtResource("19_5c1c2")]
 layout_mode = 2
 local_setting = "Bindings (Keyboard) - groundpound"
 parsable_events = Array[InputEvent]([SubResource("InputEventKey_5vxpd"), SubResource("InputEventMouseButton_tdfh5")])
@@ -505,56 +512,63 @@ setting_name = "Ground-Pound"
 visible = false
 layout_mode = 2
 
-[node name="OptionBase" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Controller" unique_id=1397458242 instance=ExtResource("19_5c1c2")]
+[node name="Right" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Controller" unique_id=1397458242 instance=ExtResource("19_5c1c2")]
 layout_mode = 2
 local_setting = "Bindings (Controller) - right"
 parsable_events = Array[InputEvent]([SubResource("InputEventJoypadButton_g4v7s"), SubResource("InputEventJoypadMotion_5c1c2")])
 max_bindings = 6
 setting_name = "Move Right"
 
-[node name="OptionBase2" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Controller" unique_id=134375660 instance=ExtResource("19_5c1c2")]
+[node name="Left" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Controller" unique_id=134375660 instance=ExtResource("19_5c1c2")]
 layout_mode = 2
 local_setting = "Bindings (Controller) - left"
 parsable_events = Array[InputEvent]([SubResource("InputEventJoypadButton_g4v7s"), SubResource("InputEventJoypadMotion_5c1c2")])
 max_bindings = 6
 setting_name = "Move Left"
 
-[node name="OptionBase3" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Controller" unique_id=917389791 instance=ExtResource("19_5c1c2")]
+[node name="Up" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Controller" unique_id=917389791 instance=ExtResource("19_5c1c2")]
 layout_mode = 2
 local_setting = "Bindings (Controller) - up"
 parsable_events = Array[InputEvent]([SubResource("InputEventJoypadButton_g4v7s"), SubResource("InputEventJoypadMotion_5c1c2")])
 max_bindings = 6
 setting_name = "Move Up"
 
-[node name="OptionBase4" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Controller" unique_id=1489865051 instance=ExtResource("19_5c1c2")]
+[node name="Down" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Controller" unique_id=1489865051 instance=ExtResource("19_5c1c2")]
 layout_mode = 2
 local_setting = "Bindings (Controller) - down"
 parsable_events = Array[InputEvent]([SubResource("InputEventJoypadButton_g4v7s"), SubResource("InputEventJoypadMotion_5c1c2")])
 max_bindings = 6
 setting_name = "Move Down"
 
-[node name="OptionBase5" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Controller" unique_id=1604009123 instance=ExtResource("19_5c1c2")]
+[node name="Jump" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Controller" unique_id=1604009123 instance=ExtResource("19_5c1c2")]
 layout_mode = 2
 local_setting = "Bindings (Controller) - jump"
 parsable_events = Array[InputEvent]([SubResource("InputEventJoypadButton_g4v7s"), SubResource("InputEventJoypadMotion_5c1c2")])
 max_bindings = 6
 setting_name = "Jump"
 
-[node name="OptionBase6" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Controller" unique_id=1202464979 instance=ExtResource("19_5c1c2")]
+[node name="Spin" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Controller" unique_id=1202464979 instance=ExtResource("19_5c1c2")]
 layout_mode = 2
 local_setting = "Bindings (Controller) - spin"
 parsable_events = Array[InputEvent]([SubResource("InputEventJoypadButton_g4v7s"), SubResource("InputEventJoypadMotion_5c1c2")])
 max_bindings = 6
 setting_name = "Spin"
 
-[node name="OptionBase7" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Controller" unique_id=134100074 instance=ExtResource("19_5c1c2")]
+[node name="Dive" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Controller" unique_id=134100074 instance=ExtResource("19_5c1c2")]
 layout_mode = 2
 local_setting = "Bindings (Controller) - dive"
 parsable_events = Array[InputEvent]([SubResource("InputEventJoypadButton_g4v7s"), SubResource("InputEventJoypadMotion_5c1c2")])
 max_bindings = 6
 setting_name = "Dive"
 
-[node name="OptionBase8" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Controller" unique_id=1151287631 instance=ExtResource("19_5c1c2")]
+[node name="Crouch" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Controller" unique_id=1556410076 instance=ExtResource("19_5c1c2")]
+layout_mode = 2
+local_setting = "Bindings (Controller) - crouch"
+parsable_events = Array[InputEvent]([SubResource("InputEventJoypadButton_g4v7s"), SubResource("InputEventJoypadMotion_5c1c2")])
+max_bindings = 6
+setting_name = "Crouch"
+
+[node name="Groundpound" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Controller" unique_id=1151287631 instance=ExtResource("19_5c1c2")]
 layout_mode = 2
 local_setting = "Bindings (Controller) - groundpound"
 parsable_events = Array[InputEvent]([SubResource("InputEventJoypadButton_g4v7s"), SubResource("InputEventJoypadMotion_5c1c2")])
