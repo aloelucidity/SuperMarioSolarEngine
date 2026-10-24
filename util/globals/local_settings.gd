@@ -96,7 +96,6 @@ var defaults: Dictionary[String, Variant] = {
 	"left": Util.get_default_events("left", true),
 	"up": Util.get_default_events("up", true),
 	"down": Util.get_default_events("down", true),
-	"crouch": Util.get_default_events("crouch", true),
 	"jump": Util.get_default_events("jump", true),
 	"spin": Util.get_default_events("spin", true),
 	"dive": Util.get_default_events("dive", true),
