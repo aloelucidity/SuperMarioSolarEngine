@@ -25,8 +25,8 @@ extends State
 var input: InputManager = null
 ## A reference to the [FluddManager], passed down from the [PlayerStateManager].
 var fludd: FluddManager = null
-## A reference to the [PMovement] node, passed down from the [PlayerStateManager].
-var movement: PMovement = null
+## A reference to the [PlayerMovement] node, passed down from the [PlayerStateManager].
+var movement: PlayerMovement = null
 
 
 func trigger_enter(handover) -> void:

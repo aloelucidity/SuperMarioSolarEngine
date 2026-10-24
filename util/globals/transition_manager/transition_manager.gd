@@ -21,6 +21,7 @@ var new_key_scene_path: String = ""
 var new_scene_handover: Variant = null
 
 var new_scene_load_progress: Array = []
+var last_scene_load_progress: int
 
 ## Whether or not the TransitionManager is currently in a transition.
 var transitioning: bool = false
@@ -100,8 +101,11 @@ func _change_scene() -> void:
 
 		match load_status:
 			ResourceLoader.THREAD_LOAD_IN_PROGRESS:
-				print("Scene load progress: %s" % new_scene_load_progress[-1])
+				if round(new_scene_load_progress[-1] * 100) != last_scene_load_progress:
+					_print_load_progress()
+					last_scene_load_progress = round(new_scene_load_progress[-1] * 100)
 			ResourceLoader.THREAD_LOAD_LOADED:
+				_print_load_progress()
 				break
 
 		await get_tree().process_frame
@@ -112,6 +116,14 @@ func _change_scene() -> void:
 	tree.change_scene_to_packed(packed_scene)
 
 	tree.scene_changed.connect(_load_scene)
+
+
+func _print_load_progress() -> void:
+	print("Scene load progress: [%s%s] %d%%" % [
+			"█".repeat(ceil(new_scene_load_progress[-1] * 50)),
+			"░".repeat(floor(50 - new_scene_load_progress[-1] * 50)),
+			new_scene_load_progress[-1] * 100
+	])
 
 
 func _load_scene() -> void:

@@ -113,7 +113,7 @@
 [ext_resource type="AudioStream" uid="uid://1fibybjdw7pc" path="res://entities/player/shared/sfx/motion_nsmbw/groundpound.wav" id="116_078t4"]
 [ext_resource type="Script" uid="uid://c6xirxw78xyxn" path="res://entities/player/shared/states/dry/airborne/lazy_jump.gd" id="116_wolak"]
 [ext_resource type="PackedScene" uid="uid://bxbf6omm5cnb8" path="res://props/particles/afterimage_particle.tscn" id="119_hx7ue"]
-[ext_resource type="PackedScene" uid="uid://qhus8wvhnkc6" path="res://util/custom_nodes/afterimage_module.tscn" id="120_f3xbj"]
+[ext_resource type="PackedScene" uid="uid://qhus8wvhnkc6" path="res://util/custom_nodes/afterimage_module/afterimage_module.tscn" id="120_f3xbj"]
 [ext_resource type="AudioStream" uid="uid://23at2s4l6qjv" path="res://entities/player/mario/voice_sunshine/watch_it.wav" id="120_qvxml"]
 [ext_resource type="PackedScene" uid="uid://bnl4gwa5x2dwh" path="res://props/particles/dust.tscn" id="121_qidyp"]
 [ext_resource type="AudioStream" uid="uid://lktt3ecwf5nm" path="res://entities/player/mario/voice_sunshine/oh_surprised.wav" id="121_se657"]
@@ -4470,6 +4470,10 @@ script = ExtResource("42_7ru02")
 extra_boost_speed = 30.0
 hitbox_type = "Dive"
 animation_data = SubResource("Resource_q75g6")
+on_enter_pfx = null
+particles = null
+on_enter_sfx = null
+sfx_layers = null
 
 [node name="SwimFlutter" type="Node" parent="StateManager/Submerged" unique_id=587771832]
 script = ExtResource("46_ukpqj")
@@ -4481,6 +4485,10 @@ script = ExtResource("43_vu16w")
 extra_boost_speed = 120.0
 hitbox_type = "Dive"
 animation_data = SubResource("Resource_ata35")
+on_enter_pfx = null
+particles = null
+on_enter_sfx = null
+sfx_layers = null
 
 [node name="Dry" type="Node" parent="StateManager" unique_id=1124314852]
 script = ExtResource("40_q8vpo")

@@ -38,7 +38,7 @@ var settings: Dictionary[String, Array] = {
 			"debug_toggle",
 			"debug_toggle_hitboxes",
 		],
-	"Bindings":
+	"Bindings (Keyboard)":
 		[
 			"right",
 			"left",
@@ -48,8 +48,21 @@ var settings: Dictionary[String, Array] = {
 			"jump",
 			"spin",
 			"dive",
+			"crouch",
 			"groundpound",
-		]
+		],
+	"Bindings (Controller)":
+		[
+			"right",
+			"left",
+			"up",
+			"down",
+			"jump",
+			"spin",
+			"dive",
+			"crouch",
+			"groundpound",
+		],
 }
 
 ## Dictionary of every key and its default value.
@@ -87,6 +100,7 @@ var defaults: Dictionary[String, Variant] = {
 	"jump": Util.get_default_events("jump", true),
 	"spin": Util.get_default_events("spin", true),
 	"dive": Util.get_default_events("dive", true),
+	"crouch": Util.get_default_events("crouch", true),
 	"groundpound": Util.get_default_events("groundpound", true),
 }
 
@@ -109,8 +123,8 @@ func load_setting(section: String, key: String) -> Variant:
 
 ## Update a setting [param key] at a category [param section],
 ## with a new [param value] in the config file.
-func change_setting(section: String, key: String, value: Variant) -> void:
-	_apply_setting(section, key, value)
+func change_setting(section: String, key: String, value: Variant, suppress_signal: bool = false) -> void:
+	_apply_setting(section, key, value, suppress_signal)
 	config.save(FILE_PATH)
 
 
@@ -140,12 +154,15 @@ func reset_settings() -> void:
 
 			# Only reset if there's a default value to reset to.
 			if defaults.has(key):
+				print("S:%s; K:%s; D;%s" % [section, key, defaults.get(key)])
 				_apply_setting(section, key, defaults.get(key))
 
 	config.save(FILE_PATH)
 
 
 ## Applies the setting change to the config and emits the [signal setting_changed] signal.
-func _apply_setting(section: String, key: String, value: Variant) -> void:
+func _apply_setting(section: String, key: String, value: Variant, suppress_signal: bool = false) -> void:
 	config.set_value(section, key, value)
-	emit_signal(&"setting_changed", key, value)
+
+	if not suppress_signal:
+		emit_signal(&"setting_changed", key, value)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://e754wwnftvc1"]
 
-[ext_resource type="Script" uid="uid://d251mwxo8lxbl" path="res://ui/screen_manager/options_screen/general/option/options_screen.gd" id="1_ounp1"]
+[ext_resource type="Script" uid="uid://d251mwxo8lxbl" path="res://ui/screen_manager/options_screen/options_screen.gd" id="1_ounp1"]
 [ext_resource type="Script" uid="uid://b262pbs7y0djt" path="res://util/resources/sound_effect.gd" id="2_qexvu"]
 [ext_resource type="AudioStream" uid="uid://bsui5m0n5a7a7" path="res://ui/sfx/submenu_open.wav" id="3_8rhtu"]
 [ext_resource type="AudioStream" uid="uid://cmr5pcu7wv31v" path="res://ui/sfx/submenu_close.wav" id="4_jjvmk"]
@@ -14,20 +14,22 @@
 [ext_resource type="AudioStream" uid="uid://egw1cy6ntywl" path="res://ui/sfx/tab_r.wav" id="12_m6tm2"]
 [ext_resource type="Script" uid="uid://dh60w4m18afby" path="res://ui/screen_manager/options_screen/options_tab.gd" id="13_1beyb"]
 [ext_resource type="PackedScene" uid="uid://bktos1134newv" path="res://ui/scroll_container_fade.tscn" id="14_gkktu"]
-[ext_resource type="Theme" uid="uid://blj83dty2taxs" path="res://ui/buttons/scrollbar.tres" id="14_tmmuo"]
-[ext_resource type="PackedScene" uid="uid://cy2ri122ci25q" path="res://ui/screen_manager/options_screen/general/option/option_bool.tscn" id="15_r13h6"]
-[ext_resource type="PackedScene" uid="uid://btujd8w5pj5im" path="res://ui/screen_manager/options_screen/general/option/option_enum.tscn" id="16_1beyb"]
-[ext_resource type="PackedScene" uid="uid://q67oo8p20ee4" path="res://ui/screen_manager/options_screen/controls/bind_setting.tscn" id="19_mnx2d"]
-[ext_resource type="PackedScene" uid="uid://cmh21l38ts8rk" path="res://ui/screen_manager/options_screen/general/option/option_string.tscn" id="19_qexvu"]
-[ext_resource type="Script" uid="uid://c0d52xhq64ikh" path="res://ui/screen_manager/options_screen/sound/audio_device_selector.gd" id="20_ounp1"]
-[ext_resource type="PackedScene" uid="uid://dqcjkqghd8oef" path="res://ui/screen_manager/options_screen/general/option/option_volume.tscn" id="21_ounp1"]
+[ext_resource type="Theme" uid="uid://blj83dty2taxs" path="res://ui/widgets/scrollbar.tres" id="14_tmmuo"]
+[ext_resource type="PackedScene" uid="uid://cy2ri122ci25q" path="res://ui/widgets/options/bool/option_bool.tscn" id="15_r13h6"]
+[ext_resource type="PackedScene" uid="uid://btujd8w5pj5im" path="res://ui/widgets/options/enum/option_enum.tscn" id="16_1beyb"]
+[ext_resource type="PackedScene" uid="uid://bgkv14d53vpr7" path="res://ui/widgets/options/tab/option_tab.tscn" id="18_5c1c2"]
+[ext_resource type="PackedScene" uid="uid://b1q8hlri6a6lq" path="res://ui/widgets/options/binding/option_binding.tscn" id="19_5c1c2"]
+[ext_resource type="PackedScene" uid="uid://cmh21l38ts8rk" path="res://ui/widgets/options/string/option_string.tscn" id="19_qexvu"]
+[ext_resource type="Script" uid="uid://c0d52xhq64ikh" path="res://ui/widgets/options/audio_device/option_audio_device.gd" id="20_ounp1"]
+[ext_resource type="PackedScene" uid="uid://dqcjkqghd8oef" path="res://ui/widgets/options/volume/option_volume.tscn" id="21_ounp1"]
 [ext_resource type="Script" uid="uid://bwn84qudsrcg4" path="res://ui/screen_manager/options_screen/data/data_tab.gd" id="22_rk238"]
-[ext_resource type="PackedScene" uid="uid://bb6wf0meej6ox" path="res://ui/buttons/ui_button.tscn" id="23_b4e42"]
+[ext_resource type="PackedScene" uid="uid://bb6wf0meej6ox" path="res://ui/widgets/ui_button/ui_button.tscn" id="23_b4e42"]
 [ext_resource type="Script" uid="uid://chowmypbcyrmx" path="res://ui/screen_manager/options_screen/data/settings_highlighter.gd" id="24_rcxiy"]
-[ext_resource type="Texture2D" uid="uid://y343nq5v4ud5" path="res://ui/input_icons/nintendo_switch/switch_button_b.svg" id="27_wcvnr"]
-[ext_resource type="Texture2D" uid="uid://dq5pu8koelu4u" path="res://ui/input_icons/nintendo_switch/switch_button_a.svg" id="29_a7w6t"]
-[ext_resource type="Texture2D" uid="uid://c0y7k7pos5e3e" path="res://ui/input_icons/nintendo_switch/switch_button_y.svg" id="31_4ugsb"]
-[ext_resource type="Texture2D" uid="uid://c8t2udtmy6oac" path="res://ui/input_icons/nintendo_switch/switch_button_x.svg" id="33_dqx84"]
+[ext_resource type="Texture2D" uid="uid://dmjexl1buo3jf" path="res://ui/input_icons/keyboard_mouse/keyboard_e.svg" id="26_5c1c2"]
+[ext_resource type="Texture2D" uid="uid://bqjtwa8tc2b0h" path="res://ui/input_icons/keyboard_mouse/keyboard_enter.svg" id="27_r13h6"]
+[ext_resource type="Texture2D" uid="uid://c125fwk30fu0" path="res://ui/input_icons/keyboard_mouse/keyboard_escape.svg" id="28_1beyb"]
+[ext_resource type="Texture2D" uid="uid://40c63r8ke4mj" path="res://ui/input_icons/keyboard_mouse/keyboard_delete.svg" id="29_gkktu"]
+[ext_resource type="Texture2D" uid="uid://duwkwt771mmf3" path="res://ui/input_icons/keyboard_mouse/keyboard_backspace_icon.svg" id="29_r13h6"]
 
 [sub_resource type="Resource" id="Resource_504o4"]
 script = ExtResource("2_qexvu")
@@ -68,6 +70,14 @@ shader_parameter/spike_texture = ExtResource("7_dovt5")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nte8f"]
 load_path = "res://.godot/imported/pattern_solar.png-7851dba46d4d0fd594dcc5410d56f26b.ctex"
+
+[sub_resource type="InputEventKey" id="InputEventKey_gkktu"]
+device = -1
+keycode = 65
+unicode = 97
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_5c1c2"]
+button_index = 9
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q1vx3"]
 
@@ -129,26 +139,25 @@ overwrite_other_in_source = false
 is_2d = false
 metadata/_custom_type_script = "uid://b262pbs7y0djt"
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ce7p"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r13h6"]
 bg_color = Color(1, 1, 1, 1)
 border_width_bottom = 16
 border_color = Color(1, 1, 1, 0)
 border_blend = true
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gbf2f"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1beyb"]
 bg_color = Color(1, 1, 1, 1)
 border_width_bottom = 16
 border_color = Color(1, 1, 1, 0)
 border_blend = true
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n7xk5"]
-content_margin_left = 3.0
+[sub_resource type="InputEventKey" id="InputEventKey_5vxpd"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5c1c2"]
-bg_color = Color(1, 1, 1, 1)
-border_width_bottom = 16
-border_color = Color(1, 1, 1, 0)
-border_blend = true
+[sub_resource type="InputEventMouseButton" id="InputEventMouseButton_tdfh5"]
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_g4v7s"]
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_5c1c2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8rhtu"]
 
@@ -174,13 +183,48 @@ anti_aliasing = false
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y28h8"]
 
+[sub_resource type="InputEventKey" id="InputEventKey_qexvu"]
+device = -1
+keycode = 69
+unicode = 101
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_8rhtu"]
+button_index = 10
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdkor"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="InputEventKey" id="InputEventKey_2ce7p"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_r13h6"]
+button_index = 1
 
 [sub_resource type="LabelSettings" id="LabelSettings_n7xk5"]
 font = ExtResource("8_qt0o8")
 
-[node name="OptionsScreen" type="VBoxContainer" unique_id=121927984 node_paths=PackedStringArray("tabs", "clear_controls", "reset_controls")]
+[sub_resource type="InputEventKey" id="InputEventKey_8rhtu"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_jjvmk"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_1beyb"]
+device = -1
+keycode = 4194308
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_gkktu"]
+button_index = 3
+
+[sub_resource type="InputEventKey" id="InputEventKey_ounp1"]
+device = -1
+keycode = 4194312
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_qexvu"]
+button_index = 2
+
+[node name="OptionsScreen" type="VBoxContainer" unique_id=121927984 node_paths=PackedStringArray("tabs", "reset_controls", "clear_controls")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -189,8 +233,8 @@ grow_vertical = 2
 theme_override_constants/separation = 0
 script = ExtResource("1_ounp1")
 tabs = NodePath("TextureRect/TabControls/Tabs")
-clear_controls = NodePath("Footer/Content/ClearControls")
 reset_controls = NodePath("Footer/Content/ResetControls")
+clear_controls = NodePath("Footer/Content/ClearControls")
 open_sfx = SubResource("Resource_504o4")
 close_sfx = SubResource("Resource_r5lpl")
 open_anim = &"options_peek"
@@ -238,6 +282,8 @@ size_flags_stretch_ratio = 0.1
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 4
+keyboard_input = SubResource("InputEventKey_gkktu")
+controller_input = SubResource("InputEventJoypadButton_5c1c2")
 
 [node name="Tabs" type="TabContainer" parent="TextureRect/TabControls" unique_id=512493834 node_paths=PackedStringArray("focus_grabbers")]
 layout_mode = 2
@@ -256,7 +302,7 @@ tab_focus_mode = 0
 script = ExtResource("10_fqok6")
 tab_left_sfx = SubResource("Resource_er6et")
 tab_right_sfx = SubResource("Resource_3jvq5")
-focus_grabbers = [NodePath("General/VBoxContainer/FadeEffect/ScrollContainer/VBoxContainer/OptionBool"), NodePath("Controls/FadeEffect/ScrollContainer/Actions/BindSetting"), NodePath("Sound/VBoxContainer/FadeEffect/ScrollContainer/Content/OptionString"), null, NodePath("Data/TopButtons/OpenData")]
+focus_grabbers = [NodePath("General/VBoxContainer/FadeEffect/ScrollContainer/VBoxContainer/OptionBool"), NodePath("Controls/VBoxContainer/InputTabSelector"), NodePath("Sound/VBoxContainer/Content/OptionString"), NodePath("Accessibility/TempFocusGrabber"), NodePath("Data/TopButtons/OpenData")]
 
 [node name="General" type="MarginContainer" parent="TextureRect/TabControls/Tabs" unique_id=1569784974 node_paths=PackedStringArray("option_desc_label")]
 visible = false
@@ -273,7 +319,7 @@ layout_mode = 2
 
 [node name="FadeEffect" parent="TextureRect/TabControls/Tabs/General/VBoxContainer" unique_id=516137808 instance=ExtResource("14_gkktu")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_2ce7p")
+theme_override_styles/panel = SubResource("StyleBoxFlat_r13h6")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/TabControls/Tabs/General/VBoxContainer/FadeEffect" unique_id=1267424365]
 z_index = 1
@@ -356,124 +402,29 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Controls" type="VBoxContainer" parent="TextureRect/TabControls/Tabs" unique_id=194933923]
-layout_mode = 2
-theme_override_constants/separation = 16
-metadata/_tab_index = 1
-
-[node name="FadeEffect" type="Panel" parent="TextureRect/TabControls/Tabs/Controls" unique_id=186159877]
-clip_children = 1
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_gbf2f")
-
-[node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect" unique_id=756781478]
-z_index = 1
-custom_minimum_size = Vector2(1, 1)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-theme = ExtResource("14_tmmuo")
-theme_override_constants/scrollbar_h_separation = 16
-theme_override_styles/panel = SubResource("StyleBoxEmpty_n7xk5")
-follow_focus = true
-horizontal_scroll_mode = 0
-vertical_scroll_mode = 2
-
-[node name="Actions" type="VBoxContainer" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer" unique_id=1606419350]
-z_as_relative = false
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 17
-
-[node name="Space" type="Control" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/Actions" unique_id=151977264]
-layout_mode = 2
-
-[node name="BindSetting" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/Actions" unique_id=1622134022 instance=ExtResource("19_mnx2d")]
-layout_mode = 2
-
-[node name="BindSetting2" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/Actions" unique_id=488343318 instance=ExtResource("19_mnx2d")]
-layout_mode = 2
-p_action_name = &"left"
-vis_title = &"Move Left"
-vis_icon_flip_h = true
-
-[node name="BindSetting3" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/Actions" unique_id=1020708190 instance=ExtResource("19_mnx2d")]
-layout_mode = 2
-p_action_name = &"up"
-vis_title = &"Move Up"
-vis_animation = &"swim"
-
-[node name="BindSetting4" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/Actions" unique_id=1737841719 instance=ExtResource("19_mnx2d")]
-layout_mode = 2
-p_action_name = &"down"
-vis_title = &"Move Down"
-vis_animation = &"swim"
-vis_icon_flip_h = true
-vis_icon_flip_v = true
-
-[node name="BindSetting9" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/Actions" unique_id=1097206262 instance=ExtResource("19_mnx2d")]
-layout_mode = 2
-p_action_name = &"crouch"
-vis_title = &"Crouch"
-vis_animation = &"swim"
-vis_icon_flip_h = true
-vis_icon_flip_v = true
-
-[node name="BindSetting5" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/Actions" unique_id=510197050 instance=ExtResource("19_mnx2d")]
-layout_mode = 2
-p_action_name = &"jump"
-vis_title = &"Jump"
-vis_animation = &"jump"
-
-[node name="BindSetting6" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/Actions" unique_id=544809838 instance=ExtResource("19_mnx2d")]
-layout_mode = 2
-p_action_name = &"spin"
-vis_title = &"Spin"
-vis_animation = &"spin_attack"
-
-[node name="BindSetting7" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/Actions" unique_id=1904126424 instance=ExtResource("19_mnx2d")]
-layout_mode = 2
-p_action_name = &"dive"
-vis_title = &"Dive"
-vis_animation = &"dive"
-
-[node name="BindSetting8" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/Actions" unique_id=245920746 instance=ExtResource("19_mnx2d")]
-layout_mode = 2
-p_action_name = &"groundpound"
-vis_title = &"Ground-Pound"
-vis_animation = &"gp"
-
-[node name="Space2" type="Control" parent="TextureRect/TabControls/Tabs/Controls/FadeEffect/ScrollContainer/Actions" unique_id=1634328586]
-layout_mode = 2
-
-[node name="Sound" type="MarginContainer" parent="TextureRect/TabControls/Tabs" unique_id=384211348 node_paths=PackedStringArray("option_desc_label")]
-visible = false
+[node name="Controls" type="MarginContainer" parent="TextureRect/TabControls/Tabs" unique_id=1368590496 node_paths=PackedStringArray("option_desc_label")]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_top = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_bottom = 8
 script = ExtResource("13_1beyb")
 option_desc_label = NodePath("VBoxContainer/OptionDescription")
-metadata/_tab_index = 2
+metadata/_tab_index = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/TabControls/Tabs/Sound" unique_id=1508234235]
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/TabControls/Tabs/Controls" unique_id=1819804149]
 layout_mode = 2
 
-[node name="FadeEffect" parent="TextureRect/TabControls/Tabs/Sound/VBoxContainer" unique_id=1578171104 instance=ExtResource("14_gkktu")]
+[node name="InputTabSelector" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer" unique_id=854885249 node_paths=PackedStringArray("tabs") instance=ExtResource("18_5c1c2")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_5c1c2")
+tabs = [NodePath("../FadeEffect/ScrollContainer/Categories/Keyboard"), NodePath("../FadeEffect/ScrollContainer/Categories/Controller")]
+setting_name = "Input Mode"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/TabControls/Tabs/Sound/VBoxContainer/FadeEffect" unique_id=34607043]
+[node name="FadeEffect" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer" unique_id=404155910 instance=ExtResource("14_gkktu")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1beyb")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect" unique_id=1836151622]
 z_index = 1
-custom_minimum_size = Vector2(1, 1)
-clip_contents = false
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -481,17 +432,181 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 theme = ExtResource("14_tmmuo")
-theme_override_styles/panel = SubResource("StyleBoxEmpty_n7xk5")
+theme_override_constants/scrollbar_h_separation = 32
 follow_focus = true
-horizontal_scroll_mode = 0
+vertical_scroll_mode = 4
 
-[node name="Content" type="VBoxContainer" parent="TextureRect/TabControls/Tabs/Sound/VBoxContainer/FadeEffect/ScrollContainer" unique_id=1045391327]
+[node name="Categories" type="VBoxContainer" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer" unique_id=1430458824]
 z_index = -1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="OptionString" parent="TextureRect/TabControls/Tabs/Sound/VBoxContainer/FadeEffect/ScrollContainer/Content" unique_id=928528205 instance=ExtResource("19_qexvu")]
+[node name="Keyboard" type="VBoxContainer" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories" unique_id=1422799792]
+layout_mode = 2
+
+[node name="Right" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Keyboard" unique_id=1722361648 instance=ExtResource("19_5c1c2")]
+layout_mode = 2
+local_setting = "Bindings (Keyboard) - right"
+parsable_events = Array[InputEvent]([SubResource("InputEventKey_5vxpd"), SubResource("InputEventMouseButton_tdfh5")])
+max_bindings = 6
+setting_name = "Move Right"
+
+[node name="Left" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Keyboard" unique_id=108254077 instance=ExtResource("19_5c1c2")]
+layout_mode = 2
+local_setting = "Bindings (Keyboard) - left"
+parsable_events = Array[InputEvent]([SubResource("InputEventKey_5vxpd"), SubResource("InputEventMouseButton_tdfh5")])
+max_bindings = 6
+setting_name = "Move Left"
+
+[node name="Up" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Keyboard" unique_id=1157499772 instance=ExtResource("19_5c1c2")]
+layout_mode = 2
+local_setting = "Bindings (Keyboard) - up"
+parsable_events = Array[InputEvent]([SubResource("InputEventKey_5vxpd"), SubResource("InputEventMouseButton_tdfh5")])
+max_bindings = 6
+setting_name = "Move Up"
+
+[node name="Down" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Keyboard" unique_id=381738073 instance=ExtResource("19_5c1c2")]
+layout_mode = 2
+local_setting = "Bindings (Keyboard) - down"
+parsable_events = Array[InputEvent]([SubResource("InputEventKey_5vxpd"), SubResource("InputEventMouseButton_tdfh5")])
+max_bindings = 6
+setting_name = "Move Down"
+
+[node name="Jump" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Keyboard" unique_id=2029980932 instance=ExtResource("19_5c1c2")]
+layout_mode = 2
+local_setting = "Bindings (Keyboard) - jump"
+parsable_events = Array[InputEvent]([SubResource("InputEventKey_5vxpd"), SubResource("InputEventMouseButton_tdfh5")])
+max_bindings = 6
+setting_name = "Jump"
+
+[node name="Spin" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Keyboard" unique_id=1858589695 instance=ExtResource("19_5c1c2")]
+layout_mode = 2
+local_setting = "Bindings (Keyboard) - spin"
+parsable_events = Array[InputEvent]([SubResource("InputEventKey_5vxpd"), SubResource("InputEventMouseButton_tdfh5")])
+max_bindings = 6
+setting_name = "Spin"
+
+[node name="Dive" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Keyboard" unique_id=680366992 instance=ExtResource("19_5c1c2")]
+layout_mode = 2
+local_setting = "Bindings (Keyboard) - dive"
+parsable_events = Array[InputEvent]([SubResource("InputEventKey_5vxpd"), SubResource("InputEventMouseButton_tdfh5")])
+max_bindings = 6
+setting_name = "Dive"
+
+[node name="Crouch" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Keyboard" unique_id=801608028 instance=ExtResource("19_5c1c2")]
+layout_mode = 2
+local_setting = "Bindings (Keyboard) - crouch"
+parsable_events = Array[InputEvent]([SubResource("InputEventKey_5vxpd"), SubResource("InputEventMouseButton_tdfh5")])
+max_bindings = 6
+setting_name = "Crouch"
+
+[node name="Groundpound" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Keyboard" unique_id=2053847664 instance=ExtResource("19_5c1c2")]
+layout_mode = 2
+local_setting = "Bindings (Keyboard) - groundpound"
+parsable_events = Array[InputEvent]([SubResource("InputEventKey_5vxpd"), SubResource("InputEventMouseButton_tdfh5")])
+max_bindings = 6
+setting_name = "Ground-Pound"
+
+[node name="Controller" type="VBoxContainer" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories" unique_id=1533411914]
+visible = false
+layout_mode = 2
+
+[node name="Right" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Controller" unique_id=1397458242 instance=ExtResource("19_5c1c2")]
+layout_mode = 2
+local_setting = "Bindings (Controller) - right"
+parsable_events = Array[InputEvent]([SubResource("InputEventJoypadButton_g4v7s"), SubResource("InputEventJoypadMotion_5c1c2")])
+max_bindings = 6
+setting_name = "Move Right"
+
+[node name="Left" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Controller" unique_id=134375660 instance=ExtResource("19_5c1c2")]
+layout_mode = 2
+local_setting = "Bindings (Controller) - left"
+parsable_events = Array[InputEvent]([SubResource("InputEventJoypadButton_g4v7s"), SubResource("InputEventJoypadMotion_5c1c2")])
+max_bindings = 6
+setting_name = "Move Left"
+
+[node name="Up" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Controller" unique_id=917389791 instance=ExtResource("19_5c1c2")]
+layout_mode = 2
+local_setting = "Bindings (Controller) - up"
+parsable_events = Array[InputEvent]([SubResource("InputEventJoypadButton_g4v7s"), SubResource("InputEventJoypadMotion_5c1c2")])
+max_bindings = 6
+setting_name = "Move Up"
+
+[node name="Down" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Controller" unique_id=1489865051 instance=ExtResource("19_5c1c2")]
+layout_mode = 2
+local_setting = "Bindings (Controller) - down"
+parsable_events = Array[InputEvent]([SubResource("InputEventJoypadButton_g4v7s"), SubResource("InputEventJoypadMotion_5c1c2")])
+max_bindings = 6
+setting_name = "Move Down"
+
+[node name="Jump" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Controller" unique_id=1604009123 instance=ExtResource("19_5c1c2")]
+layout_mode = 2
+local_setting = "Bindings (Controller) - jump"
+parsable_events = Array[InputEvent]([SubResource("InputEventJoypadButton_g4v7s"), SubResource("InputEventJoypadMotion_5c1c2")])
+max_bindings = 6
+setting_name = "Jump"
+
+[node name="Spin" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Controller" unique_id=1202464979 instance=ExtResource("19_5c1c2")]
+layout_mode = 2
+local_setting = "Bindings (Controller) - spin"
+parsable_events = Array[InputEvent]([SubResource("InputEventJoypadButton_g4v7s"), SubResource("InputEventJoypadMotion_5c1c2")])
+max_bindings = 6
+setting_name = "Spin"
+
+[node name="Dive" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Controller" unique_id=134100074 instance=ExtResource("19_5c1c2")]
+layout_mode = 2
+local_setting = "Bindings (Controller) - dive"
+parsable_events = Array[InputEvent]([SubResource("InputEventJoypadButton_g4v7s"), SubResource("InputEventJoypadMotion_5c1c2")])
+max_bindings = 6
+setting_name = "Dive"
+
+[node name="Crouch" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Controller" unique_id=1556410076 instance=ExtResource("19_5c1c2")]
+layout_mode = 2
+local_setting = "Bindings (Controller) - crouch"
+parsable_events = Array[InputEvent]([SubResource("InputEventJoypadButton_g4v7s"), SubResource("InputEventJoypadMotion_5c1c2")])
+max_bindings = 6
+setting_name = "Crouch"
+
+[node name="Groundpound" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer/FadeEffect/ScrollContainer/Categories/Controller" unique_id=1151287631 instance=ExtResource("19_5c1c2")]
+layout_mode = 2
+local_setting = "Bindings (Controller) - groundpound"
+parsable_events = Array[InputEvent]([SubResource("InputEventJoypadButton_g4v7s"), SubResource("InputEventJoypadMotion_5c1c2")])
+max_bindings = 6
+setting_name = "Ground-Pound"
+
+[node name="OptionDescription" type="RichTextLabel" parent="TextureRect/TabControls/Tabs/Controls/VBoxContainer" unique_id=1465372477]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+theme_override_fonts/normal_font = ExtResource("8_qt0o8")
+bbcode_enabled = true
+text = "Option description."
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sound" type="MarginContainer" parent="TextureRect/TabControls/Tabs" unique_id=384211348 node_paths=PackedStringArray("option_desc_label")]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 8
+script = ExtResource("13_1beyb")
+option_desc_label = NodePath("VBoxContainer/OptionDescription")
+metadata/_tab_index = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/TabControls/Tabs/Sound" unique_id=1508234235]
+layout_mode = 2
+
+[node name="Content" type="VBoxContainer" parent="TextureRect/TabControls/Tabs/Sound/VBoxContainer" unique_id=1045391327]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="OptionString" parent="TextureRect/TabControls/Tabs/Sound/VBoxContainer/Content" unique_id=928528205 instance=ExtResource("19_qexvu")]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8rhtu")
 script = ExtResource("20_ounp1")
@@ -500,25 +615,25 @@ setting_name = "Audio Device"
 setting_description = "The audio device from which sound plays.
 [color=#f1d937]Default[/color] is your system default."
 
-[node name="OptionVolume" parent="TextureRect/TabControls/Tabs/Sound/VBoxContainer/FadeEffect/ScrollContainer/Content" unique_id=2129821287 instance=ExtResource("21_ounp1")]
+[node name="OptionVolume" parent="TextureRect/TabControls/Tabs/Sound/VBoxContainer/Content" unique_id=2129821287 instance=ExtResource("21_ounp1")]
 layout_mode = 2
 local_setting = "Audio - master_volume"
 setting_name = "Master Volume"
 setting_description = "Slider that controls all sound volume."
 
-[node name="OptionVolume2" parent="TextureRect/TabControls/Tabs/Sound/VBoxContainer/FadeEffect/ScrollContainer/Content" unique_id=1420146773 instance=ExtResource("21_ounp1")]
+[node name="OptionVolume2" parent="TextureRect/TabControls/Tabs/Sound/VBoxContainer/Content" unique_id=1420146773 instance=ExtResource("21_ounp1")]
 layout_mode = 2
 local_setting = "Audio - bgm_volume"
 setting_name = "Music Volume"
 setting_description = "Slider that controls the volume of background music."
 
-[node name="OptionVolume3" parent="TextureRect/TabControls/Tabs/Sound/VBoxContainer/FadeEffect/ScrollContainer/Content" unique_id=1523568838 instance=ExtResource("21_ounp1")]
+[node name="OptionVolume3" parent="TextureRect/TabControls/Tabs/Sound/VBoxContainer/Content" unique_id=1523568838 instance=ExtResource("21_ounp1")]
 layout_mode = 2
 local_setting = "Audio - sfx_volume"
 setting_name = "Effects Volume"
 setting_description = "Slider that controls the volume of general sound effects."
 
-[node name="OptionVolume4" parent="TextureRect/TabControls/Tabs/Sound/VBoxContainer/FadeEffect/ScrollContainer/Content" unique_id=1098579134 instance=ExtResource("21_ounp1")]
+[node name="OptionVolume4" parent="TextureRect/TabControls/Tabs/Sound/VBoxContainer/Content" unique_id=1098579134 instance=ExtResource("21_ounp1")]
 layout_mode = 2
 local_setting = "Audio - voice_volume"
 setting_name = "Voices Volume"
@@ -540,6 +655,10 @@ vertical_alignment = 1
 visible = false
 layout_mode = 2
 metadata/_tab_index = 3
+
+[node name="TempFocusGrabber" type="Control" parent="TextureRect/TabControls/Tabs/Accessibility" unique_id=670563250]
+layout_mode = 2
+focus_mode = 2
 
 [node name="Data" type="VBoxContainer" parent="TextureRect/TabControls/Tabs" unique_id=890606768 node_paths=PackedStringArray("data_peek")]
 visible = false
@@ -632,8 +751,11 @@ size_flags_stretch_ratio = 0.1
 
 [node name="AdaptiveInputIcon2" parent="TextureRect/TabControls" unique_id=87978640 instance=ExtResource("8_2ce7p")]
 layout_mode = 2
+texture = ExtResource("26_5c1c2")
 expand_mode = 1
 stretch_mode = 4
+keyboard_input = SubResource("InputEventKey_qexvu")
+controller_input = SubResource("InputEventJoypadButton_8rhtu")
 
 [node name="Footer" type="Panel" parent="." unique_id=1441851723]
 layout_mode = 2
@@ -654,97 +776,70 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 16
 
-[node name="ReturnControls" type="HBoxContainer" parent="Footer/Content" unique_id=1127008441]
-layout_mode = 2
-
-[node name="TextureRect2" type="TextureRect" parent="Footer/Content/ReturnControls" unique_id=1967709411]
-layout_mode = 2
-expand_mode = 3
-
-[node name="Label2" type="Label" parent="Footer/Content/ReturnControls" unique_id=2088808002]
-layout_mode = 2
-text = "/"
-label_settings = SubResource("LabelSettings_n7xk5")
-
-[node name="TextureRect" type="TextureRect" parent="Footer/Content/ReturnControls" unique_id=1399924518]
-layout_mode = 2
-texture = ExtResource("27_wcvnr")
-expand_mode = 3
-
-[node name="Label" type="Label" parent="Footer/Content/ReturnControls" unique_id=1538525972]
-layout_mode = 2
-text = "Return"
-label_settings = SubResource("LabelSettings_n7xk5")
-
 [node name="SelectControls" type="HBoxContainer" parent="Footer/Content" unique_id=441765951]
 layout_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="Footer/Content/SelectControls" unique_id=300174492]
+[node name="AdaptiveInputIcon" parent="Footer/Content/SelectControls" unique_id=1594061442 instance=ExtResource("8_2ce7p")]
 layout_mode = 2
+texture = ExtResource("27_r13h6")
 expand_mode = 3
-
-[node name="Label2" type="Label" parent="Footer/Content/SelectControls" unique_id=19596244]
-layout_mode = 2
-text = "/"
-label_settings = SubResource("LabelSettings_n7xk5")
-
-[node name="TextureRect" type="TextureRect" parent="Footer/Content/SelectControls" unique_id=912055922]
-layout_mode = 2
-texture = ExtResource("29_a7w6t")
-expand_mode = 3
+keyboard_input = SubResource("InputEventKey_2ce7p")
+controller_input = SubResource("InputEventJoypadButton_r13h6")
 
 [node name="Label" type="Label" parent="Footer/Content/SelectControls" unique_id=1904109721]
 layout_mode = 2
 text = "Select"
 label_settings = SubResource("LabelSettings_n7xk5")
 
+[node name="ReturnControls" type="HBoxContainer" parent="Footer/Content" unique_id=1127008441]
+layout_mode = 2
+
+[node name="AdaptiveInputIcon" parent="Footer/Content/ReturnControls" unique_id=872026373 instance=ExtResource("8_2ce7p")]
+layout_mode = 2
+texture = ExtResource("28_1beyb")
+expand_mode = 3
+keyboard_input = SubResource("InputEventKey_8rhtu")
+controller_input = SubResource("InputEventJoypadButton_jjvmk")
+
+[node name="Label" type="Label" parent="Footer/Content/ReturnControls" unique_id=1538525972]
+layout_mode = 2
+text = "Return"
+label_settings = SubResource("LabelSettings_n7xk5")
+
 [node name="Control" type="Control" parent="Footer/Content" unique_id=709405143]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ClearControls" type="HBoxContainer" parent="Footer/Content" unique_id=2012440828]
-layout_mode = 2
-
-[node name="TextureRect2" type="TextureRect" parent="Footer/Content/ClearControls" unique_id=430328928]
-layout_mode = 2
-expand_mode = 3
-
-[node name="Label2" type="Label" parent="Footer/Content/ClearControls" unique_id=1917805760]
-layout_mode = 2
-text = "/"
-label_settings = SubResource("LabelSettings_n7xk5")
-
-[node name="TextureRect" type="TextureRect" parent="Footer/Content/ClearControls" unique_id=1766624948]
-layout_mode = 2
-texture = ExtResource("31_4ugsb")
-expand_mode = 3
-
-[node name="Label" type="Label" parent="Footer/Content/ClearControls" unique_id=2003503760]
-layout_mode = 2
-text = "Clear"
-label_settings = SubResource("LabelSettings_n7xk5")
-
 [node name="ResetControls" type="HBoxContainer" parent="Footer/Content" unique_id=773730727]
 layout_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="Footer/Content/ResetControls" unique_id=584980346]
+[node name="AdaptiveInputIcon" parent="Footer/Content/ResetControls" unique_id=676762960 instance=ExtResource("8_2ce7p")]
 layout_mode = 2
+texture = ExtResource("29_r13h6")
 expand_mode = 3
-
-[node name="Label2" type="Label" parent="Footer/Content/ResetControls" unique_id=410626509]
-layout_mode = 2
-text = "/"
-label_settings = SubResource("LabelSettings_n7xk5")
-
-[node name="TextureRect" type="TextureRect" parent="Footer/Content/ResetControls" unique_id=1709214655]
-layout_mode = 2
-texture = ExtResource("33_dqx84")
-expand_mode = 3
+keyboard_input = SubResource("InputEventKey_1beyb")
+controller_input = SubResource("InputEventJoypadButton_gkktu")
 
 [node name="Label" type="Label" parent="Footer/Content/ResetControls" unique_id=143690629]
 layout_mode = 2
 text = "Reset"
 label_settings = SubResource("LabelSettings_n7xk5")
 
+[node name="ClearControls" type="HBoxContainer" parent="Footer/Content" unique_id=2012440828]
+layout_mode = 2
+
+[node name="AdaptiveInputIcon" parent="Footer/Content/ClearControls" unique_id=223367643 instance=ExtResource("8_2ce7p")]
+layout_mode = 2
+texture = ExtResource("29_gkktu")
+expand_mode = 3
+keyboard_input = SubResource("InputEventKey_ounp1")
+controller_input = SubResource("InputEventJoypadButton_qexvu")
+
+[node name="Label" type="Label" parent="Footer/Content/ClearControls" unique_id=2003503760]
+layout_mode = 2
+text = "Clear"
+label_settings = SubResource("LabelSettings_n7xk5")
+
+[connection signal="tab_changed" from="TextureRect/TabControls/Tabs" to="TextureRect/TabControls/Tabs" method="_on_tab_changed"]
 [connection signal="pressed" from="TextureRect/TabControls/Tabs/Data/TopButtons/OpenData" to="TextureRect/TabControls/Tabs/Data" method="_on_open_data_pressed"]
 [connection signal="pressed" from="TextureRect/TabControls/Tabs/Data/TopButtons/ResetData" to="." method="_on_reset_data_pressed"]

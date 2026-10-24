@@ -1,6 +1,6 @@
-class_name PMovement
+class_name PlayerMovement
 extends Node
-## Movement for player characters.
+## Movement methods and members for player characters.
 
 @export var actor: Player
 
@@ -275,12 +275,6 @@ func check_accessible_space(delta: Vector2) -> bool:
 ## Check if there is accessible space in front of the player.
 func check_space_ahead() -> bool:
 	return check_accessible_space(Vector2(facing_direction, 0))
-
-
-func get_input_x() -> float:
-	return roundf(Input.get_axis("left", "right"))
-
-
 #endregion
 
 
@@ -398,14 +392,14 @@ func can_init_wallslide(input_based: bool = false) -> bool:
 	if not actor.velocity.y >= 0:
 		return false
 
-	return input_based or get_input_x() == facing_direction
+	return input_based or InputManager.get_x_dir() == facing_direction
 
 
 ## Return whether or not a wallslide should end.
 func should_end_wallslide(input_based: bool = false) -> bool:
 	if not actor.push_rays.is_colliding(input_based):
 		return true
-	if not input_based and get_input_x() == -facing_direction:
+	if not input_based and InputManager.get_x_dir() == -facing_direction:
 		return true
 	if not can_air_action():
 		return true

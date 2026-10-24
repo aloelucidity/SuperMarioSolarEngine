@@ -22,4 +22,4 @@ func _submerged_logic():
 
 ## While outside of water.
 func _dry_logic():
-	actor.doll.rotation = rotate_toward(actor.doll.rotation, rotate * actor.movement.get_input_x(), rotate_speed)
+	actor.doll.rotation = rotate_toward(actor.doll.rotation, rotate * InputManager.get_x_dir(), rotate_speed)

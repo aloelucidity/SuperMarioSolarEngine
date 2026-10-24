@@ -16,7 +16,7 @@ static func set_cursor_to_default() -> void:
 
 
 ## Returns the default events of [param action] from the [ProjectSettings].[br]
-## The [param as_strings] parameter makes it return as a PackedStringArray.
+## The [param as_strings] parameter makes it return as a [PackedStringArray].
 static func get_default_events(action: String, as_strings: bool = false) -> Variant:
 	var action_path: String = "input/" + action
 	var action_data: Dictionary = ProjectSettings.get(action_path)
@@ -24,7 +24,8 @@ static func get_default_events(action: String, as_strings: bool = false) -> Vari
 	if not as_strings:
 		return action_data["events"]
 	else:
-		var names := PackedStringArray()
+		var names: PackedStringArray = PackedStringArray()
+
 		for event in action_data["events"]:
 			names.append(IconMap.get_filtered_name(event))
 

@@ -24,8 +24,9 @@ extends TextureRect
 		if default_texture == "Keyboard":
 			texture = IconMap.find(keyboard_input)
 
-## The controller input displayed on this texture. The icon is retrieved from the [IconMap].
-@export var controller_input: InputEventJoypadButton:
+## The controller input displayed on this texture. The icon is retrieved from the [IconMap].[br]
+## [b]Note:[/b] Make sure this is of type [InputEventJoypadButton] or [InputEventJoypadMotion].
+@export var controller_input: InputEvent:
 	set(val):
 		controller_input = val
 
